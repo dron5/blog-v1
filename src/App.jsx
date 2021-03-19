@@ -1,10 +1,12 @@
 import React from "react";
 
 import ArticleList from "./components/ArticleList/ArticleList";
-// import classes from "./App.css";
+import Header from "./components/Header/Header";
+import "./App.css";
 
-const App = () =>(
-  <ArticleList />
-);
-
+const App = () =>
+  <>
+    <Header />
+    <ArticleList />;
+  </>
 export default App;
