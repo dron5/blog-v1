@@ -9,6 +9,7 @@ const ArticleList = () => (
     <ArticlePreview />
     <ArticlePreview />
     <ArticlePreview />
+    <ArticlePreview />
   </div>
 );
 export default ArticleList;

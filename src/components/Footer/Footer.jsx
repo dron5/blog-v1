@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Pagination } from 'antd';
+import { Pagination } from "antd";
 import classes from "./Footer.module.scss";
 
 const Footer = () => (
@@ -8,7 +8,7 @@ const Footer = () => (
     <Pagination
       className={classes.pagination}
       total={100}
-      onChange={()=>{}}
+      onChange={() => {}}
       showSizeChanger={false}
       defaultCurrent={1}
     />
