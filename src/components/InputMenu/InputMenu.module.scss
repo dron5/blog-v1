@@ -1,19 +1,30 @@
-button{
+$green: #52c41a;
+$backgroundColor: white;
+
+.header__signInOut button {
   border: none;
-  background-color: white;
+  outline: none;
+  background-color: $backgroundColor;
   width: 109px;
   height: 50px;
   font-family: Inter;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: 400 !important;
+  font-size: 18px !important;
   line-height: 28px;
+  color: rgb(77, 9, 77) !important;
 }
-.selected{
-  color:#52C41A;
-  border: 1px solid #52C41A;
+.header__signInOut button:hover{
+  color: $green !important;
+  border: 1px solid $green;
   border-radius: 6px;
+  cursor: pointer;
 }
-.header__signInOut{
+// .selected {
+//   color: $green;
+//   border: 1px solid $green;
+//   border-radius: 6px;
+// }
+.header__signInOut {
   margin-left: auto;
 }

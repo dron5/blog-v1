@@ -1,4 +1,10 @@
-.header{
+// @font-face {
+//   font-family: "Inter";
+//   src: url("../../fonts/Inter.ttf");
+//   font-style: normal;
+//   /* font-weight: normal; */
+// }
+.header {
   position: fixed;
   z-index: 1000;
   width: 100%;
@@ -8,18 +14,28 @@
   border-bottom: 1px solid #f1eeee;
   box-sizing: border-box;
 }
-.header-container{
+.header-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  // border: 1px solid rebeccapurple;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
-.header-root{
+.header-root {
   display: flex;
   margin-right: auto;
-  justify-content: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  align-items: center;
+  // color: rgba(0, 0, 0, 0.85);
+  color: rgba(39, 8, 39, 0.9);
+}
+.header-root:hover{
+  scale: 1.02;
+  cursor: pointer;
 }
