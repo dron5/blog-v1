@@ -12,47 +12,47 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   background-color: white;
 }
-.preview__short-desc{
+.preview__short-desc {
   display: flex;
   flex-direction: column;
   width: 80%;
   // border: 1px solid red;
 }
-.preview__user-info{
+.preview__user-info {
   display: flex;
   justify-content: space-between;
   min-width: 12%;
-  // border: 1px solid green;  
+  // border: 1px solid green;
 }
-.preview__name{
+.preview__name {
   margin-right: 7px;
 }
 .preview__user-info img {
   width: 36px;
   height: 36px;
 }
-.preview__user-info span{
+.preview__user-info span {
   display: block;
 }
-.preview__title{
+.preview__title {
   font-family: Inter;
   font-weight: 400;
-  font-style:  normal;
-  font-size:  20px;
-  line-height:  28px;
-  color: #1890FF;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1890ff;
 }
-.preview__tags{
+.preview__tags {
   width: 27px;
   height: 15px;
   border: 1px solid dimgray;
 }
-.preview__description{
+.preview__description {
   font-family: Inter;
   font-weight: 400;
-  font-style:  normal;
-  font-size:  12px;
-  line-height:  24px;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 24px;
   color: rgba(0, 0, 0, 0.75);
   overflow: hidden;
   margin-bottom: 0;
