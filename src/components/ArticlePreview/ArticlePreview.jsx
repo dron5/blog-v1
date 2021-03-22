@@ -3,6 +3,7 @@
 import React from "react";
 import { format } from "date-fns";
 
+import Likes from "../Likes/Likes";
 import Tags from "../Tags/Tags";
 import classes from "./ArticlePreview.module.scss";
 
@@ -22,7 +23,10 @@ const ArticlePreview = () => {
   return (
     <div className={classes.preview}>
       <div className={classes["preview__short-desc"]}>
-        <div className={classes.preview__title}> Article preview title</div>
+        <div className={classes.preview__title}>
+          Article preview title
+          <Likes />
+      </div>
         <Tags />
         <div className={classes.preview__description}>{text}</div>
       </div>

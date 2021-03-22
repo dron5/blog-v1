@@ -15,7 +15,7 @@
 .preview__short-desc {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 75%;
   // border: 1px solid red;
 }
 .preview__user-info {
@@ -35,6 +35,8 @@
   display: block;
 }
 .preview__title {
+  display: flex;
+  flex-wrap: nowrap;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
