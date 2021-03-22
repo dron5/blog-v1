@@ -9,12 +9,11 @@ const articlesReduser = (state = initialState, action) => {
       return {
         ...state,
         articles: [...state.articles, ...action.payload],
-        loading: action.payload.loading,
       };
     case "LOADING":
       return {
         ...state,
-        loading: action.payload.loading,
+        loading: action.payload,
       };
     default:
       return state;
