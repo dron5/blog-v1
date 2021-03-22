@@ -16,13 +16,11 @@
   display: flex;
   flex-direction: column;
   width: 75%;
-  // border: 1px solid red;
 }
 .preview__user-info {
   display: flex;
   justify-content: space-between;
   min-width: 12%;
-  // border: 1px solid green;
 }
 .preview__name {
   margin-right: 7px;
@@ -43,6 +41,9 @@
   font-size: 20px;
   line-height: 28px;
   color: #1890ff;
+}
+.preview__title span:hover {
+  cursor: pointer;
 }
 .preview__tags {
   width: 27px;

@@ -6,14 +6,14 @@ import classes from "./Likes.module.scss";
 
 const Likes = () => {
   const counter = 0;
-return (
-  <div className={classes.article__likes} >
-    <button type="button" className={classes.article__like}>
-      <img src={like} alt=""/>
-    </button>
-    <div className={classes["article__like-counter"]}>{counter}</div>
-  </div>
-);
+  return (
+    <div className={classes.article__likes}>
+      <button type="button" className={classes["article__like-button"]}>
+        <img src={like} alt="" />
+      </button>
+      <div className={classes["article__like-counter"]}>{counter}</div>
+    </div>
+  );
 };
 
 export default Likes;
