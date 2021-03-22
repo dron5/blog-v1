@@ -16,13 +16,16 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 .preview__user-info{
   display: flex;
   justify-content: space-between;
-  width: 15%;
-  border: 1px solid green;  
+  min-width: 12%;
+  // border: 1px solid green;  
+}
+.preview__name{
+  margin-right: 7px;
 }
 .preview__user-info img {
   width: 36px;
@@ -51,4 +54,9 @@
   font-size:  12px;
   line-height:  24px;
   color: rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
