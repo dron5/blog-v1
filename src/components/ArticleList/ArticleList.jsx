@@ -7,6 +7,8 @@ import Spinner from "../Spinner";
 import * as fetch from "../../store/actions";
 import classes from "./ArticleList.module.scss";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
+import Footer from "../Footer/Footer";
+
 import { getLoading, getArticles } from "../../store/selectors";
 
 const ArticleList = ({ addArticles, loading, articles }) => {
@@ -15,7 +17,7 @@ const ArticleList = ({ addArticles, loading, articles }) => {
   }, [addArticles]);
 
   const articleList = articles.map((article, id) => {
-    const { title, body, favoritesCount, createdAt, author, tagList } = article;
+    const { title, body, favoritesCount, createdAt, author, tagList, slug } = article;
     return (
       <ArticlePreview
         key={id}
@@ -26,6 +28,7 @@ const ArticleList = ({ addArticles, loading, articles }) => {
         userName={author.username}
         image={author.image}
         tagList={tagList}
+        slug={slug}
       />
     );
   });
@@ -34,6 +37,7 @@ const ArticleList = ({ addArticles, loading, articles }) => {
     <div className={classes.articleList}>
       {loading && <Spinner />}
       {!loading && articleList}
+      {!loading && <Footer />}
     </div>
   );
 };

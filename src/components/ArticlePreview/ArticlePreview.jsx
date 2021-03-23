@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 import Likes from "../Likes/Likes";
 import Tags from "../Tags/Tags";
@@ -15,11 +16,12 @@ const ArticlePreview = ({
   favoritesCount,
   createdAt,
   tagList,
+  slug,
 }) => (
   <div className={classes.preview}>
     <div className={classes["preview__short-desc"]}>
       <div className={classes.preview__title}>
-        <span>{title}</span>
+      <Link to={`/article/${slug}`}>{title}</Link>
         <Likes likes={favoritesCount} />
       </div>
       <Tags tags={tagList} />
