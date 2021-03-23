@@ -1,10 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import { connect } from "react-redux";
 
 import { Pagination } from "antd";
 import classes from "./Footer.module.scss";
+import { getLoading } from "../../store/selectors";
 
-const Footer = () => (
+const Footer = ({loading}) => (
   <div className={classes.footer}>
+    {!loading &&
     <Pagination
       className={classes.pagination}
       total={100}
@@ -12,7 +16,14 @@ const Footer = () => (
       showSizeChanger={false}
       defaultCurrent={1}
     />
+    }
   </div>
 );
 
-export default Footer;
+
+const mapStateToProps = (state) => ({
+  loading: getLoading(state),
+});
+
+
+export default connect(mapStateToProps, null)(Footer);

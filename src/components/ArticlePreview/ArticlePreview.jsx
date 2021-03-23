@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-multi-str */
-
 import React from "react";
 import { format } from "date-fns";
 
@@ -16,7 +14,7 @@ const ArticlePreview = ({
   image,
   favoritesCount,
   createdAt,
-  tagList
+  tagList,
 }) => (
   <div className={classes.preview}>
     <div className={classes["preview__short-desc"]}>

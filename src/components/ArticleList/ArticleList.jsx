@@ -14,8 +14,7 @@ const ArticleList = ({ addArticles, loading, articles }) => {
     addArticles();
   }, [addArticles]);
 
-  let articleList = [];
-  articleList = articles.map((article, id) => {
+  const articleList = articles.map((article, id) => {
     const { title, body, favoritesCount, createdAt, author, tagList } = article;
     return (
       <ArticlePreview
@@ -31,10 +30,12 @@ const ArticleList = ({ addArticles, loading, articles }) => {
     );
   });
 
-  return <div className={classes.articleList}>
-    {loading && <Spinner />}
-    {!loading && articleList}
-    </div>;
+  return (
+    <div className={classes.articleList}>
+      {loading && <Spinner />}
+      {!loading && articleList}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({
