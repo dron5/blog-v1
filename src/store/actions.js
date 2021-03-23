@@ -5,6 +5,7 @@ export const addArticles = () => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   const response = await fetchArticles();
   const { articles } = response;
+  console.log(articles);
   dispatch({ type: "ADD_ARTICLES", payload: articles });
   dispatch({ type: "LOADING", payload: false });
 };
