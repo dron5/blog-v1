@@ -14,8 +14,8 @@ const baseRequest = async (args) => {
 //   return response;
 // };
 
-export const fetchArticles = async () => {
-  const response = baseRequest(`api/articles?offset=20&limit=10`);
+export const fetchArticles = async (offset) => {
+  const response = baseRequest(`api/articles?offset=${offset}&limit=10`);
   return response;
 };
 

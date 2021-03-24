@@ -17,7 +17,7 @@ const ArticlePreview = ({
   tagList,
   author,
   id,
-  theOne
+  theOne,
 }) => (
   <div className={classes.preview}>
     <div className={classes["preview__short-desc"]}>
@@ -38,4 +38,3 @@ const ArticlePreview = ({
   </div>
 );
 export default ArticlePreview;
-
