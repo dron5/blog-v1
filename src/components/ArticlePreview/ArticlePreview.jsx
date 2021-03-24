@@ -10,21 +10,23 @@ import noavatar from "../../img/avatar.png";
 
 const ArticlePreview = ({
   title,
-  body,
+  // body,
+  description,
   favoritesCount,
   createdAt,
   tagList,
   author,
-  id
+  id,
+  theOne
 }) => (
   <div className={classes.preview}>
     <div className={classes["preview__short-desc"]}>
       <div className={classes.preview__title}>
-        <Link to={`/articles/${id}`}>{title}</Link>
+        {theOne ? title : <Link to={`/articles/${id}`}>{title}</Link>}
         <Likes likes={favoritesCount} />
       </div>
       <Tags tags={tagList} />
-      <div className={classes.preview__description}>{body}</div>
+      <div className={classes.preview__description}>{description}</div>
     </div>
     <div className={classes["preview__user-info"]}>
       <div className={classes.preview__name}>
@@ -36,3 +38,4 @@ const ArticlePreview = ({
   </div>
 );
 export default ArticlePreview;
+

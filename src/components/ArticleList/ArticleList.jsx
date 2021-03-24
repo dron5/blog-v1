@@ -17,13 +17,8 @@ const ArticleList = ({ addArticles, loading, articles }) => {
   }, [addArticles]);
 
   const articleList = articles.map((article, id) => (
-    <ArticlePreview
-      key={id}
-      id={id}
-      {...article}  
-    />
-    )
-  );
+    <ArticlePreview key={id} id={id} {...article} />
+  ));
 
   return (
     <div className={classes.articleList}>

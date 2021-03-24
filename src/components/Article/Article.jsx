@@ -2,17 +2,17 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import * as fetch from "../../store/actions";
 import { getArticle } from "../../store/selectors";
+import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import classes from "./Article.module.scss";
 
-const Article = ({article}) => (
+const Article = ({ article }) => (
   <div className={classes.article}>
-    <ArticlePreview {...article} />
+    <ArticlePreview {...article} theOne />
   </div>
-  );
-  
+);
+
 const mapStateToProps = (state, props) => ({
   article: getArticle(props.id)(state),
 });

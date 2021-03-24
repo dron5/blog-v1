@@ -9,8 +9,13 @@ const baseRequest = async (args) => {
   return response.json();
 };
 
+// export const fetchArticles = async () => {
+//   const response = baseRequest(`api/articles?limit=10&offset=10`);
+//   return response;
+// };
+
 export const fetchArticles = async () => {
-  const response = baseRequest("api/articles");
+  const response = baseRequest(`api/articles?offset=20&limit=10`);
   return response;
 };
 
