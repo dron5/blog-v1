@@ -11,17 +11,16 @@ import noavatar from "../../img/avatar.png";
 const ArticlePreview = ({
   title,
   body,
-  userName,
-  image,
   favoritesCount,
   createdAt,
   tagList,
-  slug,
+  author,
+  id
 }) => (
   <div className={classes.preview}>
     <div className={classes["preview__short-desc"]}>
       <div className={classes.preview__title}>
-      <Link to={`/article/${slug}`}>{title}</Link>
+        <Link to={`/articles/${id}`}>{title}</Link>
         <Likes likes={favoritesCount} />
       </div>
       <Tags tags={tagList} />
@@ -29,10 +28,10 @@ const ArticlePreview = ({
     </div>
     <div className={classes["preview__user-info"]}>
       <div className={classes.preview__name}>
-        <span>{userName}</span>
+        <span>{author.username}</span>
         <span>{format(new Date(createdAt), "PP")} </span>
       </div>
-      <img src={image || noavatar} alt="avatar" />
+      <img src={author.image || noavatar} alt="avatar" />
     </div>
   </div>
 );

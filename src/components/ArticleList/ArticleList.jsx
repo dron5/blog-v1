@@ -16,22 +16,14 @@ const ArticleList = ({ addArticles, loading, articles }) => {
     addArticles();
   }, [addArticles]);
 
-  const articleList = articles.map((article, id) => {
-    const { title, body, favoritesCount, createdAt, author, tagList, slug } = article;
-    return (
-      <ArticlePreview
-        key={id}
-        title={title}
-        body={body}
-        favoritesCount={favoritesCount}
-        createdAt={createdAt}
-        userName={author.username}
-        image={author.image}
-        tagList={tagList}
-        slug={slug}
-      />
-    );
-  });
+  const articleList = articles.map((article, id) => (
+    <ArticlePreview
+      key={id}
+      id={id}
+      {...article}  
+    />
+    )
+  );
 
   return (
     <div className={classes.articleList}>

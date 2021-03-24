@@ -15,8 +15,9 @@ const App = () => (
       <Header />
       <Route path="/articles" exact component={ArticleList} />
       {/* <Route path="/articles/:id" component={Article} /> */}
-      <Route path="/articles/:id" 
-      render={() => <Article />} />
+      <Route path="/articles/:id" render={({match}) => {
+        const {id} = match.params;
+        return <Article id={id}/>}} />
 
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
