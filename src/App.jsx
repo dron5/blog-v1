@@ -15,16 +15,15 @@ const App = () => (
       <Header />
       <Route path="/articles" exact component={ArticleList} />
       <Route path="/" exact component={ArticleList} />
-      {/* <Route path="/articles/:id" component={Article} /> */}
       <Route
-        path="/articles/:id"
+        path="/articles/:slug"
         render={({ match }) => {
-          const { id } = match.params;
-          return <Article id={id} />;
+          const { slug } = match.params;
+          return <Article slug={slug} />;
         }}
       />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/signin" component={SignIn} />
+      <Route path="/sign-up" component={SignUp} />
+      <Route path="/sign-in" component={SignIn} />
     </Router>
   </>
 );

@@ -6,10 +6,10 @@ import classes from "./InputMenu.module.scss";
 const InputMenu = () => (
   <div className={classes.header__signInOut}>
     <button type="button">
-      <Link to="/signin">Sign In</Link>
+      <Link to="/sign-in">Sign In</Link>
     </button>
     <button type="button">
-      <Link to="/signup">Sign Up</Link>
+      <Link to="/sign-up">Sign Up</Link>
     </button>
   </div>
 );

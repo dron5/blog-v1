@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+// /* eslint-disable react/prop-types */
+/* eslint-disable */
 import React from "react";
 import { connect } from "react-redux";
 
@@ -7,14 +8,16 @@ import { getArticle } from "../../store/selectors";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import classes from "./Article.module.scss";
 
-const Article = ({ article }) => (
+const Article = ({ article }) => {
+  console.log(article);
+return (
   <div className={classes.article}>
     <ArticlePreview {...article} theOne />
   </div>
 );
-
+};
 const mapStateToProps = (state, props) => ({
-  article: getArticle(props.id)(state),
+  article: getArticle(props.slug)(state),
 });
 
 export default connect(mapStateToProps, fetch)(Article);

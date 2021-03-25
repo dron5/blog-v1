@@ -1,13 +1,40 @@
 $backgroundColor: white;
 
 .menu__signup {
-  width: 490px;
-  height: 700px;
-  margin-top: 112px;
+  display: flex;
+  flex-direction: column;
+  width: 384px;
+  height: 647px;
+  margin-top: 128px;
   margin-right: auto;
   margin-left: auto;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   background-color: $backgroundColor;
   border-radius: 7px;
-  padding: 16px;
+  padding: 16px 32px 27px 32px;
+}
+.menu__title{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #262626;
+  margin-top: 27px;
+  height: 100%;
+}
+.menu__button{
+  width: 100%;
+  margin-top: auto !important;
+  margin-bottom: 0px !important;
+}
+.menu__footer{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #8C8C8C;
 }
