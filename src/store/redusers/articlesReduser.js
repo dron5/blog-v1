@@ -2,6 +2,7 @@ const initialState = {
   articles: [],
   loading: false,
   articlesCount: 0,
+  currentPage: 1,
 };
 
 const articlesReduser = (state = initialState, action) => {
@@ -9,13 +10,24 @@ const articlesReduser = (state = initialState, action) => {
     case "ADD_ARTICLES":
       return {
         ...state,
-        articles: [...state.articles, ...action.payload.articles],
+        articles: [...action.payload.articles],
         articlesCount: action.payload.articlesCount,
       };
+    // case "ADD_ARTICLES":
+    //   return {
+    //     ...state,
+    //     articles: [...state.articles, ...action.payload.articles],
+    //     articlesCount: action.payload.articlesCount,
+    //   };
     case "LOADING":
       return {
         ...state,
         loading: action.payload,
+      };
+    case "CHANGEPAGE":
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     default:
       return state;

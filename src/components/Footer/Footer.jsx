@@ -5,32 +5,31 @@ import { connect } from "react-redux";
 import { Pagination } from "antd";
 import * as fetch from "../../store/actions";
 import classes from "./Footer.module.scss";
-import { getLoading } from "../../store/selectors";
+import { getLoading, getCurrentPage } from "../../store/selectors";
 
-const Footer = ({ loading, addArticles }) => {
-
-  const setPage = (page=1) =>{
-    console.log('page :', page);
-    addArticles(page*10-10);
+const Footer = ({ loading, addArticles, addCurrentPage, currentPage }) => {
+  const setPage = (page = 1) => {
+    addArticles(page * 10 - 10);
+    addCurrentPage(page);
   };
 
-
   return (
-  <div className={classes.footer}>
-    {!loading && (
-      <Pagination
-        className={classes.pagination}
-        total={100}
-        onChange={setPage}
-        showSizeChanger={false}
-        defaultCurrent={1}
-      />
-    )}
-  </div>
-);
+    <div className={classes.footer}>
+      {!loading && (
+        <Pagination
+          className={classes.pagination}
+          total={100}
+          onChange={setPage}
+          showSizeChanger={false}
+          defaultCurrent={currentPage}
+        />
+      )}
+    </div>
+  );
 };
 const mapStateToProps = (state) => ({
   loading: getLoading(state),
+  currentPage: getCurrentPage(state),
 });
 
 export default connect(mapStateToProps, fetch)(Footer);
