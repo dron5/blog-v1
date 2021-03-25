@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import {Button} from "antd";
+import { Button } from "antd";
 import classes from "./SignUp.module.scss";
 
 const SignUp = () => (
