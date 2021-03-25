@@ -8,6 +8,22 @@ const SignUp = () => (
   <div className={classes.menu__signup}>
     <span className={classes.menu__title}>Create new account</span>
     <form action="">
+      <label>
+        <div>Username</div>
+        <input type="text" name="username" />
+      </label>
+      <label>
+        <div>Email address</div>
+        <input type="email" name="email" />
+      </label>
+      <label>
+        <div>Password</div>
+        <input type="password" name="password" />
+      </label>
+      <label>
+        <div>Repeate Password</div>
+        <input type="password" name="repeatPassword" />
+      </label>
       <Button type="primary" className={classes.menu__button}>
         Create
       </Button>
