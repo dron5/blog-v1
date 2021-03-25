@@ -13,12 +13,6 @@ const articlesReduser = (state = initialState, action) => {
         articles: [...action.payload.articles],
         articlesCount: action.payload.articlesCount,
       };
-    // case "ADD_ARTICLES":
-    //   return {
-    //     ...state,
-    //     articles: [...state.articles, ...action.payload.articles],
-    //     articlesCount: action.payload.articlesCount,
-    //   };
     case "LOADING":
       return {
         ...state,
