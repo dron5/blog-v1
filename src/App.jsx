@@ -19,8 +19,6 @@ const App = () => (
         path="/articles/:slug"
         render={({ match }) => {
           const { slug } = match.params;
-          // console.log('slug in App :', slug);
-          // console.log('Params :', match);
           return <Article slug={slug} />;
         }}
       />

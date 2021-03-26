@@ -20,30 +20,30 @@ const ArticlePreview = ({
   slug,
   theOne,
 }) => (
-    <div className={classes.preview}>
-      <div className={classes.preview__header}>
-        <div className={classes["preview__short-desc"]}>
-          <div className={classes.preview__title}>
-            <Link to={`/articles/${slug}`}>{title}</Link>
-            <Likes likes={favoritesCount} />
-          </div>
-          <Tags tags={tagList} />
+  <div className={classes.preview}>
+    <div className={classes.preview__header}>
+      <div className={classes["preview__short-desc"]}>
+        <div className={classes.preview__title}>
+          <Link to={`/articles/${slug}`}>{title}</Link>
+          <Likes likes={favoritesCount} />
         </div>
-        <div className={classes["preview__user-info"]}>
-          <div className={classes.preview__name}>
-            <span>{author.username}</span>
-            <span>{format(new Date(createdAt), "PP")} </span>
-          </div>
-          <img src={author.image || noavatar} alt="avatar" />
-        </div>
+        <Tags tags={tagList} />
       </div>
-      <div className={classes.preview__description}>{description}</div>
-      {theOne && (
-        <div className={classes.preview__body}>
-          <ReactMarkdown source={body} />
+      <div className={classes["preview__user-info"]}>
+        <div className={classes.preview__name}>
+          <span>{author.username}</span>
+          <span>{format(new Date(createdAt), "PP")} </span>
         </div>
-      )}
+        <img src={author.image || noavatar} alt="avatar" />
+      </div>
     </div>
-  );
+    <div className={classes.preview__description}>{description}</div>
+    {theOne && (
+      <div className={classes.preview__body}>
+        <ReactMarkdown source={body} />
+      </div>
+    )}
+  </div>
+);
 
 export default ArticlePreview;

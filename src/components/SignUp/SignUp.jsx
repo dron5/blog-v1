@@ -22,13 +22,17 @@ const SignUp = () => (
       </label>
       <label>
         <div>Repeate Password</div>
-        <input type="password" name="repeatPassword" className={classes.input} />
+        <input
+          type="password"
+          name="repeatPassword"
+          className={classes.input}
+        />
       </label>
       <label>
-        <input type="checkbox" name="agriment" className={classes.input} />
-       I agree to the processing of my personal information
+        <input type="checkbox" name="agriment" className={classes.checkbox} />I
+        agree to the processing of my personal information
       </label>
-      <Button type="primary" className={classes.menu__button}>
+      <Button type="primary" className={classes["ant-btn"]}>
         Create
       </Button>
     </form>
