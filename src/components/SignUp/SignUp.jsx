@@ -28,7 +28,7 @@ const SignUp = () => (
           className={classes.input}
         />
       </label>
-      <label>
+      <label className={classes["menu__label-checkbox"]}>
         <input type="checkbox" name="agriment" className={classes.checkbox} />
         <span className={classes.input__checkbox}>I agree to the processing of my personal information</span>
       </label>
