@@ -29,8 +29,8 @@ const SignUp = () => (
         />
       </label>
       <label>
-        <input type="checkbox" name="agriment" className={classes.checkbox} />I
-        agree to the processing of my personal information
+        <input type="checkbox" name="agriment" className={classes.checkbox} />
+        <span className={classes.input__checkbox}>I agree to the processing of my personal information</span>
       </label>
       <Button type="primary" className={classes["ant-btn"]}>
         Create
