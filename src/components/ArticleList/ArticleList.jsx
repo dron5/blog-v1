@@ -15,7 +15,6 @@ const ArticleList = ({ addArticles, loading, articles }) => {
   useEffect(() => {
     addArticles();
   }, [addArticles]);
-
   const articleList = articles.map((article, id) => (
     <ArticlePreview key={id} id={id} {...article} />
   ));

@@ -22,12 +22,12 @@ $backgroundColor: white;
   text-align: center;
   color: #262626;
   margin-top: 27px;
-  height: 100%;
+  height: 40px;
 }
 .menu__button {
   width: 100%;
   margin-top: auto !important;
-  margin-bottom: 3px !important;
+  margin-bottom: 0px !important;
 }
 .menu__footer {
   font-family: Roboto;
@@ -37,4 +37,16 @@ $backgroundColor: white;
   line-height: 20px;
   text-align: center;
   color: #8c8c8c;
+  margin-bottom: 0px;
+  margin-top: auto;
+}
+.input{
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.menu__form{
+  margin-top: 0px;
+  margin-bottom: auto;
+  height: 500px;
 }

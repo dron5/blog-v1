@@ -14,7 +14,7 @@ export const fetchArticles = async (offset) => {
   return response;
 };
 
-export const fetchArticle = (slug) => {
+export const fetchArticle = async (slug) => {
   const response = baseRequest(`api/articles/${slug}`);
   return response;
 };

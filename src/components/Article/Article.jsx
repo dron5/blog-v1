@@ -1,33 +1,25 @@
-// /* eslint-disable react/prop-types */
-/* eslint-disable */
-import React from "react";
-import { connect } from "react-redux";
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from "react";
 
-import * as fetch from "../../store/actions";
-import { getArticle, getArticles} from "../../store/selectors";
+import {fetchArticle} from "../../asyncActions/asyncStuff";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import classes from "./Article.module.scss";
 
-// const Article = ({  article }) => (
-//     <div className={classes.article}>
-//       <ArticlePreview {...article} theOne />
-//     </div>
-//   );
+const Article = ({slug }) => {
+  const [one, setOne] = useState(null);
+  useEffect(() => {
+    const request = async () => {
+      const {article} = await (fetchArticle(slug));
+      setOne(article);
+    };
+    request();
 
-const Article = ({ article, articles }) => {
-  console.log('article :', article);
-  // console.log('slug :', slug);
-  console.log('Articles :', articles);
+  }, [slug]);
   return (
     <div className={classes.article}>
-      <ArticlePreview {...article} theOne />
+      {one && <ArticlePreview {...one} theOne />}
     </div>
   );
 };
 
-const mapStateToProps = (state, props) => ({
-  article: getArticle(props.slug)(state),
-  articles: getArticles(state),
-});
-
-export default connect(mapStateToProps, fetch)(Article);
+export default Article;
