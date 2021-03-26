@@ -34,7 +34,7 @@ body{
 .ant-btn{
   width: 100%;
   height: 40px !important;
-  margin-top: 35px !important;
+  margin-top: 30px !important;
   margin-bottom: 3px !important;
   border-radius: 6px !important;
 }
@@ -59,8 +59,7 @@ body{
 }
 .checkbox {
   margin-bottom: 5px;
-  // width: 100%;
-  // box-sizing: border-box;
+  margin-right: 7px;
 }
 .input__checkbox {
   display: inline-block;
@@ -69,7 +68,6 @@ body{
 }
 .menu__label-checkbox{
   display: inline-block;
-  margin-bottom: 0px;
   margin-top: 5px;
   padding-top: 10px;
   border-top: 1px solid #E8E8E8;
