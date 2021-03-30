@@ -15,22 +15,27 @@ const SignUp = () => {
         <div className={classes["form-group"]}>
           <input ref={register({required: true, minLength: 3, maxLength: 20})}
            type="text" name="username" className={classes["form-control"]}
-           placeholder="your username" />
+           placeholder="your username" id="username" />
           <label htmlFor="username" className={classes["form-label"]}>
             <span>Username</span>
             </label>
         </div>
         <div className={classes["form-group"]}>
-          <input ref={register} type="email" name="email" className={classes["form-control"]}
-           placeholder=" " />
-          <label htmlFor="email" className={classes["form-label"]}>
+          <input 
+            ref={register} type="email" name="email" 
+            className={classes["form-control"]}
+            placeholder=" " id="email" />
+          <label
+            htmlFor="email"
+            className={classes["form-label"]}
+            >
             <span>Email address</span>
             </label>
         </div>
         <div className={classes["form-group"]}>
           <input ref={register({required: true, minLength: 8, maxLength: 20})}
            type="password" name="password" className={classes["form-control"]}
-           placeholder=" " />
+           placeholder=" " id="password" />
           <label htmlFor="password" className={classes["form-label"]}>
             <span>Password</span>
             </label>
@@ -42,6 +47,7 @@ const SignUp = () => {
             name="repeatPassword"
             className={classes["form-control"]}
             placeholder=" "
+            id="repeatPassword"
           />
           <label htmlFor="repeatPassword" className={classes["form-label"]}>
             <span>Repeat Password</span>
@@ -49,8 +55,8 @@ const SignUp = () => {
         </div>
         <div className={classes["form__label-checkbox"]}>
           <input ref={register({required: true})}
-           type="checkbox" name="agriment" className={classes.checkbox} />
-          <span className={classes.input__checkbox}>I agree to the processing of my personal information</span>
+           type="checkbox" name="agriment" id="agriment" className={classes.checkbox} />
+          <label htmlFor="agriment" className={classes.input__checkbox}>I agree to the processing of my personal information</label>
         </div>
         <button type="submit" className={classes.input__btn}>
           Create
