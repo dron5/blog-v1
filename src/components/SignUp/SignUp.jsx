@@ -11,29 +11,41 @@ const SignUp = () => {
   return (
     <div className={classes.container}>
       <span className={classes.menu__title}>Create new account</span>
-      <form action="" className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
+      <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={classes["form-group"]}>
           <input ref={register({required: true, minLength: 3, maxLength: 20})}
-           type="text" name="username" className={classes["form-control"]} />
-          <label htmlFor="username" className={classes["form-label"]}>Username</label>
+           type="text" name="username" className={classes["form-control"]}
+           placeholder="your username" />
+          <label htmlFor="username" className={classes["form-label"]}>
+            <span>Username</span>
+            </label>
         </div>
-        <div className="form-group">
-          <input ref={register} type="email" name="email" className={classes["form-control"]} />
-          <label htmlFor="email" className={classes["form-label"]}>Email address</label>
+        <div className={classes["form-group"]}>
+          <input ref={register} type="email" name="email" className={classes["form-control"]}
+           placeholder=" " />
+          <label htmlFor="email" className={classes["form-label"]}>
+            <span>Email address</span>
+            </label>
         </div>
-        <div className="form-group">
+        <div className={classes["form-group"]}>
           <input ref={register({required: true, minLength: 8, maxLength: 20})}
-           type="password" name="password" className={classes["form-control"]} />
-          <label htmlFor="password" className={classes["form-label"]}>Password</label>
+           type="password" name="password" className={classes["form-control"]}
+           placeholder=" " />
+          <label htmlFor="password" className={classes["form-label"]}>
+            <span>Password</span>
+            </label>
         </div>
-        <div className="form-group">
+        <div className={classes["form-group"]}>
           <input
             ref={register({required: true, minLength: 8, maxLength: 20})}
             type="password"
             name="repeatPassword"
             className={classes["form-control"]}
+            placeholder=" "
           />
-          <label htmlFor="repeatPassword" className={classes["form-label"]}>Repeat Password</label>
+          <label htmlFor="repeatPassword" className={classes["form-label"]}>
+            <span>Repeat Password</span>
+            </label>
         </div>
         <div className={classes["form__label-checkbox"]}>
           <input ref={register({required: true})}
