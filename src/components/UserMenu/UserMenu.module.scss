@@ -1,13 +1,32 @@
-.header__user-menu{
+$green: #52c41a;
+$backgroundColor: white;
+
+.header__user-menu {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  margin-right: 0px;
+  margin-left: auto;
   border: 1px solid red;
 }
-.header__user-menu img{
+.header__user-name{
+  padding: 10px;
+}
+.header__user-menu img {
   width: 46px;
   height: 46px;
   object-position: center;
   object-fit: cover;
   border-radius: 50%;
+}
+.header__user-menu button{
+  border: none;
+  outline: none;
+  background-color: $backgroundColor;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 28px;
+  color: rgb(77, 9, 77);
 }

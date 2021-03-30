@@ -12,7 +12,7 @@ const SignMenu = () => {
       <button type="button">
         <Link to="/create-article">Create article</Link>
       </button>
-      <span>{userName}</span>
+      <span className={classes["header__user-name"]}>{userName}</span>
       <div>
         <Link to="/profile">
           <img src={avatar || noavatar} alt="avatar" />
