@@ -1,0 +1,13 @@
+.header__user-menu{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: 1px solid red;
+}
+.header__user-menu img{
+  width: 46px;
+  height: 46px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+}

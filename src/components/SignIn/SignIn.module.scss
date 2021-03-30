@@ -29,21 +29,21 @@ $backgroundColor: white;
   margin-bottom: 0px;
   height: auto;
 }
-.form-group{
-	margin-bottom: .6em;
-  margin-top: .3em;
-	transition: all .3s;
+.form-group {
+  margin-bottom: 0.6em;
+  margin-top: 0.3em;
+  transition: all 0.3s;
 }
-.form-label{
-	font-size: 1em;
-	color: #aaa;
-	display: block;
-	opacity: 1;
-	transform: translateY(-2.5em) translateX(10px);
-	transform-origin: 0 0;
-	transition: all .3s;
+.form-label {
+  font-size: 1em;
+  color: #aaa;
+  display: block;
+  opacity: 1;
+  transform: translateY(-2.5em) translateX(10px);
+  transform-origin: 0 0;
+  transition: all 0.3s;
 }
-.form-label span{
+.form-label span {
   padding: 0 2px;
   background-color: $backgroundColor;
 }
@@ -52,25 +52,25 @@ $backgroundColor: white;
   width: 100%;
   height: 48px;
   border: 1px solid #8d8989;
-  transition: all .5s;
+  transition: all 0.5s;
   border-radius: 5px;
   padding-left: 11px;
 }
-.form-control::placeholder{
-	color: transparent;	
+.form-control::placeholder {
+  color: transparent;
 }
 .form-control:focus {
   border-color: rgb(87, 149, 230);
   border-width: 2px;
-  transition: all .2s;
+  transition: all 0.2s;
   outline: none;
 }
 .form-control:focus + .form-label,
-.form-control:not(:placeholder-shown) + .form-label{
+.form-control:not(:placeholder-shown) + .form-label {
   transform: translateY(-4.5em) translateX(10px);
   color: rgb(87, 149, 230);
 }
-.input__btn{
+.input__btn {
   outline: none;
   border: none;
   color: $backgroundColor;

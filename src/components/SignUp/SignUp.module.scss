@@ -1,11 +1,11 @@
 $backgroundColor: white;
-$gray: #D9D9D9;
+$gray: #d9d9d9;
 
-body{
+body {
   display: flex;
-	height: 100vh;
+  height: 100vh;
 }
-.menu__title{
+.menu__title {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -17,7 +17,7 @@ body{
   margin-bottom: 10px;
   height: 40px;
 }
-.input__btn{
+.input__btn {
   outline: none;
   border: none;
   color: $backgroundColor;
@@ -57,21 +57,21 @@ body{
   border-radius: 9px;
   padding: 16px 32px 45px 32px;
 }
-.form-group{
-	margin-bottom: .6em;
-  margin-top: .3em;
-	transition: all .3s;
+.form-group {
+  margin-bottom: 0.6em;
+  margin-top: 0.3em;
+  transition: all 0.3s;
 }
-.form-label{
-	font-size: 1em;
-	color: #aaa;
-	display: block;
-	opacity: 1;
-	transform: translateY(-2.5em) translateX(10px);
-	transform-origin: 0 0;
-	transition: all .3s;
+.form-label {
+  font-size: 1em;
+  color: #aaa;
+  display: block;
+  opacity: 1;
+  transform: translateY(-2.5em) translateX(10px);
+  transform-origin: 0 0;
+  transition: all 0.3s;
 }
-.form-label span{
+.form-label span {
   padding: 0 2px;
   background-color: $backgroundColor;
 }
@@ -80,21 +80,21 @@ body{
   width: 100%;
   height: 48px;
   border: 1px solid #8d8989;
-  transition: all .5s;
+  transition: all 0.5s;
   border-radius: 5px;
   padding-left: 11px;
 }
-.form-control::placeholder{
-	color: transparent;	
+.form-control::placeholder {
+  color: transparent;
 }
 .form-control:focus {
   border-color: rgb(87, 149, 230);
   border-width: 2px;
-  transition: all .2s;
+  transition: all 0.2s;
   outline: none;
 }
 .form-control:focus + .form-label,
-.form-control:not(:placeholder-shown) + .form-label{
+.form-control:not(:placeholder-shown) + .form-label {
   transform: translateY(-4.5em) translateX(10px);
   color: rgb(87, 149, 230);
 }
@@ -102,10 +102,10 @@ body{
   margin-bottom: 5px;
   margin-right: 7px;
 }
-.form__label-checkbox{
+.form__label-checkbox {
   margin-top: 5px;
   padding-top: 10px;
-  border-top: 1px solid #E8E8E8;
+  border-top: 1px solid #e8e8e8;
 }
 .input__checkbox {
   display: inline-block;

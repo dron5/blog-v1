@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import InputMenu from "../InputMenu/InputMenu";
+import SignMenu from "../SignMenu/SignMenu";
+import UserMenu from "../UserMenu/UserMenu";
 import classes from "./Header.module.scss";
 
 const Header = () => (
@@ -10,7 +11,8 @@ const Header = () => (
       <div className={classes["header-root"]}>
         <Link to="/articles">Realworld Blog</Link>
       </div>
-      <InputMenu />
+      <UserMenu />
+      <SignMenu />
     </div>
   </div>
 );

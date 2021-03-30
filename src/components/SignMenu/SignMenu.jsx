@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import classes from "./InputMenu.module.scss";
+import classes from "./SignMenu.module.scss";
 
-const InputMenu = () => (
+const SignMenu = () => (
   <div className={classes.header__signInOut}>
-    <button type="button">
-      <Link to="/profile">Profile</Link>
-    </button>
     <button type="button">
       <Link to="/sign-in">Sign In</Link>
     </button>
@@ -17,4 +14,4 @@ const InputMenu = () => (
   </div>
 );
 
-export default InputMenu;
+export default SignMenu;
