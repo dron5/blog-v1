@@ -24,20 +24,8 @@ body{
   background-color: rgb(87, 149, 230);
   width: 100%;
   height: 40px;
-  margin-top: 38px;
   margin-bottom: 3px;
   border-radius: 6px;
-}
-.menu__footer {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  color: #8c8c8c;
-  margin-bottom: 0px;
-  margin-top: auto;
 }
 .form {
   margin-top: 0px;
@@ -48,7 +36,7 @@ body{
   display: flex;
   flex-direction: column;
   width: 384px;
-  height: 599px;
+  height: 498px;
   margin-top: 128px;
   margin-right: auto;
   margin-left: auto;
@@ -97,18 +85,4 @@ body{
 .form-control:not(:placeholder-shown) + .form-label{
   transform: translateY(-4.5em) translateX(10px);
   color: rgb(87, 149, 230);
-}
-.checkbox {
-  margin-bottom: 5px;
-  margin-right: 7px;
-}
-.form__label-checkbox{
-  margin-top: 5px;
-  padding-top: 10px;
-  border-top: 1px solid #E8E8E8;
-}
-.input__checkbox {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 12px;
 }
