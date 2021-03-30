@@ -59,7 +59,7 @@ const SignUp = () => {
           <label htmlFor="agriment" className={classes.input__checkbox}>I agree to the processing of my personal information</label>
         </div>
         <button type="submit" className={classes.input__btn}>
-          Create
+          Create account
         </button>
       </form>
       <span className={classes.menu__footer}>
