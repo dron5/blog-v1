@@ -10,7 +10,7 @@ const SignIn = () => {
   const onSubmit = (data) => console.log('data', data);
   return (
     <div className={classes.container}>
-      <span className={classes.menu__title}>Sign In account</span>
+      <span className={classes.menu__title}>Sign In</span>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes["form-group"]}>
           <input 
