@@ -1,5 +1,6 @@
 $green: #52c41a;
 $backgroundColor: white;
+$buttonColor: rgba(0, 0, 0, 0.75);
 
 .header__avatar{
   margin-left: 13px;
@@ -9,10 +10,9 @@ $backgroundColor: white;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  width: 380px;
+  width: auto;
   margin-right: 0px;
   margin-left: auto;
-  border: 1px solid red;
 }
 .header__user-name{
   padding: 10px;
@@ -25,7 +25,6 @@ $backgroundColor: white;
   border-radius: 50%;
 }
 .header__user-menu button{
-  // border: none;
   outline: none;
   background-color: $backgroundColor;
   font-family: Inter;
@@ -33,23 +32,23 @@ $backgroundColor: white;
   font-weight: 400 !important;
   font-size: 18px !important;
   line-height: 28px;
-  // color: rgb(77, 9, 77);
 }
 .btn-out{
-  // width: 73px;
-  height: 35px;
   white-space: nowrap;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 28px;
-  color: rgba(0, 0, 0, 0.75);
-  border: 1px solid rgba(0, 0, 0, 0.75);
+  padding: 7px 10px;
+  color: $buttonColor;
+  border: 1px solid $buttonColor;
   border-radius: 4px;
 }
 .btn-create{
   border: 1px solid $green;
   border-radius: 4px;
   color: $green;
+  margin-right: 27px;
+  margin-left: auto;
 }
