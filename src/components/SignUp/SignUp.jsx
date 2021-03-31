@@ -104,7 +104,11 @@ const SignUp = () => {
             id="agriment"
             className={classes.checkbox}
           />
-          <label htmlFor="agriment" className={classes.input__checkbox}>
+          <label htmlFor="agriment" className={
+            !errors.agriment
+              ? `${classes.input__checkbox}`
+              : `${classes.input__checkbox} ${classes["alert-checkbox"]}`}
+            >
             I agree to the processing of my personal information
           </label>
         </div>
