@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -35,10 +36,17 @@ const SignUp = () => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            ref={register}
+            // ref={register({ required: true, pattern:{value: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
+            ref={register({ required: true, pattern:{value: /^.+@.+\..+$/,
+            message:"Enter valid email, please"}
+              })}
             type="email"
             name="email"
-            className={classes["form-control"]}
+            className={
+              !errors.email
+              ? `${classes["form-control"]}` 
+              : `${classes["form-control"]} ${classes["alert-border"]}`
+            }
             placeholder=" "
             id="email"
           />
