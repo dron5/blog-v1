@@ -9,16 +9,16 @@ const SignMenu = () => {
   const avatar = null;
   return (
     <div className={classes["header__user-menu"]}>
-      <button type="button">
+      <button type="button" className={classes["btn-create"]}>
         <Link to="/create-article">Create article</Link>
       </button>
       <span className={classes["header__user-name"]}>{userName}</span>
-      <div>
+      <div className={classes.header__avatar}>
         <Link to="/profile">
           <img src={avatar || noavatar} alt="avatar" />
         </Link>
       </div>
-      <button type="button">
+      <button type="button" className={classes["btn-out"]}>
         <Link to="/log-out">Log Out</Link>
       </button>
     </div>
