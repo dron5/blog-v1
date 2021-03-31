@@ -7,31 +7,25 @@ $backgroundColor: white;
   outline: none;
   background-color: $backgroundColor;
   width: 109px;
-  height: 50px;
+  height: 49px;
 }
 .header__signInOut button:hover {
   border: 1px solid $green;
   border-radius: 6px;
   cursor: pointer;
 }
-// .selected {
-//   color: $green;
-//   border: 1px solid $green;
-//   border-radius: 6px;
-// }
 .header__signInOut {
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
 }
 .header__signInOut a{
-  color: rgb(77, 9, 77);
   font-family: Inter;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
-  padding: 12px 14px;
+  padding: 12px 12px;
 }
 .header__signInOut a:hover{
   color: $green;

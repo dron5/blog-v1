@@ -61,6 +61,7 @@ body {
   margin-bottom: 0.6em;
   margin-top: 0.3em;
   transition: all 0.3s;
+  height: 70px;
 }
 .form-label {
   font-size: 1em;
@@ -89,7 +90,7 @@ body {
 }
 .form-control:focus {
   border-color: rgb(87, 149, 230);
-  border-width: 2px;
+  // border-width: 2px;
   transition: all 0.2s;
   outline: none;
 }
@@ -111,4 +112,10 @@ body {
   display: inline-block;
   font-size: 12px;
   line-height: 12px;
+}
+.alert{
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
 }

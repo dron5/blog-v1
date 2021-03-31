@@ -33,6 +33,7 @@ $backgroundColor: white;
   margin-bottom: 0.6em;
   margin-top: 0.3em;
   transition: all 0.3s;
+  height: 70px;
 }
 .form-label {
   font-size: 1em;
@@ -90,4 +91,10 @@ $backgroundColor: white;
   color: #8c8c8c;
   margin-bottom: -7px;
   margin-top: auto;
+}
+.alert{
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
 }

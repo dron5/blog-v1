@@ -14,7 +14,9 @@ const SignUp = () => {
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes["form-group"]}>
           <input
-            ref={register({ required: true, minLength: 3, maxLength: 20 })}
+            ref={register({ required: true, 
+              minLength: {value: 3, message:"Needs to be at least 3 characters"},
+              maxLength: {value: 20, message:"Needs to be not more than 20 characters"} })}
             type="text"
             name="username"
             className={classes["form-control"]}
@@ -24,6 +26,7 @@ const SignUp = () => {
           <label htmlFor="username" className={classes["form-label"]}>
             <span>Username</span>
           </label>
+          {errors.username && <p className={classes.alert}>{errors.username.message}</p>}
         </div>
         <div className={classes["form-group"]}>
           <input
@@ -40,7 +43,9 @@ const SignUp = () => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            ref={register({ required: true, minLength: 8, maxLength: 20 })}
+            ref={register({ required: true,
+              minLength: {value: 8, message: "Your password needs to be at list 8 char"},
+              maxLength: {value: 20}, message: "Your password needs to be not more 40 char" })}
             type="password"
             name="password"
             className={classes["form-control"]}
@@ -50,6 +55,7 @@ const SignUp = () => {
           <label htmlFor="password" className={classes["form-label"]}>
             <span>Password</span>
           </label>
+          {errors.password && <p className={classes.alert}>{errors.password.message}</p>}
         </div>
         <div className={classes["form-group"]}>
           <input
