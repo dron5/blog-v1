@@ -19,14 +19,19 @@ const SignUp = () => {
               maxLength: {value: 20, message:"Needs to be not more than 20 characters"} })}
             type="text"
             name="username"
-            className={classes["form-control"]}
+            className={
+              !errors.username
+                ? `${classes["form-control"]}` 
+                : `${classes["form-control"]} ${classes["alert-border"]}`
+                // : [classes["form-control"],classes["alert-border"]].join(' ')
+              }
             placeholder="your username"
             id="username"
           />
           <label htmlFor="username" className={classes["form-label"]}>
             <span>Username</span>
           </label>
-          {errors.username && <p className={classes.alert}>{errors.username.message}</p>}
+          {errors.username && <p className={classes["alert-message"]}>{errors.username.message}</p>}
         </div>
         <div className={classes["form-group"]}>
           <input
@@ -48,14 +53,18 @@ const SignUp = () => {
               maxLength: {value: 20}, message: "Your password needs to be not more 40 char" })}
             type="password"
             name="password"
-            className={classes["form-control"]}
+            className={
+              !errors.password
+                ? `${classes["form-control"]}` 
+                : `${classes["form-control"]} ${classes["alert-border"]}`
+            }
             placeholder=" "
             id="password"
           />
           <label htmlFor="password" className={classes["form-label"]}>
             <span>Password</span>
           </label>
-          {errors.password && <p className={classes.alert}>{errors.password.message}</p>}
+          {errors.password && <p className={classes["alert-message"]}>{errors.password.message}</p>}
         </div>
         <div className={classes["form-group"]}>
           <input
