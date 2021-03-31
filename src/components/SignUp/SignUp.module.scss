@@ -97,7 +97,6 @@ body {
 .form-control:focus + .form-label,
 .form-control:not(:placeholder-shown) + .form-label {
   transform: translateY(-4.5em) translateX(10px);
-  // color: rgb(87, 149, 230);
   color: #8d8989;
 }
 .checkbox {

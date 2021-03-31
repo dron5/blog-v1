@@ -1,12 +1,14 @@
 /* eslint-disable no-useless-escape */
-import React from "react";
+import React, {useRef} from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import classes from "./SignUp.module.scss";
 
 const SignUp = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, watch } = useForm();
+  const password = useRef({});
+  password.current = watch("password", "");
   const onSubmit = (data) => console.log("data", data);
   console.log("errors", errors);
   return (
@@ -36,7 +38,6 @@ const SignUp = () => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            // ref={register({ required: true, pattern:{value: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
             ref={register({ required: true, pattern:{value: /^.+@.+\..+$/,
             message:"Enter valid email, please"}
               })}
@@ -76,16 +77,24 @@ const SignUp = () => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            ref={register({ required: true, minLength: 8, maxLength: 20 })}
+            ref={register({ 
+              validate: value => 
+                value === password.current || "The passwords do not match"
+             })}
             type="password"
             name="repeatPassword"
-            className={classes["form-control"]}
+            className={
+              !errors.repeatPassword
+                ? `${classes["form-control"]}` 
+                : `${classes["form-control"]} ${classes["alert-border"]}`
+            }
             placeholder=" "
             id="repeatPassword"
           />
           <label htmlFor="repeatPassword" className={classes["form-label"]}>
             <span>Repeat Password</span>
           </label>
+          {errors.repeatPassword && <p className={classes["alert-message"]}>{errors.repeatPassword.message}</p>}
         </div>
         <div className={classes["form__label-checkbox"]}>
           <input
