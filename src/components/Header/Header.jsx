@@ -13,7 +13,7 @@ const Header = () => {
         <div className={classes["header-root"]}>
           <Link to="/articles">Realworld Blog</Link>
         </div>
-        {!authorized && <UserMenu />}
+        {authorized && <UserMenu />}
         {!authorized && <SignMenu />}
       </div>
     </div>

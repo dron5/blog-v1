@@ -2,20 +2,14 @@ $green: #52c41a;
 $backgroundColor: white;
 
 .header__signInOut button {
+  box-sizing: border-box;
   border: none;
   outline: none;
   background-color: $backgroundColor;
   width: 109px;
   height: 50px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-size: 18px !important;
-  line-height: 28px;
-  color: rgb(77, 9, 77) !important;
 }
 .header__signInOut button:hover {
-  color: $green !important;
   border: 1px solid $green;
   border-radius: 6px;
   cursor: pointer;
@@ -26,5 +20,21 @@ $backgroundColor: white;
 //   border-radius: 6px;
 // }
 .header__signInOut {
+  display: flex;
+  justify-content: flex-end;
   margin-left: auto;
+}
+.header__signInOut a{
+  color: rgb(77, 9, 77);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  padding: 12px 14px;
+}
+.header__signInOut a:hover{
+  color: $green;
+  border-radius: 6px;
+  transition: none;
 }
