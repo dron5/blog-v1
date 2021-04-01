@@ -9,7 +9,7 @@ import { getLoading, getCurrentPage } from "../../store/selectors";
 
 const Footer = ({ loading, addArticles, addCurrentPage, currentPage }) => {
   const setPage = (page = 1) => {
-    addArticles(page * 10 - 10);
+    addArticles({offset: page * 10 - 10});
     addCurrentPage(page);
   };
 

@@ -9,7 +9,7 @@ const Article = ({ slug }) => {
   const [oneArticle, setOneArticle] = useState(null);
   useEffect(() => {
     const request = async () => {
-      const { article } = await fetchArticle(slug);
+      const { article } = await fetchArticle({slug});
       setOneArticle(article);
     };
     request();

@@ -3,14 +3,21 @@ import React, {useRef} from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import registrationRequest from "../../utils/asyncFuncs";
 import classes from "./SignUp.module.scss";
 
 const SignUp = () => {
+  
   const { register, handleSubmit, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-  const onSubmit = (data) => console.log("data", data);
-  console.log("errors", errors);
+
+  const onSubmit = (data) => {
+    const response = registrationRequest(data);
+    return response;
+  };
+  // console.log("errors", errors);
+
   return (
     <div className={classes.container}>
       <span className={classes.menu__title}>Create New Account</span>
@@ -18,8 +25,8 @@ const SignUp = () => {
         <div className={classes["form-group"]}>
           <input
             ref={register({ required: true, 
-              minLength: {value: 3, message:"Needs to be at least 3 characters"},
-              maxLength: {value: 20, message:"Needs to be not more than 20 characters"} })}
+              minLength: {value: 3, message:"Username needs to be at least 3 characters"},
+              maxLength: {value: 20, message:"Username needs to be not more than 20 characters"} })}
             type="text"
             name="username"
             className={
