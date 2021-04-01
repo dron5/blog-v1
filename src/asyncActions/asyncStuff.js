@@ -2,12 +2,15 @@
 // GET /api/articles          List Articles   +
 // GET /api/articles/:slug    Get Article     +
 // GET /api/tags              Get Tags        +
+// POST /api/users            Registration    +-
+// POST /api/users/login      Authentication
 
 export const baseRequest = async (url, method = "GET", body) => {
   const answer = await fetch(url, {
     method,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
+      // 'Authorization': `Token ${token}`
     },
     body,
   });
@@ -16,6 +19,8 @@ export const baseRequest = async (url, method = "GET", body) => {
   //      `Could not fetch... ${url}, received ${answer.status}`
   //    );
   //  }
+  console.log("answer status --- :", answer.status);
+  // console.log('answer  json()--- :', answer.json());
   return answer.json();
 };
 
@@ -37,3 +42,31 @@ export const fetchArticle = async (args) => {
   );
   return response;
 };
+
+export const registrationRequest = async (args) => {
+  const { username, email, password } = args;
+  let body = {
+    user: {
+      username: username,
+      email: email,
+      password: password,
+    },
+  };
+  body = JSON.stringify(body);
+  const response = await baseRequest(
+    `https://conduit.productionready.io/api/users`,
+    "POST",
+    body
+  );
+  const { errors } = response;
+  console.log("response --- :", errors);
+  console.log("response.Status --- :", response.status);
+};
+
+// Example request body:
+// {
+//   "user":{
+//     "email": "jake@jake.jake",
+//     "password": "jakejake"
+//   }
+// }
