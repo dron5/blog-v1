@@ -47,9 +47,9 @@ export const registrationRequest = async (args) => {
   const { username, email, password } = args;
   let body = {
     user: {
-      username: username,
-      email: email,
-      password: password,
+      username,
+      email,
+      password,
     },
   };
   body = JSON.stringify(body);
@@ -58,9 +58,9 @@ export const registrationRequest = async (args) => {
     "POST",
     body
   );
-  const { errors } = response;
-  console.log("response --- :", errors);
-  console.log("response.Status --- :", response.status);
+  // const { errors } = response;
+  //
+  return response;
 };
 
 // Example request body:
