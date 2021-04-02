@@ -11,16 +11,27 @@ const SignUp = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const onSubmit = async (data) => {
+  const toRegUser = async (data) => {
     const response = await registrationRequest(data);
-    if (Object.keys(response)[0] === 'errors') {
-      Object.keys(response.errors).
-        map(( key) =>
-            setError(key, { type: "manual", message: response.errors[key][0]})
-          );
-    };
+    console.log(response);
+    if (Object.keys(response)[0] === "errors") {
+      Object.keys(response.errors).map((key) =>
+        setError(key, { type: "manual", message: response.errors[key][0] })
+      );
+    }
     return response;
   };
+  const onSubmit = (data) => toRegUser(data);
+  // const onSubmit = async (data) => {
+  //   const response = await registrationRequest(data);
+  //   if (Object.keys(response)[0] === "errors") {
+  //     Object.keys(response.errors).map((key) =>
+  //       setError(key, { type: "manual", message: response.errors[key][0] })
+  //     );
+  //   }
+  //   return response;
+  // };
+
   return (
     <div className={classes.container}>
       <span className={classes.menu__title}>Create New Account</span>
@@ -81,9 +92,7 @@ const SignUp = () => {
             <span>Email address</span>
           </label>
           {errors.email && (
-            <p className={classes["alert-message"]}>
-              {errors.email.message}
-            </p>
+            <p className={classes["alert-message"]}>{errors.email.message}</p>
           )}
         </div>
         <div className={classes["form-group"]}>
