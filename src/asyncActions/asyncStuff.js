@@ -14,12 +14,9 @@ export const baseRequest = async (url, method = "GET", body) => {
     },
     body,
   });
-  //  if (!answer.ok) {
-  //    throw new Error(
-  //      `Could not fetch... ${url}, received ${answer.status}`
-  //    );
-  //  }
-  // console.log(answer);
+  if (!(answer.ok || answer.status === 422)) {
+    throw new Error(`Could not fetch... ${url}, received ${answer.status}`);
+  }
   return answer.json();
 };
 

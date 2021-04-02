@@ -11,26 +11,39 @@ const SignUp = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
+  const createUser = () => {};
+
+  const showErrors = (response) => {
+    Object.keys(response.errors).map((key) =>
+        setError(key, { type: "manual", message: response.errors[key][0] })
+      );
+  }; 
+
   const toRegUser = async (data) => {
     const response = await registrationRequest(data);
     console.log(response);
-    if (Object.keys(response)[0] === "errors") {
-      Object.keys(response.errors).map((key) =>
-        setError(key, { type: "manual", message: response.errors[key][0] })
-      );
-    }
-    return response;
+    switch (Object.keys(response)[0]){
+      case 'errors': showErrors(response);
+      break;
+      case 'user':  createUser();
+      break;
+      default:
+        return;
+    };
   };
   const onSubmit = (data) => toRegUser(data);
-  // const onSubmit = async (data) => {
-  //   const response = await registrationRequest(data);
-  //   if (Object.keys(response)[0] === "errors") {
-  //     Object.keys(response.errors).map((key) =>
-  //       setError(key, { type: "manual", message: response.errors[key][0] })
-  //     );
-  //   }
-  //   return response;
+  
+  // const user = {
+  //   'bio': null,
+  //   'createdAt': '2021-04-02T09:08:26.442Z',
+  //   'email': 'email',
+  //    'd': 155803,
+  //   'image': null,
+  //   'token': "token",
+  //   'updatedAt': "2021-04-02T09:08:26.447Z",
+  //   'username': "name",
   // };
+
 
   return (
     <div className={classes.container}>
