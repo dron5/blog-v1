@@ -15,24 +15,26 @@ const SignUp = () => {
 
   const showErrors = (response) => {
     Object.keys(response.errors).map((key) =>
-        setError(key, { type: "manual", message: response.errors[key][0] })
-      );
-  }; 
+      setError(key, { type: "manual", message: response.errors[key][0] })
+    );
+  };
 
   const toRegUser = async (data) => {
     const response = await registrationRequest(data);
     console.log(response);
-    switch (Object.keys(response)[0]){
-      case 'errors': showErrors(response);
-      break;
-      case 'user':  createUser();
-      break;
+    switch (Object.keys(response)[0]) {
+      case "errors":
+        showErrors(response);
+        break;
+      case "user":
+        createUser();
+        break;
       default:
-        return;
-    };
+        break;
+    }
   };
   const onSubmit = (data) => toRegUser(data);
-  
+
   // const user = {
   //   'bio': null,
   //   'createdAt': '2021-04-02T09:08:26.442Z',
@@ -43,7 +45,6 @@ const SignUp = () => {
   //   'updatedAt': "2021-04-02T09:08:26.447Z",
   //   'username': "name",
   // };
-
 
   return (
     <div className={classes.container}>
