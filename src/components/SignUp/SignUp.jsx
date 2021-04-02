@@ -11,7 +11,9 @@ const SignUp = () => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const createUser = () => {};
+  const createUser = () => {
+    
+  };
 
   const showErrors = (response) => {
     Object.keys(response.errors).map((key) =>

@@ -2,12 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import { authenticationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignIn.module.scss";
 
 const SignIn = () => {
   const { register, handleSubmit, errors } = useForm();
   console.log("errors", errors);
-  const onSubmit = (data) => console.log("data", data);
+  // const onSubmit = (data) => console.log("data", data);
+
+  const toSignIn = async (data) => {
+    const response = await authenticationRequest(data);
+    console.log(response);
+  };
+  const onSubmit = (data) => toSignIn(data);
+
   return (
     <div className={classes.container}>
       <span className={classes.menu__title}>Sign In</span>
