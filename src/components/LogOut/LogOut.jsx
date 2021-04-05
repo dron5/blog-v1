@@ -4,9 +4,7 @@ import { Redirect } from "react-router-dom";
 const LogOut = () => {
   const logout = () => {};
   logout();
-  return (
-    <Redirect to="/" />
-  );
+  return <Redirect to="/" />;
 };
 
 export default LogOut;

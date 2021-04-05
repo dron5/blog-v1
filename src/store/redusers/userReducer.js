@@ -1,5 +1,6 @@
 const initialState = {
   authorized: false,
+  user: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         authorized: action.payload.authoreized,
+      };
+    case "SETUSER":
+      return {
+        ...state,
+        user: action.payload.user,
       };
     default:
       return state;

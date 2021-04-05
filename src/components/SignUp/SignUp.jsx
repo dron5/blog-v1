@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-useless-escape */
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import {useCookies} from "react-cookie";
 import { connect } from "react-redux";
 import showErrors from "../../utils/utilsFunc";
 
@@ -10,13 +11,18 @@ import * as fetch from "../../store/actions";
 import { registrationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignUp.module.scss";
 
-const SignUp = ({setAuthorizedFlagAction}) => {
+const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
   const { register, handleSubmit, setError, errors, watch } = useForm();
+  const [cookies, setCookie] = useCookies(['token']);
+  const history = useHistory();
+  if(cookies.token !==undefined) history().push('/');
   const password = useRef({});
   password.current = watch("password", "");
 
-  const createUser = () => {
+  const createUser = (user) => {
     setAuthorizedFlagAction(true);
+    setUserAction(user);
+    setCookie('token', user.token);
   };
 
   const toRegUser = async (data) => {
@@ -26,24 +32,13 @@ const SignUp = ({setAuthorizedFlagAction}) => {
         showErrors(response, setError);
         break;
       case "user":
-        createUser();
+        createUser(response.user);
         break;
       default:
         break;
     }
   };
   const onSubmit = (data) => toRegUser(data);
-
-  // const user = {
-  //   'bio': null,
-  //   'createdAt': '2021-04-02T09:08:26.442Z',
-  //   'email': 'email',
-  //   'id': 155803,
-  //   'image': null,
-  //   'token': "token",
-  //   'updatedAt': "2021-04-02T09:08:26.447Z",
-  //   'username': "name",
-  // };
 
   return (
     <div className={classes.container}>
@@ -67,8 +62,7 @@ const SignUp = ({setAuthorizedFlagAction}) => {
             className={
               !errors.username
                 ? `${classes["form-control"]}`
-                : `${classes["form-control"]} ${classes["alert-border"]}`
-              // : [classes["form-control"],classes["alert-border"]].join(' ')
+              : [classes["form-control"],classes["alert-border"]].join(' ')
             }
             placeholder="your username"
             id="username"
