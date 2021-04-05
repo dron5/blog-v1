@@ -1,32 +1,29 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-useless-escape */
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import showErrors from "../../utils/utilsFunc";
 
+import * as fetch from "../../store/actions";
 import { registrationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignUp.module.scss";
 
-const SignUp = () => {
+const SignUp = ({setAuthorizedFlagAction}) => {
   const { register, handleSubmit, setError, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
 
   const createUser = () => {
-    
-  };
-
-  const showErrors = (response) => {
-    Object.keys(response.errors).map((key) =>
-      setError(key, { type: "manual", message: response.errors[key][0] })
-    );
+    setAuthorizedFlagAction(true);
   };
 
   const toRegUser = async (data) => {
     const response = await registrationRequest(data);
-    console.log(response);
     switch (Object.keys(response)[0]) {
       case "errors":
-        showErrors(response);
+        showErrors(response, setError);
         break;
       case "user":
         createUser();
@@ -41,7 +38,7 @@ const SignUp = () => {
   //   'bio': null,
   //   'createdAt': '2021-04-02T09:08:26.442Z',
   //   'email': 'email',
-  //    'd': 155803,
+  //   'id': 155803,
   //   'image': null,
   //   'token': "token",
   //   'updatedAt': "2021-04-02T09:08:26.447Z",
@@ -196,4 +193,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default connect(null, fetch)(SignUp);

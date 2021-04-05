@@ -1,17 +1,17 @@
 const initialState = {
-  authoreized: false,
+  authorized: false,
 };
 
-const userReduser = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "AUTHORIZED":
       return {
         ...state,
-        authoreized: action.payload.authoreized,
+        authorized: action.payload.authoreized,
       };
     default:
       return state;
   }
 };
 
-export default userReduser;
+export default userReducer;

@@ -1,6 +1,6 @@
 import { fetchArticles } from "../asyncActions/asyncStuff";
 
-export const addArticles = (offset) => async (dispatch) => {
+export const addArticlesAction = (offset) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   const response = await fetchArticles(offset);
   const { articles, articlesCount } = response;
@@ -8,6 +8,12 @@ export const addArticles = (offset) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: false });
 };
 
-export const addCurrentPage = (currentPage) => (dispatch) => {
+export const addCurrentPageAction = (currentPage) => (dispatch) => {
   dispatch({ type: "CHANGEPAGE", payload: currentPage });
 };
+
+export const setAuthorizedFlagAction = (status) => ({
+  type: "AUTHORIZED",
+  payload: status,
+});
+export const setUserAction = (user) => ({ type: "SETUSER", payload: user });

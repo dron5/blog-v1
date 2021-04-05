@@ -11,10 +11,10 @@ import Footer from "../Footer/Footer";
 
 import { getLoading, getArticles } from "../../store/selectors";
 
-const ArticleList = ({ addArticles, loading, articles }) => {
+const ArticleList = ({ addArticlesAction, loading, articles }) => {
   useEffect(() => {
-    addArticles();
-  }, [addArticles]);
+    addArticlesAction();
+  }, [addArticlesAction]);
   const articleList = articles.map((article, id) => (
     <ArticlePreview key={id} id={id} {...article} />
   ));

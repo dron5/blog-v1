@@ -5,7 +5,7 @@ const initialState = {
   currentPage: 1,
 };
 
-const articlesReduser = (state = initialState, action) => {
+const articlesReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_ARTICLES":
       return {
@@ -28,4 +28,4 @@ const articlesReduser = (state = initialState, action) => {
   }
 };
 
-export default articlesReduser;
+export default articlesReducer;

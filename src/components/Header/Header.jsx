@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { getAuthorizedFlagSelector } from "../../store/selectors";
 
 import SignMenu from "../SignMenu/SignMenu";
 import UserMenu from "../UserMenu/UserMenu";
 import classes from "./Header.module.scss";
 
-const Header = () => {
-  const authorized = false;
-  return (
+const Header = ({authorized}) => (
     <div className={classes.header}>
       <div className={classes["header-container"]}>
         <div className={classes["header-root"]}>
@@ -18,5 +20,9 @@ const Header = () => {
       </div>
     </div>
   );
-};
-export default Header;
+
+const mapStateToProps = (state) => ({
+  authorized: getAuthorizedFlagSelector(state),
+});
+
+export default connect(mapStateToProps, null)(Header);

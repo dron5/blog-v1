@@ -8,7 +8,6 @@ import classes from "./SignIn.module.scss";
 const SignIn = () => {
   const { register, handleSubmit, errors } = useForm();
   console.log("errors", errors);
-  // const onSubmit = (data) => console.log("data", data);
 
   const toSignIn = async (data) => {
     const response = await authenticationRequest(data);

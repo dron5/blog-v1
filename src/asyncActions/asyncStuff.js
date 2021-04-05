@@ -5,13 +5,19 @@
 // POST /api/users            Registration    +
 // POST /api/users/login      Authentication  +
 
-export const baseRequest = async (url, method = "GET", body) => {
+export const baseRequest = async (url, method = "GET", body, token) => {
+  let headers = {
+    "Content-Type": "application/json;charset=utf-8",
+  };
+  if (token) {
+    headers = {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: `Token ${token}`,
+    };
+  }
   const answer = await fetch(url, {
     method,
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-      // 'Authorization': `Token ${token}`
-    },
+    headers,
     body,
   });
   if (!(answer.ok || answer.status === 422)) {
