@@ -3,33 +3,39 @@
 import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {useCookies} from "react-cookie";
+import { useCookies } from "react-cookie";
 import { connect } from "react-redux";
-import showErrors from "../../utils/utilsFunc";
+// import showErrors from "../../utils/utilsFunc";
 
 import * as fetch from "../../store/actions";
 import { registrationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignUp.module.scss";
 
 const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
-  const { register, handleSubmit, setError, errors, watch } = useForm();
-  const [cookies, setCookie] = useCookies(['token']);
+  const [cookies, setCookie] = useCookies(["token"]);
   const history = useHistory();
-  if(cookies.token !==undefined) history().push('/');
+  if (cookies.token !== undefined) history().push("/");
+  const { register, handleSubmit, setError, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
 
   const createUser = (user) => {
     setAuthorizedFlagAction(true);
     setUserAction(user);
-    setCookie('token', user.token);
+    setCookie("token", user.token);
+  };
+
+  const showErrors = (response) => {
+    Object.keys(response.errors).map((key) =>
+      setError(key, { type: "manual", message: response.errors[key][0] })
+    );
   };
 
   const toRegUser = async (data) => {
     const response = await registrationRequest(data);
     switch (Object.keys(response)[0]) {
       case "errors":
-        showErrors(response, setError);
+        showErrors(response);
         break;
       case "user":
         createUser(response.user);
@@ -62,7 +68,7 @@ const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
             className={
               !errors.username
                 ? `${classes["form-control"]}`
-              : [classes["form-control"],classes["alert-border"]].join(' ')
+                : [classes["form-control"], classes["alert-border"]].join(" ")
             }
             placeholder="your username"
             id="username"

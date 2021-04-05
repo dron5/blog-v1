@@ -17,4 +17,6 @@ Psswd validation:
 
 https://codesandbox.io/embed/react-hook-form-password-match-check-standard-validation-eo6en
 
+Cookies:
 
+https://www.npmjs.com/package/react-cookie

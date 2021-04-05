@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -6,12 +7,32 @@ import { authenticationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignIn.module.scss";
 
 const SignIn = () => {
-  const { register, handleSubmit, errors } = useForm();
-  console.log("errors", errors);
+  const { register, handleSubmit, errors, setError } = useForm();
+
+  const showErrors = () => {
+    setError("password",
+     { type: "manual", message: "email or password is invalid" });
+};
+
+  const createUser = (user) => {
+    // setAuthorizedFlagAction(true);
+    // setUserAction(user);
+    // setCookie("token", user.token);
+    console.log(user);
+  };
 
   const toSignIn = async (data) => {
     const response = await authenticationRequest(data);
-    console.log(response);
+    switch (Object.keys(response)[0]) {
+      case "errors":
+        showErrors();
+        break;
+      case "user":
+        createUser(response.user);
+        break;
+      default:
+        break;
+    }
   };
   const onSubmit = (data) => toSignIn(data);
 
@@ -21,7 +42,6 @@ const SignIn = () => {
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes["form-group"]}>
           <input
-            ref={register}
             type="email"
             name="email"
             className={classes["form-control"]}
@@ -34,7 +54,7 @@ const SignIn = () => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            ref={register({ required: true, minLength: 8, maxLength: 20 })}
+            {...register("password")}
             type="password"
             name="password"
             className={classes["form-control"]}
@@ -44,6 +64,11 @@ const SignIn = () => {
           <label htmlFor="password" className={classes["form-label"]}>
             <span>Password</span>
           </label>
+          {errors.password && (
+            <p className={classes["alert-message"]}>
+              {errors.password.message}
+            </p>
+          )}
         </div>
         <button type="submit" className={classes.input__btn}>
           Login

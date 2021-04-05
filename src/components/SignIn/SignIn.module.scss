@@ -1,4 +1,5 @@
 $backgroundColor: white;
+$alert: red;
 
 .menu__title {
   font-family: Roboto;
@@ -94,6 +95,12 @@ $backgroundColor: white;
 }
 .alert {
   color: red;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
+}
+.alert-message {
+  color: $alert;
   font-size: 12px;
   margin-bottom: 0px;
   transform: translateY(-22px);
