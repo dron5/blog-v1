@@ -7,10 +7,10 @@ import * as fetch from "../../store/actions";
 import classes from "./Footer.module.scss";
 import { getLoading, getCurrentPage } from "../../store/selectors";
 
-const Footer = ({ loading, addArticles, addCurrentPage, currentPage }) => {
+const Footer = ({ loading, addArticlesAction, addCurrentPageAction, currentPage }) => {
   const setPage = (page = 1) => {
-    addArticles({ offset: page * 10 - 10 });
-    addCurrentPage(page);
+    addArticlesAction({ offset: page * 10 - 10 });
+    addCurrentPageAction(page);
   };
 
   return (
