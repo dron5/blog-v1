@@ -9,3 +9,4 @@ export const getArticle = (slug) => (state) => {
 };
 export const getAuthorizedFlagSelector = (state) =>
   state.userReducer.authorized;
+export const getUserSelector = (state) => state.userReducer.user;

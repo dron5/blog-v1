@@ -3,7 +3,6 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import { useCookies } from "react-cookie";
 
 import * as fetch from "../../store/actions";
 import { getAuthorizedFlagSelector } from "../../store/selectors";
@@ -13,7 +12,6 @@ import classes from "./SignIn.module.scss";
 
 const SignIn = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
   const { register, handleSubmit, errors, setError } = useForm();
-  const [cookies, setCookie] = useCookies(["token"]);
   const showErrors = () => {
     setError("password", {
       type: "manual",
@@ -24,7 +22,6 @@ const SignIn = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
   const createUser = (user) => {
     setAuthorizedFlagAction(true);
     setUserAction(user);
-    setCookie("token", user.token);
   };
 
   const toSignIn = async (data) => {
@@ -43,7 +40,6 @@ const SignIn = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
   const onSubmit = (data) => {
     toSignIn(data);
   };
-  console.log('In SignIn cookies token ', cookies.token);
   return (
     <>
       {authorized && <Redirect to="/" />}

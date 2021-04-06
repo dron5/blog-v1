@@ -65,7 +65,6 @@ export const registrationRequest = async (args) => {
 
 export const authenticationRequest = async (args) => {
   const { email, password } = args;
-  console.log("email", email, "password", password);
   let body = {
     user: {
       email,
@@ -78,6 +77,6 @@ export const authenticationRequest = async (args) => {
     "POST",
     body
   );
-  console.log("In auth response --- :", response);
+  // console.log("In auth response --- :", response);
   return response;
 };

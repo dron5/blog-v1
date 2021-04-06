@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-useless-escape */
 import React, { useRef } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useCookies } from "react-cookie";
 import { connect } from "react-redux";
 
 import * as fetch from "../../store/actions";
@@ -12,9 +10,6 @@ import { registrationRequest } from "../../asyncActions/asyncStuff";
 import classes from "./SignUp.module.scss";
 
 const SignUp = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
-  const [cookies, setCookie] = useCookies(["token"]);
-  // const history = useHistory();
-  // if (cookies.token !== undefined) history().push("/");
   const { register, handleSubmit, setError, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
@@ -22,7 +17,6 @@ const SignUp = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
   const createUser = (user) => {
     setAuthorizedFlagAction(true);
     setUserAction(user);
-    setCookie("token", user.token);
   };
 
   const showErrors = (response) => {
@@ -45,7 +39,6 @@ const SignUp = ({ setAuthorizedFlagAction, authorized, setUserAction }) => {
     }
   };
   const onSubmit = (data) => toRegUser(data);
-  console.log(cookies);
   return (
     <>
       {authorized && <Redirect to="/" />}
