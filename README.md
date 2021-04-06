@@ -20,3 +20,7 @@ https://codesandbox.io/embed/react-hook-form-password-match-check-standard-valid
 Cookies:
 
 https://www.npmjs.com/package/react-cookie
+
+Persist:
+
+https://www.youtube.com/watch?v=Fb-bDigImpw

@@ -9,9 +9,7 @@ import SignMenu from "../SignMenu/SignMenu";
 import UserMenu from "../UserMenu/UserMenu";
 import classes from "./Header.module.scss";
 
-const Header = ({ authorized }) => {
-  console.log("In Header authorized:", authorized);
-  return (
+const Header = ({ authorized }) => (
     <div className={classes.header}>
       <div className={classes["header-container"]}>
         <div className={classes["header-root"]}>
@@ -22,9 +20,9 @@ const Header = ({ authorized }) => {
       </div>
     </div>
   );
-};
+  
 const mapStateToProps = (state) => ({
   authorized: getAuthorizedFlagSelector(state),
 });
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps)(Header);
