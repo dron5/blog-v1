@@ -10,7 +10,7 @@ import UserMenu from "../UserMenu/UserMenu";
 import classes from "./Header.module.scss";
 
 const Header = ({ authorized }) => {
-  console.log('In Header authorized:', authorized);
+  console.log("In Header authorized:", authorized);
   return (
     <div className={classes.header}>
       <div className={classes["header-container"]}>
