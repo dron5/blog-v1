@@ -8,7 +8,7 @@ const userReducer = (state = initialState, action) => {
     case "AUTHORIZED":
       return {
         ...state,
-        authorized: action.payload.authoreized,
+        authorized: action.payload,
       };
     case "SETUSER":
       return {

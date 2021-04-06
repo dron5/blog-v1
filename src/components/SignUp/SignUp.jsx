@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-useless-escape */
 import React, { useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useCookies } from "react-cookie";
 import { connect } from "react-redux";
-// import showErrors from "../../utils/utilsFunc";
 
 import * as fetch from "../../store/actions";
 import { registrationRequest } from "../../asyncActions/asyncStuff";
@@ -13,8 +12,8 @@ import classes from "./SignUp.module.scss";
 
 const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
   const [cookies, setCookie] = useCookies(["token"]);
-  const history = useHistory();
-  if (cookies.token !== undefined) history().push("/");
+  // const history = useHistory();
+  // if (cookies.token !== undefined) history().push("/");
   const { register, handleSubmit, setError, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
@@ -47,6 +46,9 @@ const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
   const onSubmit = (data) => toRegUser(data);
 
   return (
+    <>
+    {cookies.token && <Redirect to="/" />}
+
     <div className={classes.container}>
       <span className={classes.menu__title}>Create New Account</span>
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
@@ -190,6 +192,7 @@ const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
         Already have an account? <Link to="/sign-in">Sign in</Link>
       </span>
     </div>
+    </>
   );
 };
 

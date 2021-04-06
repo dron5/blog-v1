@@ -12,8 +12,7 @@ export const addCurrentPageAction = (currentPage) => (dispatch) => {
   dispatch({ type: "CHANGEPAGE", payload: currentPage });
 };
 
-export const setAuthorizedFlagAction = (status) => ({
-  type: "AUTHORIZED",
-  payload: status,
-});
+export const setAuthorizedFlagAction = (status) => (dispatch) => {
+  dispatch({ type: "AUTHORIZED", payload: status });
+};
 export const setUserAction = (user) => ({ type: "SETUSER", payload: user });
