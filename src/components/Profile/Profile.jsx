@@ -11,7 +11,7 @@ import classes from "./Profile.module.scss";
 
 const EditProfile = ({ user, setUserAction }) => {
   const history = useHistory();
-  if(!user)  history.push("/");
+  if (!user) history.push("/");
   const { register, handleSubmit, setError, errors } = useForm();
 
   const createUser = (data) => {
