@@ -20,6 +20,7 @@ https://codesandbox.io/embed/react-hook-form-password-match-check-standard-valid
 Cookies:
 
 https://www.npmjs.com/package/react-cookie
+https://reactgo.com/react-set-cookie/
 
 Persist:
 

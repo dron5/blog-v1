@@ -2,22 +2,25 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { useCookies } from "react-cookie";
 
 import noavatar from "../../img/avatar.png";
 import { getUserSelector } from "../../store/selectors";
 import * as fetch from "../../store/actions";
 import classes from "./UserMenu.module.scss";
 
-const SignMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
+const UserMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
+  const [, setCookie] = useCookies(["token"]);
   const history = useHistory();
   const onClick = () => {
     setAuthorizedFlagAction(false);
     setUserAction(null);
+    setCookie('token', '', { maxAge: -1 });
     history.push('/');
   };
   return (
     <>
-      {user && (
+      {user && ( // it needs prevent to render user===null
         <div className={classes["header__user-menu"]}>
           <button type="button" className={classes["btn-create"]}>
             <Link to="/create-article">Create article</Link>
@@ -44,4 +47,4 @@ const mapStateToProps = (state) => ({
   user: getUserSelector(state),
 });
 
-export default connect(mapStateToProps, fetch)(SignMenu);
+export default connect(mapStateToProps, fetch)(UserMenu);

@@ -77,6 +77,14 @@ export const authenticationRequest = async (args) => {
     "POST",
     body
   );
-  // console.log("In auth response --- :", response);
+  return response;
+};
+
+export const getUserRequest = async (token) => {
+  const response = await baseRequest(
+    `https://conduit.productionready.io/api/user`,
+    token
+  );
+  console.log("In getUser response --- :", response);
   return response;
 };
