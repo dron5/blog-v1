@@ -110,8 +110,10 @@ const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
                 value: 8,
                 message: "Your password needs to be at list 8 char",
               },
-              maxLength: { value: 20 },
-              message: "Your password needs to be not more 40 char",
+              maxLength: { 
+                value: 20,
+                message: "Your password needs to be not more 40 char",
+              },
             })}
             type="password"
             name="password"

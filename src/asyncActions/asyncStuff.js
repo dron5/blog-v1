@@ -71,20 +71,29 @@ export const authenticationRequest = async (args) => {
       password,
     },
   };
-  body = JSON.stringify(body);
   const response = await baseRequest(
     `https://conduit.productionready.io/api/users/login`,
     "POST",
-    body
+    (body = JSON.stringify(body))
   );
   return response;
 };
 
-export const getUserRequest = async (token) => {
+export const updateUserRequest = async (args, token) => {
+  const { username, email, password, image } = args;
+  let body = {
+    user: {
+      email,
+      password,
+      username,
+      image: image || null,
+    },
+  };
   const response = await baseRequest(
     `https://conduit.productionready.io/api/user`,
+    "PUT",
+    (body = JSON.stringify(body)),
     token
   );
-  console.log("In getUser response --- :", response);
   return response;
 };

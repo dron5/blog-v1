@@ -10,11 +10,11 @@ import "antd/dist/antd.css";
 
 ReactDOM.render(
   // <CookiesProvider>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>,
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
   // </CookiesProvider>,
   document.getElementById("root")
 );
