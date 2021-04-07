@@ -47,6 +47,9 @@ a {
   border: 1px solid $buttonColor;
   border-radius: 4px;
 }
+.btn-out:hover {
+  cursor: pointer;
+}
 .btn-out a {
   color: $buttonColor;
 }

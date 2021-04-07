@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 import noavatar from "../../img/avatar.png";
@@ -8,8 +8,13 @@ import { getUserSelector } from "../../store/selectors";
 import * as fetch from "../../store/actions";
 import classes from "./UserMenu.module.scss";
 
-const SignMenu = ({ user, setAuthorizedFlagAction }) => {
-  const onClick = () => setAuthorizedFlagAction(false);
+const SignMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
+  const history = useHistory();
+  const onClick = () => {
+    setAuthorizedFlagAction(false);
+    setUserAction(null);
+    history.push('/');
+  };
   return (
     <>
       {user && (
@@ -28,7 +33,7 @@ const SignMenu = ({ user, setAuthorizedFlagAction }) => {
             className={classes["btn-out"]}
             onClick={onClick}
           >
-            <Link to="/">Log Out</Link>
+            Log Out
           </button>
         </div>
       )}
