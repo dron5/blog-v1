@@ -1,17 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import {CookiesProvider} from "react-cookie";
+import { PersistGate } from "redux-persist/integration/react";
+// import { CookiesProvider } from "react-cookie";
 
-import store from "./store/store";
+import { store, persistor } from "./store/store";
 import App from "./App";
 import "antd/dist/antd.css";
 
 ReactDOM.render(
-  <CookiesProvider>
+  // <CookiesProvider>
     <Provider store={store}>
-      <App />
-    </Provider>
-  </CookiesProvider>,
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>,
+  // </CookiesProvider>,
   document.getElementById("root")
 );

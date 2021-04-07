@@ -17,7 +17,7 @@ const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {
   const createUser = (user) => {
     setAuthorizedFlagAction(true);
     setUserAction(user);
-    history.push('/');
+    history.push("/");
   };
 
   const showErrors = (response) => {

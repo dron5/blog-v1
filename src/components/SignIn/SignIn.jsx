@@ -2,7 +2,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import { connect } from "react-redux";
 
 import * as fetch from "../../store/actions";
@@ -12,7 +12,7 @@ import classes from "./SignIn.module.scss";
 
 const SignIn = ({ setAuthorizedFlagAction, setUserAction }) => {
   const { register, handleSubmit, errors, setError } = useForm();
-  const [cookies, setCookie] = useCookies(["token"]);
+  // const [cookies, setCookie] = useCookies(["token"]);
   const history = useHistory();
   const showErrors = () => {
     setError("password", {
@@ -22,13 +22,12 @@ const SignIn = ({ setAuthorizedFlagAction, setUserAction }) => {
   };
 
   const createUser = (user) => {
-    setCookie("token", user.token);
+    // setCookie("token", user.token);
     setAuthorizedFlagAction(true);
     setUserAction(user);
-    console.log('Cookies in SignIn -- :', cookies.token);
-    history.push('/');
+    history.push("/");
   };
-  
+
   const toSignIn = async (data) => {
     const response = await authenticationRequest(data);
     switch (Object.keys(response)[0]) {

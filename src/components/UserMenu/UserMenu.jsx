@@ -15,8 +15,8 @@ const UserMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
   const onClick = () => {
     setAuthorizedFlagAction(false);
     setUserAction(null);
-    setCookie('token', '', { maxAge: -1 });
-    history.push('/');
+    setCookie("token", "", { maxAge: -1 });
+    history.push("/");
   };
   return (
     <>
