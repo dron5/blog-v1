@@ -10,9 +10,9 @@ import * as fetch from "../../store/actions";
 import classes from "./Profile.module.scss";
 
 const EditProfile = ({ user, setUserAction }) => {
-  const { token } = user;
-  const { register, handleSubmit, setError, errors } = useForm();
   const history = useHistory();
+  if(!user)  history.push("/");
+  const { register, handleSubmit, setError, errors } = useForm();
 
   const createUser = (data) => {
     setUserAction(data);
@@ -26,7 +26,7 @@ const EditProfile = ({ user, setUserAction }) => {
   };
 
   const toUdateUser = async (data) => {
-    const response = await updateUserRequest(data, token);
+    const response = await updateUserRequest(data, user.token);
     switch (Object.keys(response)[0]) {
       case "errors":
         showErrors(response);
@@ -48,11 +48,11 @@ const EditProfile = ({ user, setUserAction }) => {
         <div className={classes["form-group"]}>
           <input
             ref={register({
-              required: true, 
+              required: true,
               minLength: {
                 value: 3,
                 message: "Username needs to be at least 3 characters",
-              }, 
+              },
               maxLength: {
                 value: 20,
                 message: "Username needs to be not more than 20 characters",
@@ -114,7 +114,7 @@ const EditProfile = ({ user, setUserAction }) => {
               maxLength: {
                 value: 20,
                 message: "Your password needs to be not more 40 char",
-              }, 
+              },
             })}
             type="password"
             name="password"
@@ -137,7 +137,7 @@ const EditProfile = ({ user, setUserAction }) => {
         </div>
         <div className={classes["form-group"]}>
           <input
-            ref={register({required: false})}
+            ref={register({ required: false })}
             type="url"
             name="avatar"
             className={classes["form-control"]}
