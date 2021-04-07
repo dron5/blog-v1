@@ -8,21 +8,31 @@ const NewArticle = () => {
 return (
   <div className={classes.container}>
     <span className={classes.article__title}>Create new article</span>
-    {/* <form className={classes.form} onSubmit={handleSubmit(onSubmit)}> */}
     <form className={classes.form} onSubmit={onSubmit}>
-    <div className={classes["form-group"]}>
-          <input
-            // ref={register({ required: "email", maxLength: 20 })}
-            type="text"
-            name="title"
-            className={classes["form-control"]}
-            placeholder=" "
-            id="title"
-          />
-          <label htmlFor="email" className={classes["form-label"]}>
-            <span>Title</span>
-          </label>
-        </div>
+      <div className={classes["form-group"]}>
+        <input
+          type="text"
+          name="title"
+          className={classes["form-control"]}
+          placeholder=" "
+          id="title"
+        />
+        <label htmlFor="title" className={classes["form-label"]}>
+          <span>Title</span>
+        </label>
+      </div>
+      <div className={classes["form-group"]}>
+        <input
+          type="text"
+          name="shortdesc"
+          className={classes["form-control"]}
+          placeholder=" "
+          id="shortdesc"
+        />
+        <label htmlFor="shortdesc" className={classes["form-label"]}>
+          <span>Short description</span>
+        </label>
+      </div>    
     </form>
   </div>
 );
