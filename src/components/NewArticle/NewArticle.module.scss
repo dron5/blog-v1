@@ -60,7 +60,8 @@ $alert: red;
   box-shadow: none;
   width: 100%;
   height: 48px;
-  border: 1px solid #8d8989;
+  // border: 1px solid #8d8989;
+  border: 1px solid rgb(87, 149, 230);
   transition: all 0.5s;
   border-radius: 5px;
   padding-left: 11px;
@@ -69,7 +70,7 @@ $alert: red;
   color: transparent;
 }
 .form-control:focus {
-  border-color: rgb(87, 149, 230);
+  // border-color: rgb(87, 149, 230);
   border-width: 2px;
   transition: all 0.2s;
   outline: none;
@@ -91,8 +92,20 @@ $alert: red;
   height: 43px !important;
   width: 330px;
   border-radius: 5px !important;
+  border: 2px solid rgb(87, 149, 230) !important;
+  background-color:  rgb(87, 149, 230) !important;
+  color: white !important;
 }
 .form div:nth-child(3){
   min-height: 170px;
   // border: 1px solid $alert;
+}
+.alert-message {
+  color: $alert;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
+}
+.alert-border {
+  border-color: $alert;
 }

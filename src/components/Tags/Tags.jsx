@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import { Button } from "antd";
+// import { Button } from "antd";
 import { useForm } from "react-hook-form";
 
 import classes from "./Tags.module.scss";
@@ -9,7 +9,7 @@ import classes from "./Tags.module.scss";
 const Tags = () => {
   const { handleSubmit, register, errors} = useForm();
   // const { register, handleSubmit, errors, setError } = useForm();
-  console.log(errors);
+  // console.log('errors', errors);
   
   const onSubmit = (data) => console.log(data);
   return(
@@ -17,19 +17,17 @@ const Tags = () => {
       <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes["form-group"]}>
           <input
-            onSubmit={handleSubmit(onSubmit)}
             ref={register({
               required: true,
               minLength: {
                 value: 1,
-              message: "It can not be empty",
-              }
-              
+                message: "It can not be empty",
+              },
             })}
             type="text"
             name="tag"
             className={
-              !errors.username
+              !errors.tag
                 ? `${classes["form-control"]}`
                 : [classes["form-control"], classes["alert-border"]].join(" ")
             }
@@ -45,10 +43,10 @@ const Tags = () => {
             </p>
           )}
         </div>
-        <Button type="submit"
+        <button type="submit"
          className={classes["btn-input"]}>
           Add tag
-        </Button>
+        </button>
       </form>
     </div>
     
