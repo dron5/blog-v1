@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable react/no-array-index-key */
 import React from "react";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
 import Likes from "../Likes/Likes";
-import Tags from "../Tags/Tags";
 import classes from "./ArticlePreview.module.scss";
 import noavatar from "../../img/avatar.png";
 
@@ -45,5 +45,14 @@ const ArticlePreview = ({
     )}
   </div>
 );
+
+const Tags = ({ tags }) => {
+  const tagList = tags.map((el, i) => (
+    <button key={i} type="button" className={classes.preview__tags}>
+      {el}
+    </button>
+  ));
+  return <div>{tagList}</div>;
+};
 
 export default ArticlePreview;

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
+import {  Button  } from "antd";
 import classes from "./NewArticle.module.scss";
+import Tags from "../Tags";
 
 const NewArticle = () => {
   const onSubmit = () => console.log('New article was created');
@@ -32,6 +33,7 @@ return (
         <label htmlFor="shortdesc" className={classes["form-label"]}>
           <span>Short description</span>
         </label>
+      </div>
       <div className={classes["form-group"]}>
         <textarea
           name="textarea"
@@ -45,7 +47,12 @@ return (
           <span>Article text</span>
         </label>
       </div>
-      </div>    
+      <Tags />
+      <div className={classes.btn}>
+        <Button type="primary" className={classes["ant-btn-primary"]}>
+          Send
+        </Button>
+      </div>
     </form>
   </div>
 );

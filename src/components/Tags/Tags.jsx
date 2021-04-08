@@ -3,13 +3,9 @@
 import React from "react";
 import classes from "./Tags.module.scss";
 
-const Tags = ({ tags }) => {
-  const tagList = tags.map((el, i) => (
-    <button key={i} type="button" className={classes.preview__tags}>
-      {el}
-    </button>
-  ));
-  return <div>{tagList}</div>;
+const Tags = () => {
+  console.log("in Tags");
+  return <div className={classes.container}>tagList</div>;
 };
 
 export default Tags;

@@ -52,11 +52,6 @@
 .preview__title span:hover {
   cursor: pointer;
 }
-.preview__tags {
-  width: 27px;
-  height: 15px;
-  border: 1px solid dimgray;
-}
 .preview__description {
   vertical-align: baseline;
   font-family: Inter;
@@ -76,4 +71,17 @@
   padding: 15px;
   min-height: 90px;
   height: auto;
+}
+.preview__tags {
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgb(146, 120, 120);
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 2px;
+  outline: none;
+}
+.preview__tags:hover {
+  cursor: pointer;
 }

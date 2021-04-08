@@ -9,7 +9,8 @@ $alert: red;
   margin-top: 106px;
   padding: 15px 15px 24px 19px;
   width: 941px;
-  min-height: 701px;
+  // min-height: 701px;
+  height: auto;
   border-radius: 7px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   background-color: white;
@@ -81,5 +82,17 @@ $alert: red;
 .form-control:focus + .form-label.textarea,
 .form-control:not(:placeholder-shown) + .form-label.textarea {
   transform: translateY(-13.2em) translateX(10px);
-  color: rgb(87, 149, 230);
+}
+.btn{
+  margin-bottom: 7px;
+  margin-top: auto;
+}
+.ant-btn-primary{
+  height: 43px !important;
+  width: 280px;
+  border-radius: 5px !important;
+}
+.form div:nth-child(3){
+  min-height: 170px;
+  // border: 1px solid $alert;
 }
