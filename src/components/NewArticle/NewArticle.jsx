@@ -9,7 +9,7 @@ const NewArticle = () => {
 return (
   <div className={classes.container}>
     <span className={classes.article__title}>Create new article</span>
-    <form className={classes.form} onSubmit={onSubmit}>
+    <form id="article" className={classes.form} onSubmit={onSubmit}>
       <div className={classes["form-group"]}>
         <input
           type="text"
@@ -47,13 +47,13 @@ return (
           <span>Article text</span>
         </label>
       </div>
+      </form>
       <Tags />
       <div className={classes.btn}>
-        <Button type="primary" className={classes["ant-btn-primary"]}>
+        <Button type="primary" form="article" className={classes["ant-btn-primary"]}>
           Send
         </Button>
-      </div>
-    </form>
+      </div>  
   </div>
 );
 };

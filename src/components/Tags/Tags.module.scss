@@ -15,6 +15,7 @@ $alert: red;
   display: flex;
   // margin-top: 10px;
   margin-bottom: 0px;
+  width: auto;
   height: auto;
 }
 .form-group {
@@ -61,17 +62,27 @@ $alert: red;
   transform: translateY(-4.5em) translateX(10px);
   color: rgb(87, 149, 230);
 }
-// .btn-input{
-//   width: 150px;
+.btn-input{
+  width: 150px;
+  height: 48px !important;
+  border: 2px solid rgb(87, 149, 230) !important;
+  border-radius: 5px !important;
+  color:  rgb(87, 149, 230) !important;
+}
+// .ant-btn-primary {
+//   width: 140px;
 //   height: 48px !important;
 //   border: 2px solid rgb(87, 149, 230) !important;
+//   color:  rgb(87, 149, 230) !important;
+//   background-color: white !important;
 //   border-radius: 5px !important;
 // }
-.ant-btn-primary {
-  width: 150px;
-  height: 48px;
-  border: 2px solid rgb(87, 149, 230);
-  color:  rgb(87, 149, 230);
-  background-color: white;
-  border-radius: 5px;
+.alert-message {
+  color: $alert;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
+}
+.alert-border {
+  border-color: $alert;
 }
