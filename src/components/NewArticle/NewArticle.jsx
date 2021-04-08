@@ -32,6 +32,19 @@ return (
         <label htmlFor="shortdesc" className={classes["form-label"]}>
           <span>Short description</span>
         </label>
+      <div className={classes["form-group"]}>
+        <textarea
+          name="textarea"
+          className={classes["form-control"]}
+          placeholder=" "
+          id="textarea"
+        />
+        <label 
+          htmlFor="textarea"
+          className={[classes["form-label"], classes.textarea].join(" ")}>
+          <span>Article text</span>
+        </label>
+      </div>
       </div>    
     </form>
   </div>
