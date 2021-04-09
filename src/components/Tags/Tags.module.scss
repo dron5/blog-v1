@@ -8,7 +8,6 @@ $alert: red;
   margin-bottom: 5px;
   width: 520px;
   height: auto;
-  // border: 1px solid rebeccapurple;
 }
 .form {
   display: flex;
@@ -19,12 +18,9 @@ $alert: red;
 }
 .form-group {
   width: 330px;
-  // margin-bottom: 0.1em;
-  // margin-top: 0.4em;
   margin-right: 20px;
   transition: all 0.3s;
   height: 70px;
-  // border: 1px solid rgb(87, 149, 230);
 }
 .form-label {
   font-size: 1em;
@@ -78,11 +74,6 @@ $alert: red;
 .alert-border {
   border-color: $alert;
 }
-// .tag-list{
-//   height: auto;
-//   width: 100%;
-//   border: 1px solid rgb(87, 149, 230)
-// }
 .tag{
   margin-bottom: -17px;
 }

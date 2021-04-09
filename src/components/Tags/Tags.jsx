@@ -5,9 +5,12 @@ import { useForm } from "react-hook-form";
 
 import classes from "./Tags.module.scss";
 
-const Tags = ({tags}) => {
-  const { handleSubmit, register } = useForm();
-  const onSubmit = (data) => console.log(data);
+const Tags = ({setTags, tags}) => {
+  const { handleSubmit, register, reset } = useForm();
+  const onSubmit = (data) =>{
+    setTags([...tags, data.tag]);
+    reset();
+  };
   return (
     <div className={classes.container}>
       <MyTags tags={tags}/>
@@ -46,7 +49,7 @@ const MyTags = ({tags}) => {
         <input 
           className={`${classes["form-control"]}`}
           type="text"
-          defaultValue={name}
+          value={name}
           onChange={()=>{}}
         />
         </div>

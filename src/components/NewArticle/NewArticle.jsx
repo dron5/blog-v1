@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 // import { createArticleRequest } from "../../asyncActions/asyncStuff";
@@ -7,9 +7,11 @@ import classes from "./NewArticle.module.scss";
 import Tags from "../Tags";
 
 const NewArticle = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const initState = [];
+  const [tags, setTags] = useState(initState);
+  const { register, handleSubmit, errors} = useForm();
   const onSubmit = (data) => console.log(data);
-  const tags = ['abra', 'ca', 'da',];
+  console.log('tags in NA', tags);
   return (
     <div className={classes.container}>
       <span className={classes.article__title}>Create new article</span>
@@ -76,7 +78,7 @@ const NewArticle = () => {
           )}
         </div>
       </form>
-      <Tags tags={tags}/>
+      <Tags setTags={setTags} tags={tags}/>
       <div className={classes.btn}>
         <button
           type="submit"

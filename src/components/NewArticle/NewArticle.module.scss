@@ -1,6 +1,9 @@
 $backgroundColor: white;
 $alert: red;
 
+textarea{
+  box-sizing: border-box;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -35,7 +38,6 @@ $alert: red;
   margin-bottom: 0.6em;
   margin-top: 0.3em;
   transition: all 0.3s;
-  height: 70px;
 }
 .form-group textarea {
   min-height: 168px;
