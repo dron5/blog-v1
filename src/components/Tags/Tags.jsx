@@ -41,9 +41,8 @@ const Tags = ({tags}) => {
 
 const MyTags = ({tags}) => {
   const taglist = tags.map((name, i) =>
-    <div key={i} className={classes.tag}>
-      <form className={classes.form}>
-      {/* <div className={classes["form-group"]}> */}
+      <form className={classes.form} key={i}>
+      <div className={classes["form-group"]}>
         <input 
           className={`${classes["form-control"]}`}
           type="text"
@@ -57,13 +56,13 @@ const MyTags = ({tags}) => {
          >
           Delete
         </button>
-        {/* </div> */}
+        </div>
       </form>
-    </div>);
+    );
   return (
-    <div className={classes["tag-list"]}>
+    <>
       {taglist}
-    </div>
+    </>
   );
 };
 export default Tags;
