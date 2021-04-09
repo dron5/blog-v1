@@ -17,28 +17,19 @@ return (
         <input
           ref={register({
             required: true,
-            minLength: {
-              value: 1,
-              message: "It can not be empty",
-            },
           })}
           type="text"
           name="title"
-          className={
-            !errors.title
-                ? `${classes["form-control"]}`
-                : [classes["form-control"], classes["alert-border"]].join(" ")
-          }
+          className={`${classes["form-control"]}`}
           placeholder=" "
           id="title"
         />
         <label htmlFor="title" className={classes["form-label"]}>
           <span>Title</span>
         </label>
-        {/* {errors.title && "Your input is required"} */}
         {errors.title && (
             <p className={classes["alert-message"]}>
-              {errors.title.message}
+              It can not be empty
             </p>
           )}
       </div>
@@ -46,18 +37,10 @@ return (
         <input
           ref={register({
             required: true,
-            minLength: {
-              value: 1,
-              message: "It can not be empty",
-            },
           })}
           type="text"
           name="shortdesc"
-          className={
-            !errors.shortdesc
-                ? `${classes["form-control"]}`
-                : [classes["form-control"], classes["alert-border"]].join(" ")
-          }
+          className={`${classes["form-control"]}`}
           placeholder=" "
           id="shortdesc"
         />
@@ -66,7 +49,7 @@ return (
         </label>
         {errors.shortdesc && (
             <p className={classes["alert-message"]}>
-              {errors.shortdesc.message}
+              It can not be empty
             </p>
           )}
       </div>
@@ -74,28 +57,20 @@ return (
         <textarea
           ref={register({
             required: true,
-            minLength: {
-              value: 1,
-              message: "It can not be empty",
-            },
           })}
           name="textarea"
-          className={
-            !errors.tag
-                ? `${classes["form-control"]}`
-                : [classes["form-control"], classes["alert-border"]].join(" ")
-          }
+          className={`${classes["form-control"]}`}
           placeholder=" "
           id="textarea"
         />
         <label 
           htmlFor="textarea"
-          className={[classes["form-label"], classes.textarea].join(" ")}>
+          className={[classes["form-label"], classes.textarea,].join(" ")}>
           <span>Article text</span>
         </label>
         {errors.textarea && (
             <p className={classes["alert-message"]}>
-              {errors.textarea.message}
+              It can not be empty
             </p>
           )}
       </div>

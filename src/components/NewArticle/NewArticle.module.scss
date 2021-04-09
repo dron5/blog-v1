@@ -89,8 +89,8 @@ $alert: red;
   margin-top: auto;
 }
 .ant-btn-primary{
-  height: 43px !important;
-  width: 330px;
+  height: 45px !important;
+  width: 350px;
   border-radius: 5px !important;
   border: 2px solid rgb(87, 149, 230) !important;
   background-color:  rgb(87, 149, 230) !important;
@@ -104,7 +104,7 @@ $alert: red;
   color: $alert;
   font-size: 12px;
   margin-bottom: 0px;
-  transform: translateY(-22px);
+  transform: translateY(-22px) translateX(11px);
 }
 .alert-border {
   border-color: $alert;
