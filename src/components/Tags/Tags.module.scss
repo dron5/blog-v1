@@ -5,26 +5,26 @@ $alert: red;
   display: flex;
   flex-direction: column;
   margin-top: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   width: 500px;
-  // height: 160px;
   height: auto;
   // border: 1px solid rebeccapurple;
 }
 .form {
   display: flex;
-  // margin-top: 10px;
+  margin-top: 0.55em;
   margin-bottom: 0px;
   width: auto;
   height: auto;
 }
 .form-group {
   width: 330px;
-  margin-bottom: 0.6em;
-  // margin-top: 0.3em;
+  // margin-bottom: 0.1em;
+  // margin-top: 0.4em;
   margin-right: 20px;
   transition: all 0.3s;
   height: 70px;
+  // border: 1px solid rgb(87, 149, 230);
 }
 .form-label {
   font-size: 1em;
@@ -58,7 +58,7 @@ $alert: red;
 }
 .form-control:focus + .form-label,
 .form-control:not(:placeholder-shown) + .form-label {
-  transform: translateY(-4.5em) translateX(10px);
+  transform: translateY(-0.65em) translateX(10px);
   color: rgb(87, 149, 230);
 }
 .btn-input {
@@ -77,4 +77,9 @@ $alert: red;
 }
 .alert-border {
   border-color: $alert;
+}
+.mytags{
+  height: auto;
+  width: 100%;
+  border: 1px solid rgb(87, 149, 230)
 }

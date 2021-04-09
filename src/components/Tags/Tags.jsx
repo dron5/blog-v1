@@ -5,12 +5,12 @@ import { useForm } from "react-hook-form";
 
 import classes from "./Tags.module.scss";
 
-const Tags = () => {
+const Tags = ({tags}) => {
   const { handleSubmit, register, errors } = useForm();
-
   const onSubmit = (data) => console.log(data);
   return (
     <div className={classes.container}>
+      <MyTags tags={tags}/>
       <form
         id="setTag"
         className={classes.form} 
@@ -42,4 +42,12 @@ const Tags = () => {
   );
 };
 
+const MyTags = ({tags}) => {
+  const tag = tags.map((name, i) => <div key={i}>{name}</div>);
+  return (
+    <div className={classes.mytags}>
+      {tag}
+    </div>
+  );
+};
 export default Tags;
