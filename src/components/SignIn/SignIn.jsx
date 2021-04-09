@@ -12,7 +12,7 @@ import classes from "./SignIn.module.scss";
 const SignIn = ({ setAuthorizedFlagAction, setUserAction }) => {
   const { register, handleSubmit, errors, setError } = useForm();
   const history = useHistory();
-  
+
   const showErrors = () => {
     setError("password", {
       type: "manual",
