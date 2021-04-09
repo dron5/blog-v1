@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import classes from "./Tags.module.scss";
 
 const Tags = ({tags}) => {
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
     <div className={classes.container}>
@@ -30,9 +30,6 @@ const Tags = ({tags}) => {
           <label htmlFor="tag" className={classes["form-label"]}>
             <span>New tag</span>
           </label>
-          {errors.tag && (
-            <p className={classes["alert-message"]}>{errors.tag.message}</p>
-          )}
         </div>
         <button type="submit" className={classes["btn-input"]}>
           Add tag
@@ -43,10 +40,29 @@ const Tags = ({tags}) => {
 };
 
 const MyTags = ({tags}) => {
-  const tag = tags.map((name, i) => <div key={i}>{name}</div>);
+  const taglist = tags.map((name, i) =>
+    <div key={i} className={classes.tag}>
+      <form className={classes.form}>
+      {/* <div className={classes["form-group"]}> */}
+        <input 
+          className={`${classes["form-control"]}`}
+          type="text"
+          defaultValue={name}
+          onChange={()=>{}}
+        />
+        <button
+          type="submit"
+          onClick={(ev)=>{ev.preventDefault();}}
+          className={classes["btn-input"]}
+         >
+          Delete
+        </button>
+        {/* </div> */}
+      </form>
+    </div>);
   return (
-    <div className={classes.mytags}>
-      {tag}
+    <div className={classes["tag-list"]}>
+      {taglist}
     </div>
   );
 };
