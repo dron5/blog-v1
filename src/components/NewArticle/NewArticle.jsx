@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { useForm } from "react-hook-form";
+
+// import { createArticleRequest } from "../../asyncActions/asyncStuff";
 import classes from "./NewArticle.module.scss";
 import Tags from "../Tags";
 
 const NewArticle = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log('errors', errors);
-  // if(errors.title.message) console.log('errors.title.message', errors.title.message);
+    
 return (
   <div className={classes.container}>
     <span className={classes.article__title}>Create new article</span>
@@ -17,6 +18,7 @@ return (
         <input
           ref={register({
             required: true,
+            message: "fuck"
           })}
           type="text"
           name="title"
@@ -29,7 +31,7 @@ return (
         </label>
         {errors.title && (
             <p className={classes["alert-message"]}>
-              It can not be empty
+              It can`t be empty
             </p>
           )}
       </div>
@@ -39,17 +41,17 @@ return (
             required: true,
           })}
           type="text"
-          name="shortdesc"
+          name="description"
           className={`${classes["form-control"]}`}
           placeholder=" "
-          id="shortdesc"
+          id="description"
         />
-        <label htmlFor="shortdesc" className={classes["form-label"]}>
+        <label htmlFor="description" className={classes["form-label"]}>
           <span>Short description</span>
         </label>
-        {errors.shortdesc && (
+        {errors.description && (
             <p className={classes["alert-message"]}>
-              It can not be empty
+              It can`t be empty
             </p>
           )}
       </div>
@@ -58,19 +60,19 @@ return (
           ref={register({
             required: true,
           })}
-          name="textarea"
+          name="text"
           className={`${classes["form-control"]}`}
           placeholder=" "
-          id="textarea"
+          id="text"
         />
         <label 
-          htmlFor="textarea"
+          htmlFor="text"
           className={[classes["form-label"], classes.textarea,].join(" ")}>
           <span>Article text</span>
         </label>
-        {errors.textarea && (
+        {errors.text && (
             <p className={classes["alert-message"]}>
-              It can not be empty
+              It can`t be empty
             </p>
           )}
       </div>

@@ -4,6 +4,7 @@
 // GET /api/tags              Get Tags        +
 // POST /api/users            Registration    +
 // POST /api/users/login      Authentication  +
+// POST /api/articles         Create Article
 
 export const baseRequest = async (url, method = "GET", body, token) => {
   let headers = {
@@ -92,6 +93,25 @@ export const updateUserRequest = async (args, token) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/user`,
     "PUT",
+    (body = JSON.stringify(body)),
+    token
+  );
+  return response;
+};
+
+export const createArticleRequest = async (args, token) => {
+  const { title, description, text, taglist } = args;
+  let body = {
+    article: {
+      title,
+      description,
+      body: text,
+      taglist,
+    },
+  };
+  const response = await baseRequest(
+    `https://conduit.productionready.io/api/articles`,
+    "POST",
     (body = JSON.stringify(body)),
     token
   );

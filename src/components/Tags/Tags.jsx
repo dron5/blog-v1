@@ -7,7 +7,6 @@ import classes from "./Tags.module.scss";
 
 const Tags = () => {
   const { handleSubmit, register, errors} = useForm();
-  // console.log('errors', errors);
   
   const onSubmit = (data) => console.log(data);
   return(
