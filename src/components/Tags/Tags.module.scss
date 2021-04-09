@@ -4,9 +4,9 @@ $alert: red;
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 23px;
+  margin-top: 12px;
   margin-bottom: 5px;
-  width: 500px;
+  width: 520px;
   height: auto;
   // border: 1px solid rebeccapurple;
 }
@@ -83,9 +83,6 @@ $alert: red;
 //   width: 100%;
 //   border: 1px solid rgb(87, 149, 230)
 // }
-// .tag{
-//   display: flex;
-//   width: auto;
-//   height: auto;
-//   border: 1px solid blueviolet;
-// }
+.tag{
+  margin-bottom: -17px;
+}

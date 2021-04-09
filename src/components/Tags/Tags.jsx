@@ -41,7 +41,7 @@ const Tags = ({tags}) => {
 
 const MyTags = ({tags}) => {
   const taglist = tags.map((name, i) =>
-      <form className={classes.form} key={i}>
+      <form key={i} className={[classes.form, classes.tag].join(' ')}>
       <div className={classes["form-group"]}>
         <input 
           className={`${classes["form-control"]}`}
@@ -49,6 +49,7 @@ const MyTags = ({tags}) => {
           defaultValue={name}
           onChange={()=>{}}
         />
+        </div>
         <button
           type="submit"
           onClick={(ev)=>{ev.preventDefault();}}
@@ -56,7 +57,7 @@ const MyTags = ({tags}) => {
          >
           Delete
         </button>
-        </div>
+        
       </form>
     );
   return (

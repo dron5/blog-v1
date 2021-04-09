@@ -9,7 +9,7 @@ import Tags from "../Tags";
 const NewArticle = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
-  const tags = ['abra',];
+  const tags = ['abra', 'ca', 'da',];
   return (
     <div className={classes.container}>
       <span className={classes.article__title}>Create new article</span>
