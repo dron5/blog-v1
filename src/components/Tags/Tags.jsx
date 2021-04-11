@@ -5,15 +5,15 @@ import { useForm } from "react-hook-form";
 
 import classes from "./Tags.module.scss";
 
-const Tags = ({setTags, tags}) => {
+const Tags = ({toSetTag, toRemoveTag, tags}) => {
   const { handleSubmit, register, reset } = useForm();
   const onSubmit = (data) =>{
-    setTags([...tags, data.tag]);
+    toSetTag(data.tag);
     reset();
   };
   return (
     <div className={classes.container}>
-      <MyTags tags={tags}/>
+      <MyTags tags={tags} toRemoveTag={toRemoveTag}/>
       <form
         id="setTag"
         className={classes.form} 
@@ -42,9 +42,9 @@ const Tags = ({setTags, tags}) => {
   );
 };
 
-const MyTags = ({tags}) => {
+const MyTags = ({tags, toRemoveTag}) => {
   const taglist = tags.map((name, i) =>
-      <form key={i} className={[classes.form, classes.tag].join(' ')}>
+      <form key={i} className={[classes.form, classes.tag].join(' ')} >
       <div className={classes["form-group"]}>
         <input 
           className={`${classes["form-control"]}`}
@@ -55,8 +55,11 @@ const MyTags = ({tags}) => {
         </div>
         <button
           type="submit"
-          onClick={(ev)=>{ev.preventDefault();}}
-          className={classes["btn-input"]}
+          onClick={toRemoveTag}
+          className={
+            [classes["btn-input"], classes["btn-del"]].join(' ')
+          }
+          name={name}
          >
           Delete
         </button>

@@ -1,17 +1,35 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { useForm } from "react-hook-form";
 
 // import { createArticleRequest } from "../../asyncActions/asyncStuff";
 import classes from "./NewArticle.module.scss";
 import Tags from "../Tags";
 
-const NewArticle = () => {
+import { getUserSelector } from "../../store/selectors";
+
+const NewArticle = ({ user }) => {
   const initState = [];
   const [tags, setTags] = useState(initState);
   const { register, handleSubmit, errors} = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log('tags in NA', tags);
+
+  const toSetTag = (data) => {
+    setTags([...tags, data]);
+  };
+
+  const toRemoveTag = (event) => {
+    event.preventDefault();
+    setTags(tags.filter((el)=> el !== event.target.name));
+  };
+
+  const onSubmit = (data) => {
+    console.log(user.token, {...data, tagList:tags});
+    // const args = {...data, tagList:tags};
+    // const {token} = user.token;
+    // createArticleRequest(args, token);
+  };
+
   return (
     <div className={classes.container}>
       <span className={classes.article__title}>Create new article</span>
@@ -78,7 +96,7 @@ const NewArticle = () => {
           )}
         </div>
       </form>
-      <Tags setTags={setTags} tags={tags}/>
+      <Tags toSetTag={toSetTag} toRemoveTag={toRemoveTag} tags={tags}/>
       <div className={classes.btn}>
         <button
           type="submit"
@@ -91,4 +109,9 @@ const NewArticle = () => {
     </div>
   );
 };
-export default NewArticle;
+
+const mapStateToProps = (state) => ({
+  user: getUserSelector(state),
+});
+
+export default connect(mapStateToProps)(NewArticle);
