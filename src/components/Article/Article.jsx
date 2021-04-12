@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { fetchArticle } from "../../asyncActions/asyncStuff";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
@@ -10,7 +11,8 @@ import { getUserSelector } from "../../store/selectors";
 
 const Article = ({ slug, user }) => {
   const [oneArticle, setOneArticle] = useState(null);
-  const {username} = user;
+  const { username } = user;
+  const history = useHistory();
   useEffect(() => {
     const request = async () => {
       const { article } = await fetchArticle({ slug });
@@ -18,10 +20,19 @@ const Article = ({ slug, user }) => {
     };
     request();
   }, [slug]);
+  const toEdit = () => {
+    history.push(`/articles/${slug}/edit`);
+  };
   return (
     <div className={classes.article}>
-      {oneArticle && 
-        <ArticlePreview {...oneArticle} username={username} theOne />}
+      {oneArticle && (
+        <ArticlePreview
+         {...oneArticle}
+          username={username}
+          toEdit={oneArticle ? toEdit : null}
+          theOne
+        />
+      )}
     </div>
   );
 };

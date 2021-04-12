@@ -4,7 +4,9 @@
 // GET /api/tags              Get Tags        +
 // POST /api/users            Registration    +
 // POST /api/users/login      Authentication  +
-// POST /api/articles         Create Article
+// POST /api/articles         Create Article  +
+// PUT /api/articles/:slug    Update Article
+// DELETE /api/articles/:slug  Delete Article
 
 export const baseRequest = async (url, method = "GET", body, token) => {
   let headers = {
@@ -100,13 +102,13 @@ export const updateUserRequest = async (args, token) => {
 };
 
 export const createArticleRequest = async (args, token) => {
-  const { title, description, text, taglist } = args;
+  const { title, description, text, tagList } = args;
   let body = {
     article: {
       title,
       description,
       body: text,
-      taglist,
+      tagList,
     },
   };
   const response = await baseRequest(
@@ -117,3 +119,28 @@ export const createArticleRequest = async (args, token) => {
   );
   return response;
 };
+
+export const editArticleRequest = async (args, token) => {
+  const { title, slug, description, text, tagList } = args;
+  let body = {
+    article: {
+      title,
+      description,
+      body: text,
+      tagList,
+    },
+  };
+  const response = await baseRequest(
+    `https://conduit.productionready.io/api/articles/${slug}`,
+    "PUT",
+    (body = JSON.stringify(body)),
+    token
+  );
+  return response;
+};
+
+// {
+//   "article": {
+//     "title": "Did you train your dragon?"
+//   }
+// }

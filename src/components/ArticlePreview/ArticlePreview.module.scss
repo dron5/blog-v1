@@ -88,17 +88,17 @@ $green: #52c41a;
 .preview__tags:hover {
   cursor: pointer;
 }
-.preview__description-wrapper{
+.preview__description-wrapper {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.button-wrapper{
+.button-wrapper {
   // border: 1px solid yellowgreen;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-.btn{
+.btn {
   height: 32px;
   width: 73px;
   box-sizing: border-box;
@@ -113,11 +113,11 @@ $green: #52c41a;
   line-height: 24px;
   margin: 0 0 0 14px;
 }
-.btn-del{
+.btn-del {
   border: 1px solid $alert;
   color: $alert;
 }
-.btn-edit{
+.btn-edit {
   border: 1px solid $green;
   color: $green;
 }

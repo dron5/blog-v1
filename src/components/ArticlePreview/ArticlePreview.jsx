@@ -19,7 +19,8 @@ const ArticlePreview = ({
   author,
   slug,
   theOne,
-  username
+  username,
+  toEdit
 }) => (
   <div className={classes.preview}>
     <div className={classes.preview__header}>
@@ -39,23 +40,24 @@ const ArticlePreview = ({
       </div>
     </div>
     <div className={classes["preview__description-wrapper"]}>
-    <div className={classes.preview__description}>{description}</div>
-    {(theOne && author.username === username) && (
-      <div className={classes["button-wrapper"]}>
-        <button type="button"
-          className={
-            [classes.btn, classes["btn-del"]].join(' ')
-            }>
-            Delet
-        </button>
-        <button type="button" 
-          className={
-            [classes.btn, classes["btn-edit"]].join(' ')
-            }>
+      <div className={classes.preview__description}>{description}</div>
+      {theOne && author.username === username && (
+        <div className={classes["button-wrapper"]}>
+          <button
+            type="button"
+            className={[classes.btn, classes["btn-del"]].join(" ")}
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            onClick={toEdit}
+            className={[classes.btn, classes["btn-edit"]].join(" ")}
+          >
             Edit
-        </button>
-      </div>
-    )}
+          </button>
+        </div>
+      )}
     </div>
     {theOne && (
       <div className={classes.preview__body}>

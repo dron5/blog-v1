@@ -63,7 +63,7 @@ $alert: red;
   color: rgb(87, 149, 230);
   background-color: $backgroundColor;
 }
-.btn-del{
+.btn-del {
   color: $alert;
   border-color: $alert;
   outline: none;
@@ -77,6 +77,6 @@ $alert: red;
 .alert-border {
   border-color: $alert;
 }
-.tag{
+.tag {
   margin-bottom: -17px;
 }

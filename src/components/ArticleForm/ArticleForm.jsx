@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { useForm } from "react-hook-form";
 
 import classes from "./ArticleForm.module.scss";
 import Tags from "../Tags";
 
-import { getUserSelector } from "../../store/selectors";
-
-const NewArticle = ({ user, sendArticle }) => {
+const ArticleForm = ({ sendArticle, dataForEdit }) => {
   const initState = [];
-  const [tags, setTags] = useState(initState);
-  const { register, handleSubmit, errors} = useForm();
+  const [tags, setTags] = useState(dataForEdit ? [...dataForEdit.tagList] : initState);
+  const { register, handleSubmit, errors } = useForm();
 
   const toSetTag = (data) => {
     setTags([...tags, data]);
@@ -19,15 +16,19 @@ const NewArticle = ({ user, sendArticle }) => {
 
   const toRemoveTag = (event) => {
     event.preventDefault();
-    setTags(tags.filter((el)=> el !== event.target.name));
+    setTags(tags.filter((el) => el !== event.target.name));
   };
 
-  const onSubmit = (data) => {
-    // console.log(user.token, {...data, tagList:tags});
-    const args = {...data, tagList:tags};
-    const {token} = user.token;
-    sendArticle(args, token);
-  };
+  // const onSubmit = async (data) => {
+  //   const args = { ...data, tagList: tags };
+  //   const { token } = user;
+  //   console.log('args', args);
+  //   const answer = await sendArticle(args, token);
+  //   const {article} = answer;
+  //   history.push(`/articles/${article.slug}`);
+  // };
+
+  const onSubmit = (data) => sendArticle(data, tags);
 
   return (
     <div className={classes.container}>
@@ -48,6 +49,7 @@ const NewArticle = ({ user, sendArticle }) => {
             className={`${classes["form-control"]}`}
             placeholder=" "
             id="title"
+            defaultValue={dataForEdit ? dataForEdit.title : null}
           />
           <label htmlFor="title" className={classes["form-label"]}>
             <span>Title</span>
@@ -66,6 +68,7 @@ const NewArticle = ({ user, sendArticle }) => {
             className={`${classes["form-control"]}`}
             placeholder=" "
             id="description"
+            defaultValue={dataForEdit ? dataForEdit.description : null}
           />
           <label htmlFor="description" className={classes["form-label"]}>
             <span>Short description</span>
@@ -83,6 +86,7 @@ const NewArticle = ({ user, sendArticle }) => {
             className={`${classes["form-control"]}`}
             placeholder=" "
             id="text"
+            defaultValue={dataForEdit ? dataForEdit.text : null}
           />
           <label
             htmlFor="text"
@@ -95,7 +99,7 @@ const NewArticle = ({ user, sendArticle }) => {
           )}
         </div>
       </form>
-      <Tags toSetTag={toSetTag} toRemoveTag={toRemoveTag} tags={tags}/>
+      <Tags toSetTag={toSetTag} toRemoveTag={toRemoveTag} tags={tags} />
       <div className={classes.btn}>
         <button
           type="submit"
@@ -109,8 +113,4 @@ const NewArticle = ({ user, sendArticle }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  user: getUserSelector(state),
-});
-
-export default connect(mapStateToProps)(NewArticle);
+export default ArticleForm;

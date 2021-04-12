@@ -5,18 +5,18 @@ import { useForm } from "react-hook-form";
 
 import classes from "./Tags.module.scss";
 
-const Tags = ({toSetTag, toRemoveTag, tags}) => {
+const Tags = ({ toSetTag, toRemoveTag, tags }) => {
   const { handleSubmit, register, reset } = useForm();
-  const onSubmit = (data) =>{
+  const onSubmit = (data) => {
     toSetTag(data.tag);
     reset();
   };
   return (
     <div className={classes.container}>
-      <MyTags tags={tags} toRemoveTag={toRemoveTag}/>
+      <MyTags tags={tags} toRemoveTag={toRemoveTag} />
       <form
         id="setTag"
-        className={classes.form} 
+        className={classes.form}
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className={classes["form-group"]}>
@@ -42,34 +42,27 @@ const Tags = ({toSetTag, toRemoveTag, tags}) => {
   );
 };
 
-const MyTags = ({tags, toRemoveTag}) => {
-  const taglist = tags.map((name, i) =>
-      <form key={i} className={[classes.form, classes.tag].join(' ')} >
+const MyTags = ({ tags, toRemoveTag }) => {
+  const taglist = tags.map((name, i) => (
+    <form key={i} className={[classes.form, classes.tag].join(" ")}>
       <div className={classes["form-group"]}>
-        <input 
+        <input
           className={`${classes["form-control"]}`}
           type="text"
           value={name}
-          onChange={()=>{}}
+          onChange={() => {}}
         />
-        </div>
-        <button
-          type="submit"
-          onClick={toRemoveTag}
-          className={
-            [classes["btn-input"], classes["btn-del"]].join(' ')
-          }
-          name={name}
-         >
-          Delete
-        </button>
-        
-      </form>
-    );
-  return (
-    <>
-      {taglist}
-    </>
-  );
+      </div>
+      <button
+        type="submit"
+        onClick={toRemoveTag}
+        className={[classes["btn-input"], classes["btn-del"]].join(" ")}
+        name={name}
+      >
+        Delete
+      </button>
+    </form>
+  ));
+  return <>{taglist}</>;
 };
 export default Tags;
