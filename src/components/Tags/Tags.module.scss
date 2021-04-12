@@ -66,6 +66,7 @@ $alert: red;
 .btn-del{
   color: $alert;
   border-color: $alert;
+  outline: none;
 }
 .alert-message {
   color: $alert;

@@ -1,3 +1,6 @@
+$alert: red;
+$green: #52c41a;
+
 .preview {
   display: flex;
   flex-direction: column;
@@ -84,4 +87,37 @@
 }
 .preview__tags:hover {
   cursor: pointer;
+}
+.preview__description-wrapper{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.button-wrapper{
+  // border: 1px solid yellowgreen;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.btn{
+  height: 32px;
+  width: 73px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 0 14px;
+}
+.btn-del{
+  border: 1px solid $alert;
+  color: $alert;
+}
+.btn-edit{
+  border: 1px solid $green;
+  color: $green;
 }

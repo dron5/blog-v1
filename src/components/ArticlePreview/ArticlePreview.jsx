@@ -19,6 +19,7 @@ const ArticlePreview = ({
   author,
   slug,
   theOne,
+  username
 }) => (
   <div className={classes.preview}>
     <div className={classes.preview__header}>
@@ -37,7 +38,25 @@ const ArticlePreview = ({
         <img src={author.image || noavatar} alt="avatar" />
       </div>
     </div>
+    <div className={classes["preview__description-wrapper"]}>
     <div className={classes.preview__description}>{description}</div>
+    {(theOne && author.username === username) && (
+      <div className={classes["button-wrapper"]}>
+        <button type="button"
+          className={
+            [classes.btn, classes["btn-del"]].join(' ')
+            }>
+            Delet
+        </button>
+        <button type="button" 
+          className={
+            [classes.btn, classes["btn-edit"]].join(' ')
+            }>
+            Edit
+        </button>
+      </div>
+    )}
+    </div>
     {theOne && (
       <div className={classes.preview__body}>
         <ReactMarkdown source={body} />
