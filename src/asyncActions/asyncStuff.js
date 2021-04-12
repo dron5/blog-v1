@@ -130,6 +130,7 @@ export const editArticleRequest = async (args, token) => {
       tagList,
     },
   };
+  console.log("inEditRequest", body);
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles/${slug}`,
     "PUT",
@@ -138,9 +139,3 @@ export const editArticleRequest = async (args, token) => {
   );
   return response;
 };
-
-// {
-//   "article": {
-//     "title": "Did you train your dragon?"
-//   }
-// }

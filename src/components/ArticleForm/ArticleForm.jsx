@@ -6,6 +6,7 @@ import classes from "./ArticleForm.module.scss";
 import Tags from "../Tags";
 
 const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
+  console.log('data for edit :', dataForEdit);
   const initState = [];
   const [tags, setTags] = useState(
     dataForEdit ? [...dataForEdit.tagList] : initState
@@ -20,15 +21,6 @@ const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
     event.preventDefault();
     setTags(tags.filter((el) => el !== event.target.name));
   };
-
-  // const onSubmit = async (data) => {
-  //   const args = { ...data, tagList: tags };
-  //   const { token } = user;
-  //   console.log('args', args);
-  //   const answer = await sendArticle(args, token);
-  //   const {article} = answer;
-  //   history.push(`/articles/${article.slug}`);
-  // };
 
   const onSubmit = (data) => sendArticle(data, tags);
 
@@ -88,7 +80,7 @@ const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
             className={`${classes["form-control"]}`}
             placeholder=" "
             id="text"
-            defaultValue={dataForEdit ? dataForEdit.text : null}
+            defaultValue={dataForEdit ? dataForEdit.body : null}
           />
           <label
             htmlFor="text"

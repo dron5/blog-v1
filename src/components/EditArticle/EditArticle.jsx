@@ -25,19 +25,22 @@ const EditArticle = ({ user, match }) => {
   }, [slug]);
 
   const toEditArticle = async (data, tags) => {
-    const args = { ...data, tagList: tags };
+    console.log('data In Edit Article', data);
+    const args = { ...data, tagList: tags, slug };
     const { token } = user;
     const answer = await editArticleRequest(args, token, slug);
     const { article } = answer;
     history.push(`/articles/${article.slug}`);
   };
   return (
-    <ArticleForm
+    <>
+    {oneArticle && <ArticleForm
       sendArticle={toEditArticle}
       user={user}
-      article={oneArticle}
+      dataForEdit={oneArticle}
       pageTitle="Edit article"
-    />
+    />}
+    </>
   );
 };
 
