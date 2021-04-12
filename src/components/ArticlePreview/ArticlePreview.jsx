@@ -20,7 +20,7 @@ const ArticlePreview = ({
   slug,
   theOne,
   username,
-  toEdit
+  toEdit,
 }) => (
   <div className={classes.preview}>
     <div className={classes.preview__header}>

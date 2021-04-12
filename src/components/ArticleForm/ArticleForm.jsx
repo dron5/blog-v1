@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import classes from "./ArticleForm.module.scss";
 import Tags from "../Tags";
 
-const ArticleForm = ({ sendArticle, dataForEdit }) => {
+const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
   const initState = [];
-  const [tags, setTags] = useState(dataForEdit ? [...dataForEdit.tagList] : initState);
+  const [tags, setTags] = useState(
+    dataForEdit ? [...dataForEdit.tagList] : initState
+  );
   const { register, handleSubmit, errors } = useForm();
 
   const toSetTag = (data) => {
@@ -32,7 +34,7 @@ const ArticleForm = ({ sendArticle, dataForEdit }) => {
 
   return (
     <div className={classes.container}>
-      <span className={classes.article__title}>Create new article</span>
+      <span className={classes.article__title}>{pageTitle}</span>
       <form
         id="article"
         className={classes.form}

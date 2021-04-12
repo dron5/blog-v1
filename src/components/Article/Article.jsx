@@ -27,7 +27,7 @@ const Article = ({ slug, user }) => {
     <div className={classes.article}>
       {oneArticle && (
         <ArticlePreview
-         {...oneArticle}
+          {...oneArticle}
           username={username}
           toEdit={oneArticle ? toEdit : null}
           theOne

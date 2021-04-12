@@ -15,17 +15,18 @@ const NewArticle = ({ user }) => {
     const args = { ...data, tagList: tags };
     const { token } = user;
     const answer = await createArticleRequest(args, token);
-    const {article} = answer;
+    const { article } = answer;
     history.push(`/articles/${article.slug}`);
   };
 
   return (
-      <ArticleForm 
-        sendArticle={toCreateArticle} 
-        user={user}
-        article={null}
-        />
-    );
+    <ArticleForm
+      sendArticle={toCreateArticle}
+      user={user}
+      article={null}
+      pageTitle="Create new article"
+    />
+  );
 };
 
 const mapStateToProps = (state) => ({
