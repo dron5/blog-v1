@@ -7,7 +7,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/store";
 import App from "./App";
 import "antd/dist/antd.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   // <CookiesProvider>

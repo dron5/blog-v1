@@ -1,5 +1,6 @@
 $alert: red;
 $green: #52c41a;
+$background: white;
 
 .preview {
   display: flex;
@@ -95,6 +96,7 @@ $green: #52c41a;
 }
 .button-wrapper {
   // border: 1px solid yellowgreen;
+  display: flex;
   margin-top: 20px;
   margin-bottom: 15px;
 }
@@ -116,8 +118,45 @@ $green: #52c41a;
 .btn-del {
   border: 1px solid $alert;
   color: $alert;
+  background-color: $background;
 }
 .btn-edit {
   border: 1px solid $green;
   color: $green;
+}
+.btn-primary {
+  color: $alert !important;
+  background-color: $background !important;
+  border: 1px solid $alert !important;
+  height: 32px;
+  width: 73px;
+  box-sizing: border-box !important;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none !important;
+  padding: 0px !important;
+}
+.btn-primary:focus{
+  box-shadow: none !important;
+}
+// .modal-dialog{
+  // max-width: 300px !important;
+//   margin-top: 2.75rem !important;
+// }
+// .modal{
+//   top: 170px !important;
+// }
+.modal{
+  position: absolute;
+  top: 0px;
+  right: -188px;
+  width: 180px;
+  height: 100px;
+  border: 1px solid $green;
+}
+.modalWrapper{
+  position: relative;
+}
+.hidden{
+  display: none;
 }
