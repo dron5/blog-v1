@@ -95,7 +95,6 @@ $background: white;
   justify-content: space-between;
 }
 .button-wrapper {
-  // border: 1px solid yellowgreen;
   display: flex;
   margin-top: 20px;
   margin-bottom: 15px;
@@ -140,6 +139,7 @@ $background: white;
   box-shadow: none !important;
 }
 .modal{
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -150,10 +150,37 @@ $background: white;
   height: 100px;
   border: 1px solid $green;
   background-color: $background;
+  border-radius: 4px;
 }
 .modal-wrapper{
   position: relative;
 }
 .hidden{
   display: none;
+}
+.btn-confirm{
+  height: 23px;
+  width: 38px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+.btn-box{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+.delete__title{
+  display: inline-block;
+  margin-top: 7px;
+  text-align: center;
+}
+.delete__arrow{
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-7px) translateY(3px) rotate(45deg);
+  background-color: $background;
+  border-left: 1px solid $green;
+  border-bottom: 1px solid $green;
 }
