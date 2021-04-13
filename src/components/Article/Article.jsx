@@ -11,7 +11,7 @@ import { getUserSelector } from "../../store/selectors";
 
 const Article = ({ slug, user }) => {
   const [oneArticle, setOneArticle] = useState(null);
-  const { username } = user;
+  const { username, token } = user;
   const history = useHistory();
   useEffect(() => {
     const request = async () => {
@@ -29,6 +29,7 @@ const Article = ({ slug, user }) => {
         <ArticlePreview
           {...oneArticle}
           username={username}
+          token={token}
           toEdit={oneArticle ? toEdit : null}
           theOne
         />

@@ -1,14 +1,23 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
+import {deleteArticleRequest} from "../../asyncActions/asyncStuff";
 import classes from "./ArticlePreview.module.scss";
 
-const Delete = () => {
+const Delete = ({slug, token}) => {
   const [show, setShow] = useState(false);
+  const history = useHistory();
   const onDelet = () => setShow(()=>true);
-  const onConfirmYes = () => setShow(false);
   const onConfirmNo = () => setShow(false);
-  console.log('show', show);
+  const onConfirmYes = async () =>{
+    const answer = await deleteArticleRequest(slug, token);
+    console.log('answer in Delete', answer);
+    setShow(false);
+    history.push(`/articles`);
+  };
+
   return (
     <div className={classes["modal-wrapper"]}>
       <button 

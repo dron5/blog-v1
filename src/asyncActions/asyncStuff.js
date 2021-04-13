@@ -8,7 +8,7 @@
 // PUT /api/articles/:slug    Update Article
 // DELETE /api/articles/:slug  Delete Article
 
-export const baseRequest = async (url, method = "GET", body, token) => {
+export const baseRequest = async (url, method = "GET", body = null, token) => {
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };
@@ -137,4 +137,28 @@ export const editArticleRequest = async (args, token) => {
     token
   );
   return response;
+};
+
+// export const deleteArticleRequest = async (slug, token) => {
+//   console.log('token and slug', token, slug);
+//   const response = await baseRequest(
+//     `https://conduit.productionready.io/api//articles/${slug}`,
+//     "DELETE",
+//     token
+//   );
+//   return response;
+// };
+
+export const deleteArticleRequest = async (slug, token) => {
+  const res = await fetch(
+    `https://conduit.productionready.io/api/articles/${slug}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: `Token ${token}`,
+      },
+    }
+  );
+  return res.json();
 };

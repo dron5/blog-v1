@@ -22,6 +22,7 @@ const ArticlePreview = ({
   theOne,
   username,
   toEdit,
+  token
 }) => (
   <div className={classes.preview}>
     <div className={classes.preview__header}>
@@ -44,13 +45,7 @@ const ArticlePreview = ({
       <div className={classes.preview__description}>{description}</div>
       {theOne && author.username === username && (
         <div className={classes["button-wrapper"]}>
-          <Delete />
-          {/* <button
-            type="button"
-            className={[classes.btn, classes["btn-del"]].join(" ")}
-          >
-            Delete
-          </button> */}
+          <Delete slug={slug} token={token} />
           <button
             type="button"
             onClick={toEdit}
