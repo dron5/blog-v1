@@ -25,7 +25,6 @@ const EditArticle = ({ user, match }) => {
   }, [slug]);
 
   const toEditArticle = async (data, tags) => {
-    console.log('data In Edit Article', data);
     const args = { ...data, tagList: tags, slug };
     const { token } = user;
     const answer = await editArticleRequest(args, token, slug);
@@ -34,12 +33,14 @@ const EditArticle = ({ user, match }) => {
   };
   return (
     <>
-    {oneArticle && <ArticleForm
-      sendArticle={toEditArticle}
-      user={user}
-      dataForEdit={oneArticle}
-      pageTitle="Edit article"
-    />}
+      {oneArticle && (
+        <ArticleForm
+          sendArticle={toEditArticle}
+          user={user}
+          dataForEdit={oneArticle}
+          pageTitle="Edit article"
+        />
+      )}
     </>
   );
 };

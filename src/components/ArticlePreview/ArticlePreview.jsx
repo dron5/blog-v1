@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
 import Likes from "../Likes/Likes";
+import Example from "./Modal";
 import classes from "./ArticlePreview.module.scss";
 import noavatar from "../../img/avatar.png";
 
@@ -43,12 +44,13 @@ const ArticlePreview = ({
       <div className={classes.preview__description}>{description}</div>
       {theOne && author.username === username && (
         <div className={classes["button-wrapper"]}>
-          <button
+          <Example />
+          {/* <button
             type="button"
             className={[classes.btn, classes["btn-del"]].join(" ")}
           >
             Delete
-          </button>
+          </button> */}
           <button
             type="button"
             onClick={toEdit}
