@@ -5,10 +5,9 @@ import classes from "./ArticlePreview.module.scss";
 
 const Delete = () => {
   const [show, setShow] = useState(false);
-  console.log('inDelete :', show);
   const onClick = () => setShow(()=>!show);
   return (
-    <div className={classes.modalWrapper}>
+    <div className={classes["modal-wrapper"]}>
       <button 
         type="button"
         onClick={onClick}
@@ -17,9 +16,15 @@ const Delete = () => {
         Delete
       </button>
       <div className={
-        classes.modal
+        show 
+          ? `${classes.modal}`
+          : `${classes.modal} ${classes.hidden}`
       }>
-        <button type="button">Ok</button>
+        <span>A you sure?</span>
+        <div>
+          <button type="button">Yes</button>
+          <button type="button">No</button>
+        </div>
       </div>
     </div>
   );
