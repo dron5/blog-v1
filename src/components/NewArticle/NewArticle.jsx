@@ -5,10 +5,10 @@ import { useHistory } from "react-router-dom";
 
 import ArticleForm from "../ArticleForm/ArticleForm";
 import { createArticleRequest } from "../../asyncActions/asyncStuff";
-
+import * as fetch from "../../store/actions";
 import { getUserSelector } from "../../store/selectors";
 
-const NewArticle = ({ user }) => {
+const NewArticle = ({ addArticlesAction, user }) => {
   const history = useHistory();
 
   const toCreateArticle = async (data, tags) => {
@@ -16,6 +16,7 @@ const NewArticle = ({ user }) => {
     const { token } = user;
     const answer = await createArticleRequest(args, token);
     const { article } = answer;
+    await addArticlesAction();
     history.push(`/articles/${article.slug}`);
   };
 
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => ({
   user: getUserSelector(state),
 });
 
-export default connect(mapStateToProps)(NewArticle);
+export default connect(mapStateToProps, fetch)(NewArticle);

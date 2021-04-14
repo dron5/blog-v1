@@ -1,6 +1,6 @@
 import { fetchArticles } from "../asyncActions/asyncStuff";
 
-export const addArticlesAction = (offset) => async (dispatch) => {
+export const addArticlesAction = (offset = 0) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   const response = await fetchArticles(offset);
   const { articles, articlesCount } = response;
@@ -15,4 +15,5 @@ export const addCurrentPageAction = (currentPage) => (dispatch) => {
 export const setAuthorizedFlagAction = (status) => (dispatch) => {
   dispatch({ type: "AUTHORIZED", payload: status });
 };
+
 export const setUserAction = (user) => ({ type: "SETUSER", payload: user });

@@ -5,10 +5,17 @@
 // POST /api/users            Registration    +
 // POST /api/users/login      Authentication  +
 // POST /api/articles         Create Article  +
-// PUT /api/articles/:slug    Update Article
-// DELETE /api/articles/:slug  Delete Article
+// PUT /api/articles/:slug    Update Article  +
+// DELETE /api/articles/:slug           Delete Article      +
+// POST /api/articles/:slug/favorite    Favorite Article    +
+// DELETE /api/articles/:slug/favorite  Unfavorite Article
 
-export const baseRequest = async (url, method = "GET", body = null, token) => {
+export const baseRequest = async (
+  url,
+  method = "GET",
+  body = undefined,
+  token
+) => {
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };
@@ -150,7 +157,7 @@ export const editArticleRequest = async (args, token) => {
 // };
 
 export const deleteArticleRequest = async (slug, token) => {
-  const res = await fetch(
+  const response = await fetch(
     `https://conduit.productionready.io/api/articles/${slug}`,
     {
       method: "DELETE",
@@ -160,5 +167,33 @@ export const deleteArticleRequest = async (slug, token) => {
       },
     }
   );
-  return res.json();
+  return response.json();
+};
+
+export const favoriteArticleRequest = async (slug, token) => {
+  const response = await fetch(
+    `https://conduit.productionready.io/api/articles/${slug}/favorite`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: `Token ${token}`,
+      },
+    }
+  );
+  return response.json();
+};
+
+export const unFavoriteArticleRequest = async (slug, token) => {
+  const response = await fetch(
+    `https://conduit.productionready.io/api/articles/${slug}/favorite`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: `Token ${token}`,
+      },
+    }
+  );
+  return response.json();
 };

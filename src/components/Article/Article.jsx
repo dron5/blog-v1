@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { fetchArticle } from "../../asyncActions/asyncStuff";
+import {fetchArticle} from "../../asyncActions/asyncStuff";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import classes from "./Article.module.scss";
 
@@ -13,6 +13,9 @@ const Article = ({ slug, user }) => {
   const [oneArticle, setOneArticle] = useState(null);
   const { username, token } = user;
   const history = useHistory();
+  // useEffect(()=>{
+  //   setOneArticle(article);
+  // },[slug, article]);
   useEffect(() => {
     const request = async () => {
       const { article } = await fetchArticle({ slug });

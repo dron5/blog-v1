@@ -21,15 +21,16 @@ const ArticlePreview = ({
   slug,
   theOne,
   username,
+  favorited,
   toEdit,
-  token
+  token,
 }) => (
   <div className={classes.preview}>
     <div className={classes.preview__header}>
       <div className={classes["preview__short-desc"]}>
         <div className={classes.preview__title}>
           <Link to={`/articles/${slug}`}>{title}</Link>
-          <Likes likes={favoritesCount} />
+          <Likes likes={favoritesCount}  favorited={favorited} slug={slug} token={token}/>
         </div>
         <Tags tags={tagList} />
       </div>

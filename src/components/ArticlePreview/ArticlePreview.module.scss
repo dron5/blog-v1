@@ -136,10 +136,10 @@ $border: #e5e5e5;
   outline: none !important;
   padding: 0px !important;
 }
-.btn-primary:focus{
+.btn-primary:focus {
   box-shadow: none !important;
 }
-.modal{
+.modal {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -153,30 +153,30 @@ $border: #e5e5e5;
   background-color: $background;
   border-radius: 4px;
 }
-.modal-wrapper{
+.modal-wrapper {
   position: relative;
 }
-.hidden{
+.hidden {
   display: none;
 }
-.btn-confirm{
+.btn-confirm {
   height: 23px;
   width: 38px;
   border: 1px solid $border;
   border-radius: 3px;
 }
-.btn-box{
+.btn-box {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 8px;
   margin-right: 8px;
 }
-.delete__title{
+.delete__title {
   display: inline-block;
   margin-top: 7px;
   text-align: center;
 }
-.delete__arrow{
+.delete__arrow {
   position: absolute;
   width: 14px;
   height: 14px;
