@@ -6,7 +6,6 @@ import classes from "./ArticleForm.module.scss";
 import Tags from "../Tags";
 
 const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
-  console.log("data for edit :", dataForEdit);
   const initState = [];
   const [tags, setTags] = useState(
     dataForEdit ? [...dataForEdit.tagList] : initState

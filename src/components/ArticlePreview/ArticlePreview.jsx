@@ -30,7 +30,12 @@ const ArticlePreview = ({
       <div className={classes["preview__short-desc"]}>
         <div className={classes.preview__title}>
           <Link to={`/articles/${slug}`}>{title}</Link>
-          <Likes likes={favoritesCount}  favorited={favorited} slug={slug} token={token}/>
+          <Likes
+            likes={favoritesCount}
+            favorited={favorited}
+            slug={slug}
+            token={token}
+          />
         </div>
         <Tags tags={tagList} />
       </div>

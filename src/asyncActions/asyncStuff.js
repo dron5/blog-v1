@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable prefer-arrow-callback */
 // https://conduit.productionready.io/api     +
 // GET /api/articles          List Articles   +
 // GET /api/articles/:slug    Get Article     +
@@ -42,7 +44,7 @@ export const fetchArticles = async (args) => {
     offset = args.offset;
   }
   const response = await baseRequest(
-    `https://conduit.productionready.io/api/articles?${offset}&limit=10`
+    `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`
   );
   return response;
 };
@@ -128,13 +130,19 @@ export const createArticleRequest = async (args, token) => {
 };
 
 export const editArticleRequest = async (args, token) => {
-  const { title, slug, description, text, tagList } = args;
+  // const { title, slug, description, text, tagList } = args;
+  const { slug } = args;
+  // let body = {
+  //   article: {
+  //     title,
+  //     description,
+  //     body: text,
+  //     tagList,
+  //   },
+  // };
   let body = {
     article: {
-      title,
-      description,
-      body: text,
-      tagList,
+      ...args,
     },
   };
   const response = await baseRequest(
@@ -196,4 +204,28 @@ export const unFavoriteArticleRequest = async (slug, token) => {
     }
   );
   return response.json();
+};
+
+export const fetchArticlesLoggedIn = async (args, token = "") => {
+  const { offset } = args;
+  let headers = {
+    "Content-Type": "application/json;charset=utf-8",
+  };
+  if (token) {
+    headers = {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: `Token ${token}`,
+    };
+  }
+  const options = {
+    method: "GET",
+    headers,
+  };
+  const response = await fetch(
+    `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`,
+    options
+  );
+  console.log("befor await", response);
+  const data = await response.json();
+  return data;
 };

@@ -4,6 +4,7 @@ export const addArticlesAction = (offset = 0) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
   const response = await fetchArticles(offset);
   const { articles, articlesCount } = response;
+  console.log("articles --- :", articles);
   dispatch({ type: "ADD_ARTICLES", payload: { articles, articlesCount } });
   dispatch({ type: "LOADING", payload: false });
 };
