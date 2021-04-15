@@ -1,10 +1,10 @@
 import { fetchArticles } from "../asyncActions/asyncStuff";
 
-export const addArticlesAction = (offset = 0) => async (dispatch) => {
+export const addArticlesAction = (args, token) => async (dispatch) => {
+  console.log("token in action :", token);
   dispatch({ type: "LOADING", payload: true });
-  const response = await fetchArticles(offset);
+  const response = await fetchArticles(args, token);
   const { articles, articlesCount } = response;
-  console.log("articles --- :", articles);
   dispatch({ type: "ADD_ARTICLES", payload: { articles, articlesCount } });
   dispatch({ type: "LOADING", payload: false });
 };

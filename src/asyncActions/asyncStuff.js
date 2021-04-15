@@ -38,16 +38,16 @@ export const baseRequest = async (
   return answer.json();
 };
 
-export const fetchArticles = async (args) => {
-  let offset = "";
-  if (args) {
-    offset = args.offset;
-  }
-  const response = await baseRequest(
-    `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`
-  );
-  return response;
-};
+// export const fetchArticles = async (args) => {
+//   let offset = "";
+//   if (args) {
+//     offset = args.offset;
+//   }
+//   const response = await baseRequest(
+//     `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`
+//   );
+//   return response;
+// };
 
 export const fetchArticle = async (args) => {
   const { slug } = args;
@@ -154,16 +154,6 @@ export const editArticleRequest = async (args, token) => {
   return response;
 };
 
-// export const deleteArticleRequest = async (slug, token) => {
-//   console.log('token and slug', token, slug);
-//   const response = await baseRequest(
-//     `https://conduit.productionready.io/api//articles/${slug}`,
-//     "DELETE",
-//     token
-//   );
-//   return response;
-// };
-
 export const deleteArticleRequest = async (slug, token) => {
   const response = await fetch(
     `https://conduit.productionready.io/api/articles/${slug}`,
@@ -206,8 +196,9 @@ export const unFavoriteArticleRequest = async (slug, token) => {
   return response.json();
 };
 
-export const fetchArticlesLoggedIn = async (args, token = "") => {
+export const fetchArticles = async (args, token) => {
   const { offset } = args;
+  console.log("token in fetch --- :", token);
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };
@@ -225,7 +216,7 @@ export const fetchArticlesLoggedIn = async (args, token = "") => {
     `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`,
     options
   );
-  console.log("befor await", response);
   const data = await response.json();
+  console.log(data);
   return data;
 };

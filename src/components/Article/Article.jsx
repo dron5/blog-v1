@@ -17,7 +17,6 @@ const Article = ({ slug, user }) => {
     const request = async () => {
       const { article } = await fetchArticle({ slug });
       setOneArticle(article);
-      console.log('inOneArticle - :', article);
     };
     request();
   }, [slug]);

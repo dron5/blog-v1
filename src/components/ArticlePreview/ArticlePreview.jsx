@@ -20,11 +20,15 @@ const ArticlePreview = ({
   author,
   slug,
   theOne,
-  username,
+  
   favorited,
   toEdit,
-  token,
-}) => (
+  // token,
+  user,
+}) => {
+  const {token, username,} = user;
+  console.log('token in ArtPrev', token);
+return(
   <div className={classes.preview}>
     <div className={classes.preview__header}>
       <div className={classes["preview__short-desc"]}>
@@ -69,7 +73,7 @@ const ArticlePreview = ({
     )}
   </div>
 );
-
+    };
 const Tags = ({ tags }) => {
   const tagList = tags.map((el, i) => (
     <button key={i} type="button" className={classes.preview__tags}>

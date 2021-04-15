@@ -9,14 +9,19 @@ import classes from "./ArticleList.module.scss";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import Footer from "../Footer/Footer";
 
-import { getLoading, getArticles } from "../../store/selectors";
+import { getLoading, getArticles, getUserSelector } from "../../store/selectors";
 
-const ArticleList = ({ addArticlesAction, loading, articles }) => {
+const ArticleList = ({ addArticlesAction, loading, articles, user }) => {
   useEffect(() => {
-    addArticlesAction();
-  }, [addArticlesAction]);
+    if(user){
+      const {token} = user;
+      addArticlesAction({offset:0}, token);
+    }else{
+      addArticlesAction();
+    }
+  }, [addArticlesAction, user]);
   const articleList = articles.map((article, id) => (
-    <ArticlePreview key={id} id={id} {...article} />
+    <ArticlePreview key={id} id={id} {...article} user={user} />
   ));
 
   return (
@@ -31,6 +36,7 @@ const ArticleList = ({ addArticlesAction, loading, articles }) => {
 const mapStateToProps = (state) => ({
   loading: getLoading(state),
   articles: getArticles(state),
+  user: getUserSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(ArticleList);

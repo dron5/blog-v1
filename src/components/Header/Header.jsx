@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import * as fetch from "../../store/actions";
-import { getAuthorizedFlagSelector } from "../../store/selectors";
+import { getIsLoggedInSelector } from "../../store/selectors";
 
 import SignMenu from "../SignMenu/SignMenu";
 import UserMenu from "../UserMenu/UserMenu";
@@ -22,7 +22,7 @@ const Header = ({ authorized }) => (
 );
 
 const mapStateToProps = (state) => ({
-  authorized: getAuthorizedFlagSelector(state),
+  authorized: getIsLoggedInSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(Header);
