@@ -76,6 +76,8 @@ $border: #e5e5e5;
   padding: 15px;
   min-height: 90px;
   height: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .preview__tags {
   font-size: 12px;

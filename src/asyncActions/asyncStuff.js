@@ -130,12 +130,21 @@ export const createArticleRequest = async (args, token) => {
 };
 
 export const editArticleRequest = async (args, token) => {
-  const { slug } = args;
+  const { title, slug, description, text, tagList } = args;
+  // const { slug } = args;
   let body = {
     article: {
-      ...args,
+      title,
+      description,
+      body: text,
+      tagList,
     },
   };
+  // let body = {
+  //   article: {
+  //     ...args,
+  //   },
+  // };
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles/${slug}`,
     "PUT",

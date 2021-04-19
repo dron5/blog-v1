@@ -75,19 +75,19 @@ const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
             ref={register({
               required: true,
             })}
-            name="body"
+            name="text"
             className={`${classes["form-control"]}`}
             placeholder=" "
-            id="body"
+            id="text"
             defaultValue={dataForEdit ? dataForEdit.body : null}
           />
           <label
-            htmlFor="body"
+            htmlFor="text"
             className={[classes["form-label"], classes.textarea].join(" ")}
           >
             <span>Article text</span>
           </label>
-          {errors.body && (
+          {errors.text && (
             <p className={classes["alert-message"]}>It can`t be empty</p>
           )}
         </div>
