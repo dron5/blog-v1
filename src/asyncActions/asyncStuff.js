@@ -130,16 +130,7 @@ export const createArticleRequest = async (args, token) => {
 };
 
 export const editArticleRequest = async (args, token) => {
-  // const { title, slug, description, text, tagList } = args;
   const { slug } = args;
-  // let body = {
-  //   article: {
-  //     title,
-  //     description,
-  //     body: text,
-  //     tagList,
-  //   },
-  // };
   let body = {
     article: {
       ...args,
@@ -223,7 +214,6 @@ export const fetchArticles = async (args, token) => {
 
 export const fetchArticle = async (args, token = "") => {
   const { slug } = args;
-  // console.log("token in fetchArticle --- :", token);
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };

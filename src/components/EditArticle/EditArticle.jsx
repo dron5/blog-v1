@@ -12,21 +12,21 @@ import {
 import { getUserSelector } from "../../store/selectors";
 
 const EditArticle = ({ user, match }) => {
+  const { token } = user;
   const [oneArticle, setOneArticle] = useState(null);
   const history = useHistory();
   const { slug } = match.params;
 
   useEffect(() => {
     const request = async () => {
-      const { article } = await fetchArticle({ slug });
+      const { article } = await fetchArticle({ slug }, token);
       setOneArticle(article);
     };
     request();
-  }, [slug]);
+  }, [slug, token]);
 
   const toEditArticle = async (data, tags) => {
     const args = { ...data, tagList: tags, slug };
-    const { token } = user;
     const answer = await editArticleRequest(args, token, slug);
     const { article } = answer;
     history.push(`/articles/${article.slug}`);
