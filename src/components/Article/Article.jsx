@@ -10,7 +10,8 @@ import classes from "./Article.module.scss";
 import { getUserSelector } from "../../store/selectors";
 
 const Article = ({ slug, user }) => {
-  const {token} = user;
+  // const { token } = user;
+  const token = user ? user.token : '';
   const [oneArticle, setOneArticle] = useState(null);
   const history = useHistory();
   useEffect(() => {

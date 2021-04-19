@@ -14,13 +14,13 @@ const Likes = ({ favoritesCount, favorited, slug, token }) => {
   const [likes, setLikes] = useState(favoritesCount);
   const [liked, setLiked] = useState(favorited);
   const onDislike = async () => {
-    if(!token) return;
+    if (!token) return;
     await unFavoriteArticleRequest(slug, token);
     setLikes(() => likes - 1);
     setLiked(false);
   };
   const onLike = async () => {
-    if(!token) return;
+    if (!token) return;
     await favoriteArticleRequest(slug, token);
     setLikes(() => likes + 1);
     setLiked(true);
