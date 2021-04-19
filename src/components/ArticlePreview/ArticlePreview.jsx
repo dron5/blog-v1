@@ -20,60 +20,58 @@ const ArticlePreview = ({
   author,
   slug,
   theOne,
-  
   favorited,
   toEdit,
-  // token,
   user,
 }) => {
-  const {token, username,} = user;
-  console.log('token in ArtPrev', token);
-return(
-  <div className={classes.preview}>
-    <div className={classes.preview__header}>
-      <div className={classes["preview__short-desc"]}>
-        <div className={classes.preview__title}>
-          <Link to={`/articles/${slug}`}>{title}</Link>
-          <Likes
-            likes={favoritesCount}
-            favorited={favorited}
-            slug={slug}
-            token={token}
-          />
+  const token = user ? user.token : '';
+  const username = user ? user.username : null;
+  return (
+    <div className={classes.preview}>
+      <div className={classes.preview__header}>
+        <div className={classes["preview__short-desc"]}>
+          <div className={classes.preview__title}>
+            <Link to={`/articles/${slug}`}>{title}</Link>
+            <Likes
+              favoritesCount={favoritesCount}
+              favorited={favorited}
+              slug={slug}
+              token={token}
+            />
+          </div>
+          <Tags tags={tagList} />
         </div>
-        <Tags tags={tagList} />
-      </div>
-      <div className={classes["preview__user-info"]}>
-        <div className={classes.preview__name}>
-          <span>{author.username}</span>
-          <span>{format(new Date(createdAt), "PP")} </span>
+        <div className={classes["preview__user-info"]}>
+          <div className={classes.preview__name}>
+            <span>{author.username}</span>
+            <span>{format(new Date(createdAt), "PP")} </span>
+          </div>
+          <img src={author.image || noavatar} alt="avatar" />
         </div>
-        <img src={author.image || noavatar} alt="avatar" />
       </div>
-    </div>
-    <div className={classes["preview__description-wrapper"]}>
-      <div className={classes.preview__description}>{description}</div>
-      {theOne && author.username === username && (
-        <div className={classes["button-wrapper"]}>
-          <Delete slug={slug} token={token} />
-          <button
-            type="button"
-            onClick={toEdit}
-            className={[classes.btn, classes["btn-edit"]].join(" ")}
-          >
-            Edit
-          </button>
+      <div className={classes["preview__description-wrapper"]}>
+        <div className={classes.preview__description}>{description}</div>
+        {theOne && author.username === username && (
+          <div className={classes["button-wrapper"]}>
+            <Delete slug={slug} token={token} />
+            <button
+              type="button"
+              onClick={toEdit}
+              className={[classes.btn, classes["btn-edit"]].join(" ")}
+            >
+              Edit
+            </button>
+          </div>
+        )}
+      </div>
+      {theOne && (
+        <div className={classes.preview__body}>
+          <ReactMarkdown source={body} />
         </div>
       )}
     </div>
-    {theOne && (
-      <div className={classes.preview__body}>
-        <ReactMarkdown source={body} />
-      </div>
-    )}
-  </div>
-);
-    };
+  );
+};
 const Tags = ({ tags }) => {
   const tagList = tags.map((el, i) => (
     <button key={i} type="button" className={classes.preview__tags}>

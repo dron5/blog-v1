@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from "react";
+import React, { useState } from "react";
 
-import {
-  favoriteArticleRequest,
-} from "../../asyncActions/asyncStuff";
+import { favoriteArticleRequest } from "../../asyncActions/asyncStuff";
 import like from "../../img/like.png";
 import favLike from "../../img/favLike.png";
 import classes from "./Likes.module.scss";
 
-const Likes = ({ likes, favorited, slug, token }) => {
+const Likes = ({ favoritesCount, favorited, slug, token }) => {
+  const [ likes /* setLikes */] = useState(favoritesCount);
+  console.log('favoritesCount', favoritesCount);
+  console.log('likes', likes);
+  const [ liked /* setLiked */] = useState(favorited);
   const onDislike = () => console.log("in Dislike");
   const onLike = async () => {
     await favoriteArticleRequest(slug, token);
@@ -19,9 +21,9 @@ const Likes = ({ likes, favorited, slug, token }) => {
       <button
         type="button"
         className={classes["article__like-button"]}
-        onClick={!favorited ? onLike : onDislike}
+        onClick={!liked ? onLike : onDislike}
       >
-        <img src={!favorited ? like : favLike} alt="like" />
+        <img src={!liked ? like : favLike} alt="like" />
       </button>
       <div className={classes["article__like-counter"]}>{likes}</div>
     </div>

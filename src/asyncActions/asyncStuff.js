@@ -217,6 +217,6 @@ export const fetchArticles = async (args, token) => {
     options
   );
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
 };

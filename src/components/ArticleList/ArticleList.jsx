@@ -9,15 +9,19 @@ import classes from "./ArticleList.module.scss";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import Footer from "../Footer/Footer";
 
-import { getLoading, getArticles, getUserSelector } from "../../store/selectors";
+import {
+  getLoading,
+  getArticles,
+  getUserSelector,
+} from "../../store/selectors";
 
 const ArticleList = ({ addArticlesAction, loading, articles, user }) => {
   useEffect(() => {
-    if(user){
-      const {token} = user;
-      addArticlesAction({offset:0}, token);
-    }else{
-      addArticlesAction();
+    if (user) {
+      const { token } = user;
+      addArticlesAction({ offset: 0 }, token);
+    } else {
+      addArticlesAction({ offset: 0 });
     }
   }, [addArticlesAction, user]);
   const articleList = articles.map((article, id) => (

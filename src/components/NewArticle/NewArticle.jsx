@@ -16,7 +16,7 @@ const NewArticle = ({ addArticlesAction, user }) => {
     const { token } = user;
     const answer = await createArticleRequest(args, token);
     const { article } = answer;
-    await addArticlesAction({offset:0}, token);
+    await addArticlesAction({ offset: 0 }, token);
     history.push(`/articles/${article.slug}`);
   };
 
