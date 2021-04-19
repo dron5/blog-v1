@@ -198,7 +198,7 @@ export const unFavoriteArticleRequest = async (slug, token) => {
 
 export const fetchArticles = async (args, token) => {
   const { offset } = args;
-  console.log("token in fetch --- :", token);
+  // console.log("token in fetch --- :", token);
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };

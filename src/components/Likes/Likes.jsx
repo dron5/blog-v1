@@ -2,19 +2,24 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from "react";
 
-import { favoriteArticleRequest } from "../../asyncActions/asyncStuff";
+import { favoriteArticleRequest, unFavoriteArticleRequest } from "../../asyncActions/asyncStuff";
 import like from "../../img/like.png";
 import favLike from "../../img/favLike.png";
 import classes from "./Likes.module.scss";
 
 const Likes = ({ favoritesCount, favorited, slug, token }) => {
-  const [ likes /* setLikes */] = useState(favoritesCount);
-  console.log('favoritesCount', favoritesCount);
-  console.log('likes', likes);
-  const [ liked /* setLiked */] = useState(favorited);
-  const onDislike = () => console.log("in Dislike");
+  const [likes, setLikes ] = useState(favoritesCount);
+  const [liked, setLiked ] = useState(favorited);
+  const onDislike = async () => {
+    console.log("in Dislike");
+    await unFavoriteArticleRequest(slug, token);
+    setLikes(() => likes - 1);
+    setLiked(false);
+  };
   const onLike = async () => {
     await favoriteArticleRequest(slug, token);
+    setLikes(() => likes + 1);
+    setLiked(true);
   };
   return (
     <div className={classes.article__likes}>

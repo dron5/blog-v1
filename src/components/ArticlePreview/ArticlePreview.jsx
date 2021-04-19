@@ -24,7 +24,7 @@ const ArticlePreview = ({
   toEdit,
   user,
 }) => {
-  const token = user ? user.token : '';
+  const token = user ? user.token : "";
   const username = user ? user.username : null;
   return (
     <div className={classes.preview}>
