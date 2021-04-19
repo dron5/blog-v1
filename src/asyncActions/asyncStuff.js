@@ -49,13 +49,13 @@ export const baseRequest = async (
 //   return response;
 // };
 
-export const fetchArticle = async (args) => {
-  const { slug } = args;
-  const response = baseRequest(
-    `https://conduit.productionready.io/api/articles/${slug}`
-  );
-  return response;
-};
+// export const fetchArticle = async (args) => {
+//   const { slug } = args;
+//   const response = baseRequest(
+//     `https://conduit.productionready.io/api/articles/${slug}`
+//   );
+//   return response;
+// };
 
 export const registrationRequest = async (args) => {
   const { username, email, password } = args;
@@ -218,5 +218,29 @@ export const fetchArticles = async (args, token) => {
   );
   const data = await response.json();
   // console.log(data);
+  return data;
+};
+
+export const fetchArticle = async (args, token = "") => {
+  const { slug } = args;
+  // console.log("token in fetchArticle --- :", token);
+  let headers = {
+    "Content-Type": "application/json;charset=utf-8",
+  };
+  if (token) {
+    headers = {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: `Token ${token}`,
+    };
+  }
+  const options = {
+    method: "GET",
+    headers,
+  };
+  const response = await fetch(
+    `https://conduit.productionready.io/api/articles/${slug}`,
+    options
+  );
+  const data = await response.json();
   return data;
 };

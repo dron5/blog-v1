@@ -10,18 +10,20 @@ import classes from "./Article.module.scss";
 import { getUserSelector } from "../../store/selectors";
 
 const Article = ({ slug, user }) => {
+  const {token} = user;
   const [oneArticle, setOneArticle] = useState(null);
   const history = useHistory();
   useEffect(() => {
     const request = async () => {
-      const { article } = await fetchArticle({ slug });
+      const { article } = await fetchArticle({ slug }, token);
       setOneArticle(article);
     };
     request();
-  }, [slug]);
+  }, [slug, token]);
   const toEdit = () => {
     history.push(`/articles/${slug}/edit`);
   };
+  // console.log('from Article ---:', {...oneArticle});
   return (
     <div className={classes.article}>
       {oneArticle && (
