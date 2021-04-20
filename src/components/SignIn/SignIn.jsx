@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/usersActions";
 
 import { authenticationRequest } from "../../services/asyncActions/asyncApi";
 import classes from "./SignIn.module.scss";

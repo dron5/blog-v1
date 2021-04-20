@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Spinner from "../Spinner";
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/articlesActions";
 import classes from "./ArticleList.module.scss";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import Footer from "../Footer/Footer";

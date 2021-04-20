@@ -1,4 +1,4 @@
-import { fetchArticles } from "../services/asyncActions/asyncApi";
+import { fetchArticles } from "../../services/asyncActions/asyncApi";
 
 export const addArticlesAction = (args, token) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
@@ -11,9 +11,3 @@ export const addArticlesAction = (args, token) => async (dispatch) => {
 export const addCurrentPageAction = (currentPage) => (dispatch) => {
   dispatch({ type: "CHANGEPAGE", payload: currentPage });
 };
-
-export const setAuthorizedFlagAction = (status) => (dispatch) => {
-  dispatch({ type: "AUTHORIZED", payload: status });
-};
-
-export const setUserAction = (user) => ({ type: "SETUSER", payload: user });

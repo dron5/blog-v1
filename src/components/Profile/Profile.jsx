@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import { updateUserRequest } from "../../services/asyncActions/asyncApi";
 import { getUserSelector } from "../../store/selectors";
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/usersActions";
 import classes from "./Profile.module.scss";
 
 const EditProfile = ({ user, setUserAction }) => {

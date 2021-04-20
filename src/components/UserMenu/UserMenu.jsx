@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import noavatar from "../../img/avatar.png";
 import { getUserSelector } from "../../store/selectors";
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/usersActions";
 import classes from "./UserMenu.module.scss";
 
 const UserMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {

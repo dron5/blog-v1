@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { Pagination } from "antd";
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/articlesActions";
 import classes from "./Footer.module.scss";
 import {
   getLoadingSelector,

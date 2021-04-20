@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 import ArticleForm from "../ArticleForm/ArticleForm";
 import { createArticleRequest } from "../../services/asyncActions/asyncApi";
-import * as fetch from "../../store/actions";
+import * as fetch from "../../store/actions/articlesActions";
 import { getUserSelector } from "../../store/selectors";
 
 const NewArticle = ({ addArticlesAction, user }) => {
