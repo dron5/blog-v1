@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ArticleList from "../ArticleList/ArticleList";
+import ArticleList from "../../containers/ArticleList/ArticleList";
 import Article from "../Article/Article";
 import NewArticle from "../NewArticle/NewArticle";
 import EditArticle from "../EditArticle/EditArticle";

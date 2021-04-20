@@ -3,11 +3,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Spinner from "../Spinner";
+import Spinner from "../../components/Spinner";
 import * as fetch from "../../store/actions/articlesActions";
 import classes from "./ArticleList.module.scss";
-import ArticlePreview from "../ArticlePreview/ArticlePreview";
-import Footer from "../Footer/Footer";
+import ArticlePreview from "../../components/ArticlePreview/ArticlePreview";
+import Footer from "../../components/Footer/Footer";
 
 import {
   getLoadingSelector,
