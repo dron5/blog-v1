@@ -5,14 +5,18 @@ import { connect } from "react-redux";
 import { Pagination } from "antd";
 import * as fetch from "../../store/actions";
 import classes from "./Footer.module.scss";
-import { getLoading, getCurrentPage, getUserSelector } from "../../store/selectors";
+import {
+  getLoading,
+  getCurrentPage,
+  getUserSelector,
+} from "../../store/selectors";
 
 const Footer = ({
   loading,
   addArticlesAction,
   addCurrentPageAction,
   currentPage,
-  user
+  user,
 }) => {
   const token = user ? user.token : "";
   const setPage = (page = 1) => {
