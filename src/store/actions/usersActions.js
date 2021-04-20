@@ -1,5 +1,7 @@
+import { User } from "../../constants";
+
 export const setAuthorizedFlagAction = (status) => (dispatch) => {
-  dispatch({ type: "AUTHORIZED", payload: status });
+  dispatch({ type: User.setAuthorized, payload: status });
 };
 
-export const setUserAction = (user) => ({ type: "SETUSER", payload: user });
+export const setUserAction = (user) => ({ type: User.setUser, payload: user });

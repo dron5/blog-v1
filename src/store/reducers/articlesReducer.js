@@ -1,3 +1,5 @@
+import { Article } from "../../constants";
+
 const initialState = {
   articles: [],
   loading: false,
@@ -7,18 +9,18 @@ const initialState = {
 
 const articlesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_ARTICLES":
+    case Article.setArticles:
       return {
         ...state,
         articles: [...action.payload.articles],
         articlesCount: action.payload.articlesCount,
       };
-    case "LOADING":
+    case Article.setLoading:
       return {
         ...state,
         loading: action.payload,
       };
-    case "CHANGEPAGE":
+    case Article.setCurrentPage:
       return {
         ...state,
         currentPage: action.payload,

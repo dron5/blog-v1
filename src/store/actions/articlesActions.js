@@ -1,13 +1,14 @@
 import { fetchArticles } from "../../services/asyncActions/asyncApi";
+import { Article } from "../../constants";
 
 export const addArticlesAction = (args, token) => async (dispatch) => {
-  dispatch({ type: "LOADING", payload: true });
+  dispatch({ type: Article.setLoading, payload: true });
   const response = await fetchArticles(args, token);
   const { articles, articlesCount } = response;
-  dispatch({ type: "ADD_ARTICLES", payload: { articles, articlesCount } });
-  dispatch({ type: "LOADING", payload: false });
+  dispatch({ type: Article.setArticles, payload: { articles, articlesCount } });
+  dispatch({ type: Article.setLoading, payload: false });
 };
 
 export const addCurrentPageAction = (currentPage) => (dispatch) => {
-  dispatch({ type: "CHANGEPAGE", payload: currentPage });
+  dispatch({ type: Article.setCurrentPage, payload: currentPage });
 };

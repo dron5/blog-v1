@@ -1,3 +1,5 @@
+import { User } from "../../constants";
+
 const initialState = {
   authorized: false,
   user: null,
@@ -5,12 +7,12 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "AUTHORIZED":
+    case User.setAuthorized:
       return {
         ...state,
         authorized: action.payload,
       };
-    case "SETUSER":
+    case User.setUser:
       return {
         ...state,
         user: action.payload,
