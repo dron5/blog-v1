@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ArticleList from "./components/ArticleList/ArticleList";
-import Article from "./components/Article/Article";
-import NewArticle from "./components/NewArticle/NewArticle";
-import EditArticle from "./components/EditArticle/EditArticle";
-import Header from "./components/Header/Header";
-import SignUp from "./components/SignUp/SignUp";
-import SignIn from "./components/SignIn/SignIn";
-import Profile from "./components/Profile/Profile";
+import ArticleList from "../ArticleList/ArticleList";
+import Article from "../Article/Article";
+import NewArticle from "../NewArticle/NewArticle";
+import EditArticle from "../EditArticle/EditArticle";
+import Header from "../Header/Header";
+import SignUp from "../SignUp/SignUp";
+import SignIn from "../SignIn/SignIn";
+import Profile from "../Profile/Profile";
 
 import "./App.css";
 
