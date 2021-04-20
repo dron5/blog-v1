@@ -10,7 +10,7 @@ import { getUserSelector } from "../../store/selectors";
 
 const NewArticle = ({ addArticlesAction, user }) => {
   const history = useHistory();
-
+  if(!user) history.push(`/sign-in`);
   const toCreateArticle = async (data, tags) => {
     const args = { ...data, tagList: tags };
     const { token } = user;

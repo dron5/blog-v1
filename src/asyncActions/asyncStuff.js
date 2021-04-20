@@ -1,16 +1,5 @@
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
-// https://conduit.productionready.io/api     +
-// GET /api/articles          List Articles   +
-// GET /api/articles/:slug    Get Article     +
-// GET /api/tags              Get Tags        +
-// POST /api/users            Registration    +
-// POST /api/users/login      Authentication  +
-// POST /api/articles         Create Article  +
-// PUT /api/articles/:slug    Update Article  +
-// DELETE /api/articles/:slug           Delete Article      +
-// POST /api/articles/:slug/favorite    Favorite Article    +
-// DELETE /api/articles/:slug/favorite  Unfavorite Article
 
 export const baseRequest = async (
   url,
@@ -141,9 +130,7 @@ export const editArticleRequest = async (args, token) => {
     },
   };
   // let body = {
-  //   article: {
-  //     ...args,
-  //   },
+  //   article: {...args,},
   // };
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles/${slug}`,
@@ -198,7 +185,6 @@ export const unFavoriteArticleRequest = async (slug, token) => {
 
 export const fetchArticles = async (args, token) => {
   const { offset } = args;
-  // console.log("token in fetch --- :", token);
   let headers = {
     "Content-Type": "application/json;charset=utf-8",
   };
@@ -217,7 +203,6 @@ export const fetchArticles = async (args, token) => {
     options
   );
   const data = await response.json();
-  // console.log(data);
   return data;
 };
 
