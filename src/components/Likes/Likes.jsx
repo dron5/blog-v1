@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   favoriteArticleRequest,
@@ -11,16 +12,17 @@ import favLike from "../../img/favLike.png";
 import classes from "./Likes.module.scss";
 
 const Likes = ({ favoritesCount, favorited, slug, token }) => {
+  const history = useHistory();
   const [likes, setLikes] = useState(favoritesCount);
   const [liked, setLiked] = useState(favorited);
   const onDislike = async () => {
-    if (!token) return;
+    if (!token) history.push("/sign-in");
     await unFavoriteArticleRequest(slug, token);
     setLikes(() => likes - 1);
     setLiked(false);
   };
   const onLike = async () => {
-    if (!token) return;
+    if (!token) history.push("/sign-in");
     await favoriteArticleRequest(slug, token);
     setLikes(() => likes + 1);
     setLiked(true);
