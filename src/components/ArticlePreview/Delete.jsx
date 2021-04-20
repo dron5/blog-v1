@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { deleteArticleRequest } from "../../asyncActions/asyncStuff";
+import { deleteArticleRequest } from "../../services/asyncActions/asyncApi";
 import classes from "./ArticlePreview.module.scss";
 
 const Delete = ({ slug, token }) => {
@@ -12,8 +12,8 @@ const Delete = ({ slug, token }) => {
   const onDelet = () => setShow(() => true);
   const onConfirmNo = () => setShow(false);
   const onConfirmYes = async () => {
-    const answer = await deleteArticleRequest(slug, token);
-    console.log("answer in Delete", answer);
+    // const answer = await deleteArticleRequest(slug, token);
+    await deleteArticleRequest(slug, token);
     setShow(false);
     history.push(`/articles`);
   };

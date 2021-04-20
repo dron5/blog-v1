@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
 import * as fetch from "../../store/actions";
-import { registrationRequest } from "../../asyncActions/asyncStuff";
+import { registrationRequest } from "../../services/asyncActions/asyncApi";
 import classes from "./SignUp.module.scss";
 
 const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {

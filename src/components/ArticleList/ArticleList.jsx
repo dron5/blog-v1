@@ -10,8 +10,8 @@ import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import Footer from "../Footer/Footer";
 
 import {
-  getLoading,
-  getArticles,
+  getLoadingSelector,
+  getArticlesSelector,
   getUserSelector,
 } from "../../store/selectors";
 
@@ -38,8 +38,8 @@ const ArticleList = ({ addArticlesAction, loading, articles, user }) => {
 };
 
 const mapStateToProps = (state) => ({
-  loading: getLoading(state),
-  articles: getArticles(state),
+  loading: getLoadingSelector(state),
+  articles: getArticlesSelector(state),
   user: getUserSelector(state),
 });
 

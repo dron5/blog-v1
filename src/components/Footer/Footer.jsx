@@ -6,8 +6,8 @@ import { Pagination } from "antd";
 import * as fetch from "../../store/actions";
 import classes from "./Footer.module.scss";
 import {
-  getLoading,
-  getCurrentPage,
+  getLoadingSelector,
+  getCurrentPageSelector,
   getUserSelector,
 } from "../../store/selectors";
 
@@ -39,8 +39,8 @@ const Footer = ({
   );
 };
 const mapStateToProps = (state) => ({
-  loading: getLoading(state),
-  currentPage: getCurrentPage(state),
+  loading: getLoadingSelector(state),
+  currentPage: getCurrentPageSelector(state),
   user: getUserSelector(state),
 });
 

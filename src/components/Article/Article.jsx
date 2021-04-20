@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { fetchArticle } from "../../asyncActions/asyncStuff";
+import { fetchArticle } from "../../services/asyncActions/asyncApi";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import classes from "./Article.module.scss";
 

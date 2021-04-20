@@ -1,8 +1,10 @@
-export const getTotalCount = (state) => state.articlesReducer.articlesCount;
-export const getLoading = (state) => state.articlesReducer.loading;
-export const getCurrentPage = (state) => state.articlesReducer.currentPage;
-export const getArticles = (state) => state.articlesReducer.articles;
-export const getArticle = (slugName) => (state) => {
+export const getTotalCountSelector = (state) =>
+  state.articlesReducer.articlesCount;
+export const getLoadingSelector = (state) => state.articlesReducer.loading;
+export const getCurrentPageSelector = (state) =>
+  state.articlesReducer.currentPage;
+export const getArticlesSelector = (state) => state.articlesReducer.articles;
+export const getArticleSelector = (slugName) => (state) => {
   const { slug } = slugName;
   const art = state.articlesReducer.articles.filter(
     (elem) => elem.slug === slug

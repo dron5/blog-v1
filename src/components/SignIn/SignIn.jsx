@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import * as fetch from "../../store/actions";
 
-import { authenticationRequest } from "../../asyncActions/asyncStuff";
+import { authenticationRequest } from "../../services/asyncActions/asyncApi";
 import classes from "./SignIn.module.scss";
 
 const SignIn = ({ setAuthorizedFlagAction, setUserAction }) => {

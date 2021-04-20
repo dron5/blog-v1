@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
-import { updateUserRequest } from "../../asyncActions/asyncStuff";
+import { updateUserRequest } from "../../services/asyncActions/asyncApi";
 import { getUserSelector } from "../../store/selectors";
 import * as fetch from "../../store/actions";
 import classes from "./Profile.module.scss";

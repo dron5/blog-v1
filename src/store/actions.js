@@ -1,7 +1,6 @@
-import { fetchArticles } from "../asyncActions/asyncStuff";
+import { fetchArticles } from "../services/asyncActions/asyncApi";
 
 export const addArticlesAction = (args, token) => async (dispatch) => {
-  // console.log("token in action :", token);
   dispatch({ type: "LOADING", payload: true });
   const response = await fetchArticles(args, token);
   const { articles, articlesCount } = response;

@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import {
   favoriteArticleRequest,
   unFavoriteArticleRequest,
-} from "../../asyncActions/asyncStuff";
+} from "../../services/asyncActions/asyncApi";
 import like from "../../img/like.png";
 import favLike from "../../img/favLike.png";
 import classes from "./Likes.module.scss";

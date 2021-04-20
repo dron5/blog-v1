@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import ArticleForm from "../ArticleForm/ArticleForm";
-import { createArticleRequest } from "../../asyncActions/asyncStuff";
+import { createArticleRequest } from "../../services/asyncActions/asyncApi";
 import * as fetch from "../../store/actions";
 import { getUserSelector } from "../../store/selectors";
 

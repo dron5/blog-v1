@@ -7,7 +7,7 @@ import ArticleForm from "../ArticleForm/ArticleForm";
 import {
   editArticleRequest,
   fetchArticle,
-} from "../../asyncActions/asyncStuff";
+} from "../../services/asyncActions/asyncApi";
 
 import { getUserSelector } from "../../store/selectors";
 
