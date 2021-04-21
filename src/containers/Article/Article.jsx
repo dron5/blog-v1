@@ -32,7 +32,7 @@ const Article = ({ slug, user }) => {
   };
   return (
     <div className={classes.article}>
-      {(!error && !oneArticle) && <Spinner />}
+      {!error && !oneArticle && <Spinner />}
       {oneArticle && !error && (
         <ArticlePreview
           {...oneArticle}
