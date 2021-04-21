@@ -225,6 +225,11 @@ export const fetchArticle = async (args, token = "") => {
     `https://conduit.productionready.io/api/articles/${slug}`,
     options
   );
+  if (!(response.ok || response.status === 422)) {
+    throw new Error(
+      `Could not fetch this url... , received ${response.status}`
+    );
+  }
   const data = await response.json();
   return data;
 };
