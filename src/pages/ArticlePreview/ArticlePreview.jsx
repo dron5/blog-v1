@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-import Likes from "../Likes/Likes";
+import Likes from "../../components/Likes/Likes";
 import Delete from "./Delete";
 import classes from "./ArticlePreview.module.scss";
 import noavatar from "../../img/avatar.png";

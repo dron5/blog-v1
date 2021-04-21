@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import ArticleForm from "../ArticleForm/ArticleForm";
+import ArticleForm from "../../pages/ArticleForm/ArticleForm";
 import { createArticleRequest } from "../../services/asyncActions/asyncApi";
 import * as fetch from "../../store/actions/articlesActions";
 import { getUserSelector } from "../../store/selectors";

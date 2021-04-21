@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Spinner from "../../components/Spinner";
 import * as fetch from "../../store/actions/articlesActions";
 import classes from "./ArticleList.module.scss";
-import ArticlePreview from "../../components/ArticlePreview/ArticlePreview";
+import ArticlePreview from "../../pages/ArticlePreview/ArticlePreview";
 import Footer from "../../components/Footer/Footer";
 
 import {

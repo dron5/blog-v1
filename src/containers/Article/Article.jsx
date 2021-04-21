@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import { Alert } from "antd";
 
 import { fetchArticle } from "../../services/asyncActions/asyncApi";
-import ArticlePreview from "../ArticlePreview/ArticlePreview";
-import Spinner from "../Spinner/Spinner";
+import ArticlePreview from "../../pages/ArticlePreview/ArticlePreview";
+import Spinner from "../../components/Spinner/Spinner";
 import classes from "./Article.module.scss";
 
 import { getUserSelector } from "../../store/selectors";
