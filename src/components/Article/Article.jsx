@@ -6,6 +6,7 @@ import { Alert } from "antd";
 
 import { fetchArticle } from "../../services/asyncActions/asyncApi";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
+import Spinner from "../Spinner/Spinner";
 import classes from "./Article.module.scss";
 
 import { getUserSelector } from "../../store/selectors";
@@ -31,6 +32,7 @@ const Article = ({ slug, user }) => {
   };
   return (
     <div className={classes.article}>
+      {(!error && !oneArticle) && <Spinner />}
       {oneArticle && !error && (
         <ArticlePreview
           {...oneArticle}
