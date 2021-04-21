@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Alert } from 'antd';
+import { Alert } from "antd";
 
 import { fetchArticle } from "../../services/asyncActions/asyncApi";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
@@ -20,8 +20,8 @@ const Article = ({ slug, user }) => {
       try {
         const { article } = await fetchArticle({ slug }, token);
         setOneArticle(article);
-      } catch(err){
-          setError(true);
+      } catch (err) {
+        setError(true);
       }
     };
     request();
@@ -31,7 +31,7 @@ const Article = ({ slug, user }) => {
   };
   return (
     <div className={classes.article}>
-      {(oneArticle && !error) && (
+      {oneArticle && !error && (
         <ArticlePreview
           {...oneArticle}
           user={user}
@@ -39,11 +39,13 @@ const Article = ({ slug, user }) => {
           theOne
         />
       )}
-      {error && <Alert 
-        type="error"
-        message="Sorry, but article not found"
-        className={classes["ant-alert"]}
-        />}
+      {error && (
+        <Alert
+          type="error"
+          message="Sorry, but article not found"
+          className={classes["ant-alert"]}
+        />
+      )}
     </div>
   );
 };

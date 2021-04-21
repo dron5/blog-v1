@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { Alert } from 'antd';
+import { Alert } from "antd";
 
 import { store, persistor } from "./store/store";
 import App from "./components/App/App";
