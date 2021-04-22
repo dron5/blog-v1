@@ -25,7 +25,11 @@ const ArticleList = ({ addArticlesAction, loading, articles, user }) => {
     }
   }, [addArticlesAction, user]);
   const articleList = articles.map((article, id) => (
-    <ArticlePreview key={id} id={id} {...article} user={user} />
+    <ArticlePreview
+      key={id} id={id} {...article}
+      username={user.username}
+      token={user.token}
+      />
   ));
 
   return (

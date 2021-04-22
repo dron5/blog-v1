@@ -36,7 +36,8 @@ const Article = ({ slug, user }) => {
       {oneArticle && !error && (
         <ArticlePreview
           {...oneArticle}
-          user={user}
+          username={user.username}
+          token={user.token}
           toEdit={oneArticle ? toEdit : null}
           theOne
         />

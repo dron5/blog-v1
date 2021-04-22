@@ -22,11 +22,9 @@ const ArticlePreview = ({
   theOne,
   favorited,
   toEdit,
-  user,
-}) => {
-  const token = user ? user.token : "";
-  const username = user ? user.username : null;
-  return (
+  token,
+  username
+}) => (
     <div className={classes.preview}>
       <div className={classes.preview__header}>
         <div className={classes["preview__short-desc"]}>
@@ -71,7 +69,6 @@ const ArticlePreview = ({
       )}
     </div>
   );
-};
 const Tags = ({ tags }) => {
   const tagList = tags.map((el, i) => (
     <button key={i} type="button" className={classes.preview__tags}>
