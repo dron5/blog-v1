@@ -23,18 +23,17 @@ export const baseRequest = async (url, method, data, token) => {
 
 export const registrationRequest = async (args) => {
   const { username, email, password } = args;
-  let body = {
+  const data = {
     user: {
       username,
       email,
       password,
     },
   };
-  body = JSON.stringify(body);
   const response = await baseRequest(
     `https://conduit.productionready.io/api/users`,
     "POST",
-    body
+    data
   );
   return response;
 };
@@ -113,7 +112,7 @@ export const editArticleRequest = async (args, token) => {
 };
 
 export const deleteArticleRequest = async (slug, token) => {
-  const response = await fetch({
+  const response = await axios({
     url: `https://conduit.productionready.io/api/articles/${slug}`,
     method: "DELETE",
     headers: {
