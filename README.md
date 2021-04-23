@@ -25,3 +25,7 @@ https://reactgo.com/react-set-cookie/
 Persist:
 
 https://www.youtube.com/watch?v=Fb-bDigImpw
+
+ErrorBoundary:
+
+https://kentcdodds.com/blog/use-react-error-boundary-to-handle-errors-in-react

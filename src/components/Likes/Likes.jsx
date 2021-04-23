@@ -22,7 +22,7 @@ const Likes = ({ favoritesCount, favorited, slug, token }) => {
     setLiked(false);
   };
   const onLike = async () => {
-    if (!token) history.push("/sign-in");
+    if (!token) return;
     await favoriteArticleRequest(slug, token);
     setLikes(() => likes + 1);
     setLiked(true);

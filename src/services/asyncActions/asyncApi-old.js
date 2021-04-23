@@ -1,6 +1,5 @@
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
-import axios from "axios";
 
 export const baseRequest = async (
   url,
@@ -121,6 +120,7 @@ export const createArticleRequest = async (args, token) => {
 
 export const editArticleRequest = async (args, token) => {
   const { title, slug, description, text, tagList } = args;
+  // const { slug } = args;
   let body = {
     article: {
       title,
@@ -129,6 +129,9 @@ export const editArticleRequest = async (args, token) => {
       tagList,
     },
   };
+  // let body = {
+  //   article: {...args,},
+  // };
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles/${slug}`,
     "PUT",
@@ -162,7 +165,7 @@ export const favoriteArticleRequest = async (slug, token) => {
         Authorization: `Token ${token}`,
       },
     }
-  ).catch((er) => console.log(er.message));
+  );
   return response.json();
 };
 
@@ -182,18 +185,25 @@ export const unFavoriteArticleRequest = async (slug, token) => {
 
 export const fetchArticles = async (args, token) => {
   const { offset } = args;
-  let headers = null;
+  let headers = {
+    "Content-Type": "application/json;charset=utf-8",
+  };
   if (token) {
     headers = {
+      "Content-Type": "application/json;charset=utf-8",
       Authorization: `Token ${token}`,
     };
   }
-  const response = await axios({
-    method: "get",
-    url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`,
+  const options = {
+    method: "GET",
     headers,
-  });
-  return response.data;
+  };
+  const response = await fetch(
+    `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`,
+    options
+  );
+  const data = await response.json();
+  return data;
 };
 
 export const fetchArticle = async (args, token = "") => {
