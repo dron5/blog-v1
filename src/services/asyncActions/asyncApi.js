@@ -2,50 +2,24 @@
 /* eslint-disable prefer-arrow-callback */
 import axios from "axios";
 
-export const baseRequest = async (
-  url,
-  method = "GET",
-  body = undefined,
-  token
-) => {
-  let headers = {
-    "Content-Type": "application/json;charset=utf-8",
-  };
+export const baseRequest = async (url, method, data, token) => {
+  let headers = null;
   if (token) {
     headers = {
-      "Content-Type": "application/json;charset=utf-8",
       Authorization: `Token ${token}`,
     };
   }
-  const answer = await fetch(url, {
+  const answer = await axios({
+    url,
     method,
     headers,
-    body,
+    data,
   });
-  if (!(answer.ok || answer.status === 422)) {
-    throw new Error(`Could not fetch... ${url}, received ${answer.status}`);
+  if (!answer.statusText === "OK") {
+    throw new Error(`Could not fetch... ${url}, received ${answer.statusText}`);
   }
-  return answer.json();
+  return answer.data;
 };
-
-// export const fetchArticles = async (args) => {
-//   let offset = "";
-//   if (args) {
-//     offset = args.offset;
-//   }
-//   const response = await baseRequest(
-//     `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`
-//   );
-//   return response;
-// };
-
-// export const fetchArticle = async (args) => {
-//   const { slug } = args;
-//   const response = baseRequest(
-//     `https://conduit.productionready.io/api/articles/${slug}`
-//   );
-//   return response;
-// };
 
 export const registrationRequest = async (args) => {
   const { username, email, password } = args;
@@ -67,7 +41,7 @@ export const registrationRequest = async (args) => {
 
 export const authenticationRequest = async (args) => {
   const { email, password } = args;
-  let body = {
+  const data = {
     user: {
       email,
       password,
@@ -76,14 +50,14 @@ export const authenticationRequest = async (args) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/users/login`,
     "POST",
-    (body = JSON.stringify(body))
+    data
   );
   return response;
 };
 
 export const updateUserRequest = async (args, token) => {
   const { username, email, password, image } = args;
-  let body = {
+  const data = {
     user: {
       email,
       password,
@@ -94,7 +68,7 @@ export const updateUserRequest = async (args, token) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/user`,
     "PUT",
-    (body = JSON.stringify(body)),
+    data,
     token
   );
   return response;
@@ -102,7 +76,7 @@ export const updateUserRequest = async (args, token) => {
 
 export const createArticleRequest = async (args, token) => {
   const { title, description, text, tagList } = args;
-  let body = {
+  const data = {
     article: {
       title,
       description,
@@ -113,7 +87,7 @@ export const createArticleRequest = async (args, token) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles`,
     "POST",
-    (body = JSON.stringify(body)),
+    data,
     token
   );
   return response;
@@ -121,7 +95,7 @@ export const createArticleRequest = async (args, token) => {
 
 export const editArticleRequest = async (args, token) => {
   const { title, slug, description, text, tagList } = args;
-  let body = {
+  const data = {
     article: {
       title,
       description,
@@ -132,52 +106,43 @@ export const editArticleRequest = async (args, token) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/articles/${slug}`,
     "PUT",
-    (body = JSON.stringify(body)),
+    data,
     token
   );
   return response;
 };
 
 export const deleteArticleRequest = async (slug, token) => {
-  const response = await fetch(
-    `https://conduit.productionready.io/api/articles/${slug}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: `Token ${token}`,
-      },
-    }
-  );
-  return response.json();
+  const response = await fetch({
+    url: `https://conduit.productionready.io/api/articles/${slug}`,
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return response;
 };
 
 export const favoriteArticleRequest = async (slug, token) => {
-  const response = await fetch(
-    `https://conduit.productionready.io/api/articles/${slug}/favorite`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: `Token ${token}`,
-      },
-    }
-  ).catch((er) => console.log(er.message));
-  return response.json();
+  const response = await axios({
+    url: `https://conduit.productionready.io/api/articles/${slug}/favorite`,
+    method: "POST",
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return response;
 };
 
 export const unFavoriteArticleRequest = async (slug, token) => {
-  const response = await fetch(
-    `https://conduit.productionready.io/api/articles/${slug}/favorite`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: `Token ${token}`,
-      },
-    }
-  );
-  return response.json();
+  const response = await axios({
+    url: `https://conduit.productionready.io/api/articles/${slug}/favorite`,
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+  return response;
 };
 
 export const fetchArticles = async (args, token) => {
@@ -198,28 +163,20 @@ export const fetchArticles = async (args, token) => {
 
 export const fetchArticle = async (args, token = "") => {
   const { slug } = args;
-  let headers = {
-    "Content-Type": "application/json;charset=utf-8",
-  };
+  let headers = null;
   if (token) {
     headers = {
-      "Content-Type": "application/json;charset=utf-8",
       Authorization: `Token ${token}`,
     };
   }
-  const options = {
-    method: "GET",
+  const response = await axios({
+    url: `https://conduit.productionready.io/api/articles/${slug}`,
     headers,
-  };
-  const response = await fetch(
-    `https://conduit.productionready.io/api/articles/${slug}`,
-    options
-  );
-  if (!(response.ok || response.status === 422)) {
+  });
+  if (!response.statusText === "OK") {
     throw new Error(
       `Could not fetch this url... , received ${response.status}`
     );
   }
-  const data = await response.json();
-  return data;
+  return response.data;
 };
