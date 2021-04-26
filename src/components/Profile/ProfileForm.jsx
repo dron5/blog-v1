@@ -3,7 +3,7 @@ import React from "react";
 
 import classes from "./Profile.module.scss";
 
-const ProfileForm = ({ register, errors, handleSubmit }) => (
+const ProfileForm = ({ register, errors, handleSubmit, user }) => (
   <div className={classes.container}>
     <span className={classes.menu__title}>Edit Profile</span>
     <form className={classes.form} onSubmit={handleSubmit}>
@@ -29,6 +29,7 @@ const ProfileForm = ({ register, errors, handleSubmit }) => (
           }
           placeholder="your username"
           id="username"
+          defaultValue={user ? user.username : null}
         />
         <label htmlFor="username" className={classes["form-label"]}>
           <span>Username</span>
@@ -55,6 +56,7 @@ const ProfileForm = ({ register, errors, handleSubmit }) => (
           }
           placeholder=" "
           id="email"
+          defaultValue={user ? user.email : null}
         />
         <label htmlFor="email" className={classes["form-label"]}>
           <span>Email address</span>
@@ -85,6 +87,7 @@ const ProfileForm = ({ register, errors, handleSubmit }) => (
           }
           placeholder=" "
           id="password"
+          defaultValue={user ? user.password : null}
         />
         <label htmlFor="password" className={classes["form-label"]}>
           <span>New password</span>
@@ -101,6 +104,7 @@ const ProfileForm = ({ register, errors, handleSubmit }) => (
           className={classes["form-control"]}
           placeholder=" "
           id="avatar"
+          defaultValue={user ? user.image : null}
         />
         <label htmlFor="avatar" className={classes["form-label"]}>
           <span>Avatar mage (url)</span>

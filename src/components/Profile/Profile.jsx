@@ -43,6 +43,7 @@ const EditProfile = ({ user, setUserAction }) => {
 
   return (
     <ProfileForm
+      user={user}
       register={register}
       errors={errors}
       handleSubmit={handleSubmit(onSubmit)}
