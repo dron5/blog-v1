@@ -52,7 +52,6 @@ export const authenticationRequest = async (args) => {
     "POST",
     data
   );
-  console.log("response in SingIn :", response);
   return response;
 };
 
@@ -91,7 +90,6 @@ export const createArticleRequest = async (args, token) => {
     data,
     token
   );
-  console.log("in requstarticle", response);
   return response;
 };
 
