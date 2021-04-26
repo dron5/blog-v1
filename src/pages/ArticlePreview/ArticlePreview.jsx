@@ -37,7 +37,7 @@ const ArticlePreview = ({
             token={token}
           />
         </div>
-        <Tags tags={tagList} />
+        <ShowTags tags={tagList} />
       </div>
       <div className={classes["preview__user-info"]}>
         <div className={classes.preview__name}>
@@ -69,7 +69,7 @@ const ArticlePreview = ({
     )}
   </div>
 );
-const Tags = ({ tags }) => {
+const ShowTags = ({ tags }) => {
   const tagList = tags.map((el, i) => (
     <button key={i} type="button" className={classes.preview__tags}>
       {el}

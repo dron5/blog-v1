@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter, useHistory, Redirect } from "react-router-dom";
 
 import ArticleForm from "../../pages/ArticleForm/ArticleForm";
 import {
@@ -24,7 +24,6 @@ const EditArticle = ({ user, match }) => {
     };
     request();
   }, [slug, token]);
-
   const toEditArticle = async (data, tags) => {
     const args = { ...data, tagList: tags, slug };
     const answer = await editArticleRequest(args, token, slug);
@@ -33,6 +32,9 @@ const EditArticle = ({ user, match }) => {
   };
   return (
     <>
+      {(oneArticle && oneArticle.author.username !== user.username) &&
+        <Redirect to='/' />
+      }
       {oneArticle && (
         <ArticleForm
           sendArticle={toEditArticle}

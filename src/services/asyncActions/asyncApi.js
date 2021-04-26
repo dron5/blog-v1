@@ -56,13 +56,13 @@ export const authenticationRequest = async (args) => {
 };
 
 export const updateUserRequest = async (args, token) => {
-  const { username, email, password, image } = args;
+  const { username, email, password, avatar } = args;
   const data = {
     user: {
       email,
       password,
       username,
-      image: image || null,
+      image: avatar || null,
     },
   };
   const response = await baseRequest(
