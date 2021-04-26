@@ -32,9 +32,9 @@ const EditArticle = ({ user, match }) => {
   };
   return (
     <>
-      {(oneArticle && oneArticle.author.username !== user.username) &&
-        <Redirect to='/' />
-      }
+      {oneArticle && oneArticle.author.username !== user.username && (
+        <Redirect to="/" />
+      )}
       {oneArticle && (
         <ArticleForm
           sendArticle={toEditArticle}
