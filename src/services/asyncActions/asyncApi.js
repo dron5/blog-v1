@@ -2,23 +2,52 @@
 /* eslint-disable prefer-arrow-callback */
 import axios from "axios";
 
-export const baseRequest = async (url, method, data, token) => {
-  let headers = null;
+// export const baseRequest = async (url, method, data, token) => {
+//   let headers = null;
+//   if (token) {
+//     headers = {
+//       Authorization: `Token ${token}`,
+//     };
+//   }
+//   const answer = await axios({
+//     url,
+//     method,
+//     headers,
+//     data,
+//   }).catch(er=>{
+//     console.log('error in catch axios :', er);
+//     return {errors:'errors'};
+//    });
+//   // if (!(answer.statusText === "OK" || answer.status === 422)) {
+//   //   throw new Error(`Could not fetch... ${url}, received ${answer.statusText}`);
+//   // }
+//   return answer.data;
+// };
+
+export const baseRequest = async (
+  url,
+  method = "GET",
+  body = undefined,
+  token
+) => {
+  let headers = {
+    "Content-Type": "application/json;charset=utf-8",
+  };
   if (token) {
     headers = {
+      "Content-Type": "application/json;charset=utf-8",
       Authorization: `Token ${token}`,
     };
   }
-  const answer = await axios({
-    url,
+  const answer = await fetch(url, {
     method,
     headers,
-    data,
+    body,
   });
-  if (!answer.statusText === "OK") {
-    throw new Error(`Could not fetch... ${url}, received ${answer.statusText}`);
+  if (!(answer.ok || answer.status === 422)) {
+    throw new Error(`Could not fetch... ${url}, received ${answer.status}`);
   }
-  return answer.data;
+  return answer.json();
 };
 
 export const registrationRequest = async (args) => {
@@ -38,9 +67,26 @@ export const registrationRequest = async (args) => {
   return response;
 };
 
+// export const authenticationRequest = async (args) => {
+//   const { email, password } = args;
+//   const data = {
+//     user: {
+//       email,
+//       password,
+//     },
+//   };
+//   const response = await baseRequest(
+//     `https://conduit.productionready.io/api/users/login`,
+//     "POST",
+//     data
+//   );
+//   console.log('response in SingIn :', response);
+//   return response;
+// };
+
 export const authenticationRequest = async (args) => {
   const { email, password } = args;
-  const data = {
+  let body = {
     user: {
       email,
       password,
@@ -49,8 +95,9 @@ export const authenticationRequest = async (args) => {
   const response = await baseRequest(
     `https://conduit.productionready.io/api/users/login`,
     "POST",
-    data
+    (body = JSON.stringify(body))
   );
+  console.log("response in SignIn", response);
   return response;
 };
 
