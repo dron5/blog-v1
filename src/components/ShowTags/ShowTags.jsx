@@ -10,7 +10,6 @@ const ShowTags = ({ tags, cb, edit }) => {
     <button
       key={i}
       type="button"
-      // className={classes.preview__tags}
       className={btnClass}
       onClick={cb}
       name={el}
