@@ -1,0 +1,29 @@
+$border: rgb(87, 149, 230);
+$backgroundColor: white;
+
+.preview__tags {
+  font-size: 12px;
+  line-height: 13px;
+  border-radius: 3px;
+  border: 1px solid rgb(146, 120, 120);
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  margin-right: 2px;
+  outline: none;
+}
+.form__tags {
+  border: 1px solid $border;
+  background-color: $backgroundColor;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  outline: none;
+}

@@ -1,8 +1,10 @@
 $backgroundColor: white;
 $alert: red;
+$border: rgb(87, 149, 230);
 
 textarea {
   box-sizing: border-box;
+  padding-top: 7px;
 }
 .container {
   display: flex;
@@ -64,7 +66,7 @@ textarea {
   width: 100%;
   height: 48px;
   // border: 1px solid #8d8989;
-  border: 1px solid rgb(87, 149, 230);
+  border: 1px solid $border;
   transition: all 0.5s;
   border-radius: 5px;
   padding-left: 11px;
@@ -81,7 +83,7 @@ textarea {
 .form-control:focus + .form-label,
 .form-control:not(:placeholder-shown) + .form-label {
   transform: translateY(-4.5em) translateX(10px);
-  color: rgb(87, 149, 230);
+  color: $border;
 }
 .form-control:focus + .form-label.textarea,
 .form-control:not(:placeholder-shown) + .form-label.textarea {
@@ -95,8 +97,8 @@ textarea {
   height: 45px !important;
   width: 350px;
   border-radius: 5px !important;
-  border: 2px solid rgb(87, 149, 230) !important;
-  background-color: rgb(87, 149, 230) !important;
+  border: 2px solid $border !important;
+  background-color: $border !important;
   color: white !important;
 }
 .form div:nth-child(3) {

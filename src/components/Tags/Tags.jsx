@@ -3,6 +3,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+import ShowTags from "../ShowTags/ShowTags";
+
 import classes from "./Tags.module.scss";
 
 const Tags = ({ toSetTag, toRemoveTag, tags }) => {
@@ -13,7 +15,7 @@ const Tags = ({ toSetTag, toRemoveTag, tags }) => {
   };
   return (
     <div className={classes.container}>
-      <MyTags tags={tags} toRemoveTag={toRemoveTag} />
+      <ShowTags tags={tags} cb={toRemoveTag} edit />
       <form
         id="setTag"
         className={classes.form}
@@ -42,27 +44,4 @@ const Tags = ({ toSetTag, toRemoveTag, tags }) => {
   );
 };
 
-const MyTags = ({ tags, toRemoveTag }) => {
-  const taglist = tags.map((name, i) => (
-    <form key={i} className={[classes.form, classes.tag].join(" ")}>
-      <div className={classes["form-group"]}>
-        <input
-          className={`${classes["form-control"]}`}
-          type="text"
-          value={name}
-          onChange={() => {}}
-        />
-      </div>
-      <button
-        type="submit"
-        onClick={toRemoveTag}
-        className={[classes["btn-input"], classes["btn-del"]].join(" ")}
-        name={name}
-      >
-        Delete
-      </button>
-    </form>
-  ));
-  return <>{ taglist }</>;
-};
 export default Tags;

@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 
 import Likes from "../../components/Likes/Likes";
 import Delete from "./Delete";
+import ShowTags from "../../components/ShowTags/ShowTags";
 import classes from "./ArticlePreview.module.scss";
 import noavatar from "../../img/avatar.png";
 
@@ -69,13 +70,5 @@ const ArticlePreview = ({
     )}
   </div>
 );
-const ShowTags = ({ tags }) => {
-  const tagList = tags.map((el, i) => (
-    <button key={i} type="button" className={classes.preview__tags}>
-      {el}
-    </button>
-  ));
-  return <div>{tagList}</div>;
-};
 
 export default ArticlePreview;
