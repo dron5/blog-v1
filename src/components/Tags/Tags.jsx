@@ -63,6 +63,6 @@ const MyTags = ({ tags, toRemoveTag }) => {
       </button>
     </form>
   ));
-  return <>{taglist}</>;
+  return <>{ taglist }</>;
 };
 export default Tags;
