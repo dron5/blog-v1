@@ -13,7 +13,9 @@ const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const toSetTag = (data) => {
-    setTags([...tags, data]);
+    const tag = data.trim();
+    if(!tag || tags.includes(tag)) return;
+    setTags([...tags, tag]);
   };
 
   const toRemoveTag = (event) => {
