@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   articlesCount: 0,
   currentPage: 1,
+  searchWord: "",
 };
 
 const articlesReducer = (state = initialState, action) => {
@@ -24,6 +25,11 @@ const articlesReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.payload,
+      };
+    case Article.setWord:
+      return {
+        ...state,
+        searchWord: action.payload,
       };
     default:
       return state;

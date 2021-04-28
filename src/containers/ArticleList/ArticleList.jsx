@@ -13,17 +13,24 @@ import {
   getLoadingSelector,
   getArticlesSelector,
   getUserSelector,
+  getSearchWordSelector,
 } from "../../store/selectors";
 
-const ArticleList = ({ addArticlesAction, loading, articles, user }) => {
+const ArticleList = ({
+  addArticlesAction,
+  searchWord,
+  loading,
+  articles,
+  user,
+}) => {
   useEffect(() => {
     if (user) {
       const { token } = user;
-      addArticlesAction({ offset: 0 }, token);
+      addArticlesAction({ offset: 0, author: searchWord }, token);
     } else {
-      addArticlesAction({ offset: 0 });
+      addArticlesAction({ offset: 0, author: "" });
     }
-  }, [addArticlesAction, user]);
+  }, [addArticlesAction, user, searchWord]);
   const articleList = articles.map((article, id) => (
     <ArticlePreview
       key={id}
@@ -47,6 +54,7 @@ const mapStateToProps = (state) => ({
   loading: getLoadingSelector(state),
   articles: getArticlesSelector(state),
   user: getUserSelector(state),
+  searchWord: getSearchWordSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(ArticleList);

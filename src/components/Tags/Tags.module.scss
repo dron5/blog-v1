@@ -63,6 +63,7 @@ $alert: red;
   border-radius: 5px !important;
   color: rgb(87, 149, 230);
   background-color: $backgroundColor;
+  outline: none;
 }
 .btn-del {
   color: $alert;

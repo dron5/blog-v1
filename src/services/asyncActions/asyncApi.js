@@ -146,7 +146,8 @@ export const unFavoriteArticleRequest = async (slug, token) => {
 };
 
 export const fetchArticles = async (args, token) => {
-  const { offset } = args;
+  // const author='';
+  const { offset, author } = args;
   let headers = null;
   if (token) {
     headers = {
@@ -155,7 +156,7 @@ export const fetchArticles = async (args, token) => {
   }
   const response = await axios({
     method: "get",
-    url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}`,
+    url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}&author=${author}`,
     headers,
   });
   return response.data;

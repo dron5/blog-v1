@@ -12,3 +12,9 @@ export const addArticlesAction = (args, token) => async (dispatch) => {
 export const addCurrentPageAction = (currentPage) => (dispatch) => {
   dispatch({ type: Article.setCurrentPage, payload: currentPage });
 };
+
+export const addSearchWordAction = (word) => (dispatch) => {
+  // console.log('word in action :', word);
+  dispatch({ type: Article.setWord, payload: word });
+  // console.log('word in action :', word);
+};

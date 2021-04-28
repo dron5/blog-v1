@@ -7,13 +7,7 @@ import classes from "./ShowTags.module.scss";
 const ShowTags = ({ tags, cb, edit }) => {
   const btnClass = edit ? classes.form__tags : classes.preview__tags;
   const tagList = tags.map((el, i) => (
-    <button
-      key={i}
-      type="button"
-      className={btnClass}
-      onClick={cb}
-      name={el}
-    >
+    <button key={i} type="button" className={btnClass} onClick={cb} name={el}>
       {el}
     </button>
   ));

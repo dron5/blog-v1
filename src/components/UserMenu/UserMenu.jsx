@@ -5,15 +5,24 @@ import { connect } from "react-redux";
 
 import noavatar from "../../img/avatar.png";
 import { getUserSelector } from "../../store/selectors";
-import * as fetch from "../../store/actions/usersActions";
+import * as fetchUA from "../../store/actions/usersActions";
+import * as fetchAA from "../../store/actions/articlesActions";
 import classes from "./UserMenu.module.scss";
 
-const UserMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
+const UserMenu = ({
+  user,
+  setAuthorizedFlagAction,
+  addSearchWordAction,
+  setUserAction,
+}) => {
   const history = useHistory();
   const onClick = () => {
     setAuthorizedFlagAction(false);
     setUserAction(null);
     history.push("/");
+  };
+  const onClickToName = () => {
+    addSearchWordAction(user.username);
   };
   return (
     <>
@@ -22,7 +31,13 @@ const UserMenu = ({ user, setAuthorizedFlagAction, setUserAction }) => {
           <button type="button" className={classes["btn-create"]}>
             <Link to="/new-article">Create article</Link>
           </button>
-          <span className={classes["header__user-name"]}>{user.username}</span>
+          <button
+            type="button"
+            className={classes["header__user-name"]}
+            onClick={onClickToName}
+          >
+            {user.username}
+          </button>
           <div className={classes.header__avatar}>
             <Link to="/profile">
               <img src={user.image || noavatar} alt="avatar" />
@@ -44,4 +59,5 @@ const mapStateToProps = (state) => ({
   user: getUserSelector(state),
 });
 
-export default connect(mapStateToProps, fetch)(UserMenu);
+export default connect(mapStateToProps, { ...fetchUA, ...fetchAA })(UserMenu);
+// export default connect(mapStateToProps, {setAuthorizedFlagAction, setUserAction,addSearchWordAction})(UserMenu);

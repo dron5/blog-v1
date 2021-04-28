@@ -1,6 +1,8 @@
 export const getTotalCountSelector = (state) =>
   state.articlesReducer.articlesCount;
 export const getLoadingSelector = (state) => state.articlesReducer.loading;
+export const getSearchWordSelector = (state) =>
+  state.articlesReducer.searchWord;
 export const getCurrentPageSelector = (state) =>
   state.articlesReducer.currentPage;
 export const getArticlesSelector = (state) => state.articlesReducer.articles;
