@@ -14,7 +14,7 @@ const UserMenu = ({
   setAuthorizedFlagAction,
   addSearchWordAction,
   setUserAction,
-  searchWord
+  searchWord,
 }) => {
   const history = useHistory();
   const onClick = () => {
@@ -23,8 +23,8 @@ const UserMenu = ({
     history.push("/");
   };
   const onClickToName = () => {
-    if(!searchWord) addSearchWordAction(user.username);
-    if(searchWord) addSearchWordAction('');
+    if (!searchWord) addSearchWordAction(user.username);
+    if (searchWord) addSearchWordAction("");
   };
   return (
     <>
@@ -63,4 +63,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { ...fetchUA, ...fetchAA })(UserMenu);
-// export default connect(mapStateToProps, {setAuthorizedFlagAction, setUserAction,addSearchWordAction})(UserMenu);

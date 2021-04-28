@@ -18,7 +18,7 @@ const Footer = ({
   addCurrentPageAction,
   currentPage,
   user,
-  searchWord
+  searchWord,
 }) => {
   const token = user ? user.token : "";
   const setPage = (page = 1) => {
