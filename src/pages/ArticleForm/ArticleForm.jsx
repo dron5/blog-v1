@@ -14,7 +14,7 @@ const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
 
   const toSetTag = (data) => {
     const tag = data.trim();
-    if(!tag || tags.includes(tag)) return;
+    if (!tag || tags.includes(tag)) return;
     setTags([...tags, tag]);
   };
 
