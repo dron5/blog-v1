@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 import noavatar from "../../img/avatar.png";
-import { getUserSelector } from "../../store/selectors";
+import { getUserSelector, getSearchWordSelector } from "../../store/selectors";
 import * as fetchUA from "../../store/actions/usersActions";
 import * as fetchAA from "../../store/actions/articlesActions";
 import classes from "./UserMenu.module.scss";
@@ -14,6 +14,7 @@ const UserMenu = ({
   setAuthorizedFlagAction,
   addSearchWordAction,
   setUserAction,
+  searchWord
 }) => {
   const history = useHistory();
   const onClick = () => {
@@ -22,7 +23,8 @@ const UserMenu = ({
     history.push("/");
   };
   const onClickToName = () => {
-    addSearchWordAction(user.username);
+    if(!searchWord) addSearchWordAction(user.username);
+    if(searchWord) addSearchWordAction('');
   };
   return (
     <>
@@ -57,6 +59,7 @@ const UserMenu = ({
 };
 const mapStateToProps = (state) => ({
   user: getUserSelector(state),
+  searchWord: getSearchWordSelector(state),
 });
 
 export default connect(mapStateToProps, { ...fetchUA, ...fetchAA })(UserMenu);

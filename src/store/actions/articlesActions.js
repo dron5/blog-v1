@@ -14,7 +14,5 @@ export const addCurrentPageAction = (currentPage) => (dispatch) => {
 };
 
 export const addSearchWordAction = (word) => (dispatch) => {
-  // console.log('word in action :', word);
   dispatch({ type: Article.setWord, payload: word });
-  // console.log('word in action :', word);
 };

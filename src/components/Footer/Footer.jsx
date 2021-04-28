@@ -9,6 +9,7 @@ import {
   getLoadingSelector,
   getCurrentPageSelector,
   getUserSelector,
+  getSearchWordSelector,
 } from "../../store/selectors";
 
 const Footer = ({
@@ -17,10 +18,11 @@ const Footer = ({
   addCurrentPageAction,
   currentPage,
   user,
+  searchWord
 }) => {
   const token = user ? user.token : "";
   const setPage = (page = 1) => {
-    addArticlesAction({ offset: page * 10 - 10 }, token);
+    addArticlesAction({ offset: page * 10 - 10, author: searchWord }, token);
     addCurrentPageAction(page);
   };
 
@@ -42,6 +44,7 @@ const mapStateToProps = (state) => ({
   loading: getLoadingSelector(state),
   currentPage: getCurrentPageSelector(state),
   user: getUserSelector(state),
+  searchWord: getSearchWordSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(Footer);
