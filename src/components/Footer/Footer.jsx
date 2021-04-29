@@ -10,6 +10,7 @@ import {
   getCurrentPageSelector,
   getUserSelector,
   getSearchWordSelector,
+  getTotalCountSelector,
 } from "../../store/selectors";
 
 const Footer = ({
@@ -19,6 +20,7 @@ const Footer = ({
   currentPage,
   user,
   searchWord,
+  total
 }) => {
   const token = user ? user.token : "";
   const setPage = (page = 1) => {
@@ -31,7 +33,7 @@ const Footer = ({
       {!loading && (
         <Pagination
           className={classes.pagination}
-          total={100}
+          total={total}
           onChange={setPage}
           showSizeChanger={false}
           defaultCurrent={currentPage}
@@ -45,6 +47,7 @@ const mapStateToProps = (state) => ({
   currentPage: getCurrentPageSelector(state),
   user: getUserSelector(state),
   searchWord: getSearchWordSelector(state),
+  total: getTotalCountSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(Footer);
