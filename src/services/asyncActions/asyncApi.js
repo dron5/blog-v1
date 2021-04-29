@@ -146,7 +146,6 @@ export const unFavoriteArticleRequest = async (slug, token) => {
 };
 
 export const fetchArticles = async (args, token) => {
-  // const author='';
   const { offset, author } = args;
   let headers = null;
   if (token) {

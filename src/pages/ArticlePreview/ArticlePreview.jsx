@@ -8,8 +8,8 @@ import ReactMarkdown from "react-markdown";
 import Likes from "../../components/Likes/Likes";
 import Delete from "./Delete";
 import ShowTags from "../../components/ShowTags/ShowTags";
+import Avatar from "../../components/Avatar/Avatar";
 import classes from "./ArticlePreview.module.scss";
-import noavatar from "../../img/avatar.png";
 
 const ArticlePreview = ({
   title,
@@ -45,7 +45,7 @@ const ArticlePreview = ({
           <span>{author.username}</span>
           <span>{format(new Date(createdAt), "PP")} </span>
         </div>
-        <img src={author.image || noavatar} alt="avatar" />
+        <Avatar avatar={author.image} />
       </div>
     </div>
     <div className={classes["preview__description-wrapper"]}>
