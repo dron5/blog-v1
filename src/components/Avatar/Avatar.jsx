@@ -11,20 +11,19 @@ const Avatar = ({ avatar }) => {
       setImage(noavatar);
     } else {
       const request = async () => {
-        const answer = await fetch({ avatar });
-        if (answer.status === 200) {
+        const response = await fetch({ avatar });
+        if (response.ok) {
           setImage(avatar);
-          console.log("answer status :", answer.status);
+          console.log("response status :", response.status);
         } else {
           setImage(noavatar);
-          console.log("noavatar, answer status", answer.status);
+          console.log("noavatar, response status", response.status);
         }
       };
       request();
     }
   }, [avatar]);
   return (
-    // <img src={avatar || noavatar} alt="avatar" />
     <img src={image} alt="avatar" />
   );
 };
