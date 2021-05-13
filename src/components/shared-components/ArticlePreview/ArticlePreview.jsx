@@ -5,10 +5,10 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-import Likes from "../../components/Likes/Likes";
+import Likes from "../../Likes/Likes";
 import Delete from "./Delete";
-import ShowTags from "../../components/ShowTags/ShowTags";
-import Avatar from "../../components/Avatar/Avatar";
+import ShowTags from "../../ShowTags/ShowTags";
+import Avatar from "../../Avatar/Avatar";
 import classes from "./ArticlePreview.module.scss";
 
 const ArticlePreview = ({

@@ -6,10 +6,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import ArticleList from "../../containers/ArticleList/ArticleList";
-import Article from "../../containers/Article/Article";
-import NewArticle from "../../containers/NewArticle/NewArticle";
-import EditArticle from "../../containers/EditArticle/EditArticle";
+import ArticleList from "../ArticleList/ArticleList";
+import Article from "../Article/Article";
+import NewArticle from "../NewArticle/NewArticle";
+import EditArticle from "../EditArticle/EditArticle";
 import Header from "../Header/Header";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";

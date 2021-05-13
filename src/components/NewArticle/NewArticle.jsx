@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+
 import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import ArticleForm from "../../pages/ArticleForm/ArticleForm";
+import ArticleForm from "../shared-components/ArticleForm/ArticleForm";
 import { createArticleRequest } from "../../services/asyncActions/asyncApi";
 import * as fetch from "../../store/actions/articlesActions";
 import { getUserSelector } from "../../store/selectors";

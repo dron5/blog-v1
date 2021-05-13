@@ -1,13 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import Spinner from "../../components/Spinner";
+import Spinner from "../Spinner";
 import * as fetch from "../../store/actions/articlesActions";
 import classes from "./ArticleList.module.scss";
-import ArticlePreview from "../../pages/ArticlePreview/ArticlePreview";
-import Footer from "../../components/Footer/Footer";
+import ArticlePreview from "../shared-components/ArticlePreview/ArticlePreview";
+import Footer from "../Footer/Footer";
 
 import {
   getLoadingSelector,

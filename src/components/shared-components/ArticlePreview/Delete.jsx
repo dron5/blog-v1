@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { deleteArticleRequest } from "../../services/asyncActions/asyncApi";
+import { deleteArticleRequest } from "../../../services/asyncActions/asyncApi";
 import classes from "./ArticlePreview.module.scss";
 
 const Delete = ({ slug, token }) => {

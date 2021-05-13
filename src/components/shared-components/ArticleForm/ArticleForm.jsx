@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import classes from "./ArticleForm.module.scss";
-import Tags from "../../components/Tags";
+import Tags from "../../Tags";
 
 const ArticleForm = ({ sendArticle, dataForEdit, pageTitle }) => {
   const initState = [];

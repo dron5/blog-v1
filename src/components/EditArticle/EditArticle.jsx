@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, useHistory, Redirect } from "react-router-dom";
 
-import ArticleForm from "../../pages/ArticleForm/ArticleForm";
+import ArticleForm from "../shared-components/ArticleForm/ArticleForm";
 import {
   editArticleRequest,
   fetchArticle,
