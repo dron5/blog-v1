@@ -10,6 +10,8 @@
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "antd": "^4.14.0",
     "axios": "^0.21.1",
     "date-fns": "^2.19.0",
@@ -68,5 +70,16 @@
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js, jsx}": [
+      "npm run lint:fix",
+      "npm run format"
+    ]
   }
 }
