@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React from "react";
 import { connect } from "react-redux";
 
