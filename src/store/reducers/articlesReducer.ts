@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import {  SET_CURRENT_PAGE,
-          SET_ARTICLES,
-          SET_LOADING,
-          SET_WORD,
-          ArticleActionsType,
-          InitialArticlesStateType
+import {
+  SET_CURRENT_PAGE,
+  SET_ARTICLES,
+  SET_LOADING,
+  SET_WORD,
+  ArticleActionsType,
+  InitialArticlesStateType,
 } from "../../types/articleTypes";
 
 const initialState: InitialArticlesStateType = {
@@ -23,10 +24,13 @@ const initialState: InitialArticlesStateType = {
 //     currentPage: 1,
 //     searchWord: "" as string | "",
 //   };
-  
+
 // export type InitialStateType = typeof initialState
 
-const articlesReducer = (state = initialState, action: ArticleActionsType): InitialArticlesStateType => {
+const articlesReducer = (
+  state = initialState,
+  action: ArticleActionsType
+): InitialArticlesStateType => {
   switch (action.type) {
     case SET_ARTICLES:
       return {
