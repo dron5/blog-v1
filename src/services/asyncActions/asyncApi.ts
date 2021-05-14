@@ -1,8 +1,14 @@
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import axios from "axios";
+import { UserType } from '../../types/userTypes';
+import { ArticleType, InitialArticlesStateType } from '../../types/articleTypes';
 
-export const registrationRequest = async (args: any) => {
+
+
+export const registrationRequest = async (args: any): Promise<UserType> => {
   const { username, email, password } = args;
   const data = {
     user: {
@@ -23,7 +29,7 @@ export const registrationRequest = async (args: any) => {
   }
 };
 
-export const authenticationRequest = async (args: any) => {
+export const authenticationRequest = async (args: any): Promise<UserType> => {
   const { email, password } = args;
   const data = {
     user: {
@@ -43,7 +49,7 @@ export const authenticationRequest = async (args: any) => {
   }
 };
 
-export const updateUserRequest = async (args: any, token: string) => {
+export const updateUserRequest = async (args: any, token: string): Promise<UserType> => {
   const { username, email, password, avatar } = args;
   const headers = {
     Authorization: `Token ${token}`,
@@ -69,7 +75,7 @@ export const updateUserRequest = async (args: any, token: string) => {
   }
 };
 
-export const createArticleRequest = async (args: any, token: string) => {
+export const createArticleRequest = async (args: any, token: string): Promise<ArticleType> => {
   const { title, description, text, tagList } = args;
   const headers = {
     Authorization: `Token ${token}`,
@@ -91,7 +97,7 @@ export const createArticleRequest = async (args: any, token: string) => {
   return response.data;
 };
 
-export const editArticleRequest = async (args: any, token: string) => {
+export const editArticleRequest = async (args: any, token: string): Promise<ArticleType> => {
   const { title, slug, description, text, tagList } = args;
   const headers = {
     Authorization: `Token ${token}`,
@@ -117,7 +123,7 @@ export const editArticleRequest = async (args: any, token: string) => {
   }
 };
 
-export const deleteArticleRequest = async (slug: string, token: string) => {
+export const deleteArticleRequest = async (slug: string, token: string): Promise<ArticleType> => {
   const response = await axios({
     url: `https://conduit.productionready.io/api/articles/${slug}`,
     method: "DELETE",
@@ -125,10 +131,10 @@ export const deleteArticleRequest = async (slug: string, token: string) => {
       Authorization: `Token ${token}`,
     },
   });
-  return response;
+  return response.data;
 };
 
-export const favoriteArticleRequest = async (slug: string, token: string) => {
+export const favoriteArticleRequest = async (slug: string, token: string): Promise<ArticleType> => {
   const response = await axios({
     url: `https://conduit.productionready.io/api/articles/${slug}/favorite`,
     method: "POST",
@@ -136,10 +142,10 @@ export const favoriteArticleRequest = async (slug: string, token: string) => {
       Authorization: `Token ${token}`,
     },
   });
-  return response;
+  return response.data;
 };
 
-export const unFavoriteArticleRequest = async (slug: string, token: string) => {
+export const unFavoriteArticleRequest = async (slug: string, token: string): Promise<ArticleType> => {
   const response = await axios({
     url: `https://conduit.productionready.io/api/articles/${slug}/favorite`,
     method: "DELETE",
@@ -147,10 +153,10 @@ export const unFavoriteArticleRequest = async (slug: string, token: string) => {
       Authorization: `Token ${token}`,
     },
   });
-  return response;
+  return response.data;
 };
 
-export const fetchArticles = async (args: any, token: string) => {
+export const fetchArticles = async (args: any, token: string): Promise<InitialArticlesStateType> => {
   const { offset, author } = args;
   let headers = null;
   if (token) {
@@ -166,7 +172,7 @@ export const fetchArticles = async (args: any, token: string) => {
   return response.data;
 };
 
-export const fetchArticle = async (args: any, token: string = "") => {
+export const fetchArticle = async (args: any, token: string = ""): Promise<ArticleType> => {
   const { slug } = args;
   let headers = null;
   if (token) {
