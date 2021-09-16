@@ -1,0 +1,75 @@
+$green: #52c41a;
+$backgroundColor: white;
+$buttonColor: rgba(0, 0, 0, 0.75);
+
+a {
+  text-decoration: none;
+}
+.header__avatar {
+  margin-left: 13px;
+  margin-right: 27px;
+}
+.header__user-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: auto;
+  margin-right: 0px;
+  margin-left: auto;
+}
+.header__user-name {
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.header__user-menu img {
+  width: 46px;
+  height: 46px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.header__user-menu button {
+  outline: none;
+  background-color: $backgroundColor;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 28px;
+}
+.btn-out {
+  white-space: nowrap;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  padding: 7px 10px;
+  border: 1px solid $buttonColor;
+  border-radius: 4px;
+}
+.btn-out:hover {
+  cursor: pointer;
+}
+.btn-out a {
+  color: $buttonColor;
+}
+.btn-out a:hover {
+  color: $buttonColor;
+}
+.btn-create {
+  border: 1px solid $green;
+  border-radius: 4px;
+  color: $green;
+  margin-right: 27px;
+  margin-left: auto;
+}
+.btn-create a {
+  color: $green;
+}
+.btn-create a:hover {
+  color: $green;
+}

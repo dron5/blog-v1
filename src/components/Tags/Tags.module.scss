@@ -1,0 +1,84 @@
+$backgroundColor: white;
+$alert: red;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  width: 500px;
+  height: auto;
+}
+.form {
+  display: flex;
+  margin-bottom: 0px;
+  margin-top: 7px;
+  width: auto;
+  height: auto;
+}
+.form-group {
+  width: 330px;
+  margin-right: 20px;
+  transition: all 0.3s;
+  height: 70px;
+}
+.form-label {
+  font-size: 1em;
+  color: #aaa;
+  display: block;
+  opacity: 1;
+  transform: translateY(-2.5em) translateX(10px);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+}
+.form-label span {
+  padding: 0 2px;
+  background-color: $backgroundColor;
+}
+.form-control {
+  box-shadow: none;
+  width: 100%;
+  height: 48px;
+  border: 1px solid rgb(87, 149, 230);
+  transition: all 0.5s;
+  border-radius: 5px;
+  padding-left: 11px;
+}
+.form-control::placeholder {
+  color: transparent;
+}
+.form-control:focus {
+  border-width: 2px;
+  transition: all 0.2s;
+  outline: none;
+}
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-0.65em) translateX(10px);
+  color: rgb(87, 149, 230);
+}
+.btn-input {
+  width: 150px;
+  height: 48px !important;
+  border: 2px solid rgb(87, 149, 230);
+  border-radius: 5px !important;
+  color: rgb(87, 149, 230);
+  background-color: $backgroundColor;
+  outline: none;
+}
+.btn-del {
+  color: $alert;
+  border-color: $alert;
+  outline: none;
+}
+.alert-message {
+  color: $alert;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px);
+}
+.alert-border {
+  border-color: $alert;
+}
+.tag {
+  margin-bottom: -17px;
+}

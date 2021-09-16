@@ -1,0 +1,114 @@
+$backgroundColor: white;
+$alert: red;
+
+textarea {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px auto;
+  margin-top: 106px;
+  padding: 15px 15px 24px 19px;
+  width: 941px;
+  // min-height: 701px;
+  height: auto;
+  border-radius: 7px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+.article__title {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #262626;
+  margin-top: 23px;
+  height: 40px;
+}
+.form {
+  margin-bottom: 0px;
+  height: auto;
+}
+.form-group {
+  margin-bottom: 0.6em;
+  margin-top: 0.3em;
+  transition: all 0.3s;
+}
+.form-group textarea {
+  height: 260px;
+  min-height: 260px;
+  max-height: 260px;
+}
+.form-label {
+  font-size: 1em;
+  color: #aaa;
+  display: block;
+  opacity: 1;
+  transform: translateY(-2.5em) translateX(10px);
+  transform-origin: 0 0;
+  transition: all 0.3s;
+}
+.form-label.textarea {
+  transform: translateY(-17.5em) translateX(10px);
+}
+.form-label span {
+  padding: 0 2px;
+  background-color: $backgroundColor;
+}
+.form-control {
+  box-shadow: none;
+  width: 100%;
+  height: 48px;
+  // border: 1px solid #8d8989;
+  border: 1px solid rgb(87, 149, 230);
+  transition: all 0.5s;
+  border-radius: 5px;
+  padding-left: 11px;
+}
+.form-control::placeholder {
+  color: transparent;
+}
+.form-control:focus {
+  // border-color: rgb(87, 149, 230);
+  border-width: 2px;
+  transition: all 0.2s;
+  outline: none;
+}
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  transform: translateY(-4.5em) translateX(10px);
+  color: rgb(87, 149, 230);
+}
+.form-control:focus + .form-label.textarea,
+.form-control:not(:placeholder-shown) + .form-label.textarea {
+  transform: translateY(-19.8em) translateX(10px);
+}
+.btn {
+  margin-bottom: 7px;
+  margin-top: auto;
+}
+.ant-btn-primary {
+  height: 45px !important;
+  width: 350px;
+  border-radius: 5px !important;
+  border: 2px solid rgb(87, 149, 230) !important;
+  background-color: rgb(87, 149, 230) !important;
+  color: white !important;
+}
+.form div:nth-child(3) {
+  min-height: 170px;
+  // border: 1px solid $alert;
+}
+.alert-message {
+  color: $alert;
+  font-size: 12px;
+  margin-bottom: 0px;
+  transform: translateY(-22px) translateX(11px);
+}
+.alert-border {
+  border-color: $alert;
+}

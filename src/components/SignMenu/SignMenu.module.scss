@@ -1,0 +1,34 @@
+$green: #52c41a;
+$backgroundColor: white;
+
+.header__signInOut button {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background-color: $backgroundColor;
+  width: 109px;
+  height: 49px;
+}
+.header__signInOut button:hover {
+  border: 1px solid $green;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.header__signInOut {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+.header__signInOut a {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  padding: 12px 12px;
+}
+.header__signInOut a:hover {
+  color: $green;
+  border-radius: 6px;
+  transition: none;
+}
