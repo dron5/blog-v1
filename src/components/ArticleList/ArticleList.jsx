@@ -4,6 +4,7 @@
 /* eslint-disable import/extensions */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Alert } from "antd";
 
 import Spinner from "../Spinner";
 import * as fetch from "../../store/actions/articlesActions";
@@ -16,6 +17,7 @@ import {
   getArticlesSelector,
   getUserSelector,
   getSearchWordSelector,
+  getIsErrorSelector,
 } from "../../store/selectors";
 
 const ArticleList = ({
@@ -24,6 +26,7 @@ const ArticleList = ({
   loading,
   articles,
   user,
+  error
 }) => {
   useEffect(() => {
     if (user) {
@@ -45,8 +48,15 @@ const ArticleList = ({
 
   return (
     <div className={classes.articleList}>
-      {loading && <Spinner />}
-      {!loading && articleList}
+      {error && (
+        <Alert
+        type="error"
+        message="Sorry, no answer from server"
+        className={classes["ant-alert"]}
+      />
+      )}
+      {!error && loading && <Spinner />}
+      {!loading && !error && articleList}
       {!loading && <Footer />}
     </div>
   );
@@ -57,6 +67,7 @@ const mapStateToProps = (state) => ({
   articles: getArticlesSelector(state),
   user: getUserSelector(state),
   searchWord: getSearchWordSelector(state),
+  error: getIsErrorSelector(state),
 });
 
 export default connect(mapStateToProps, fetch)(ArticleList);

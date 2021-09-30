@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Alert } from "antd";
 
-import { fetchArticle } from "../../services/asyncActions/asyncApi";
+import { fetchArticle } from "../../services/asyncActions/asyncApi.ts";
 import ArticlePreview from "../shared-components/ArticlePreview/ArticlePreview";
 import Spinner from "../Spinner/Spinner";
 import classes from "./Article.module.scss";

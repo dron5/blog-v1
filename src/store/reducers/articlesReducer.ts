@@ -5,6 +5,7 @@ import {
   SET_ARTICLES,
   SET_LOADING,
   SET_WORD,
+  SET_ERROR,
   ArticleActionsType,
   InitialArticlesStateType,
 } from "../../types/articleTypes";
@@ -15,6 +16,7 @@ const initialState: InitialArticlesStateType = {
   articlesCount: 0,
   currentPage: 1,
   searchWord: "",
+  is_error: false,
 };
 
 // const initialState = {
@@ -52,6 +54,11 @@ const articlesReducer = (
       return {
         ...state,
         searchWord: action.payload,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        is_error: action.payload,
       };
     default:
       return state;

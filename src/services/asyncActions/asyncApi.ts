@@ -2,6 +2,7 @@
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
+/* eslint-disable */
 import axios from "axios";
 import { UserType } from "../../types/userTypes";
 import {
@@ -95,6 +96,7 @@ export const createArticleRequest = async (
       tagList,
     },
   };
+  try{
   const response = await axios({
     url: "https://conduit.productionready.io/api/articles",
     method: "POST",
@@ -102,6 +104,9 @@ export const createArticleRequest = async (
     data,
   });
   return response.data;
+  }catch(er){
+    return er.response;
+  } 
 };
 
 export const editArticleRequest = async (
@@ -179,6 +184,7 @@ export const fetchArticles = async (
   args: any,
   token: string
 ): Promise<InitialArticlesStateType> => {
+  try{
   const { offset, author } = args;
   let headers = null;
   if (token) {
@@ -190,8 +196,12 @@ export const fetchArticles = async (
     method: "get",
     url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}&author=${author}`,
     headers,
-  });
+  })
   return response.data;
+  }
+  catch(er){
+    throw new Error(`Похоже, сервер ${er.response.status}`);
+  };
 };
 
 export const fetchArticle = async (

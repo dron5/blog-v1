@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
-import React from "react";
+import React, { memo } from "react";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -71,4 +71,4 @@ const ArticlePreview = ({
   </div>
 );
 
-export default ArticlePreview;
+export default memo(ArticlePreview);

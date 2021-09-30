@@ -2,6 +2,7 @@ export const SET_CURRENT_PAGE = "CHANGEPAGE";
 export const SET_ARTICLES = "ADD_ARTICLES";
 export const SET_LOADING = "LOADING";
 export const SET_WORD = "SET_SEARCH_WORD";
+export const SET_ERROR = "SET_ERROR"; 
 
 export type AuthorType = {
   username: string;
@@ -31,6 +32,7 @@ export type InitialArticlesStateType = {
   articlesCount: number;
   currentPage: number;
   searchWord: string;
+  is_error: boolean;
 };
 export type AddSearchWordActionType = {
   type: typeof SET_WORD;
@@ -51,9 +53,14 @@ export type SetLoadingActionType = {
   type: typeof SET_LOADING;
   payload: boolean;
 };
+export type SetErrorActionType = {
+  type: typeof SET_ERROR;
+  payload: boolean;
+};
 
 export type ArticleActionsType =
   | AddSearchWordActionType
   | AddCurrentPageActionType
   | AddArticlesActionType
-  | SetLoadingActionType;
+  | SetLoadingActionType
+  | SetErrorActionType;

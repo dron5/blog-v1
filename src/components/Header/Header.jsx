@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import * as fetch from "../../store/actions/usersActions";
+import * as fetch from "../../store/actions/usersActions.ts";
 import { getIsLoggedInSelector } from "../../store/selectors";
 
 import SignMenu from "../SignMenu/SignMenu";

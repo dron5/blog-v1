@@ -8,7 +8,9 @@ import {
   SET_ARTICLES,
   SET_LOADING,
   SET_WORD,
+  SET_ERROR,
   SetLoadingActionType,
+  SetErrorActionType,
   AddArticlesActionType,
   AddCurrentPageActionType,
   AddSearchWordActionType,
@@ -19,14 +21,30 @@ const setLoadingAction = (loading: boolean): SetLoadingActionType => ({
   payload: loading,
 });
 
+const errorAction = (error: boolean): SetErrorActionType => ({
+  type: SET_ERROR,
+  payload: error
+});
+
+export const setErrorAction = (error: boolean): any => (dispatch: any) => {
+  dispatch(errorAction(error));
+  // console.log('error in action', error);
+};
+
 export const addArticlesAction = (args: any, token: string) => async (
-  dispatch: Dispatch<SetLoadingActionType | AddArticlesActionType>
+  dispatch: Dispatch<SetLoadingActionType | AddArticlesActionType | SetErrorActionType>
 ) => {
-  dispatch(setLoadingAction(true));
-  const response = await fetchArticles(args, token);
-  const { articles, articlesCount } = response;
-  dispatch({ type: SET_ARTICLES, payload: { articles, articlesCount } });
-  dispatch(setLoadingAction(false));
+  try{
+    dispatch(setLoadingAction(true));
+    dispatch(errorAction(false));
+    const response = await fetchArticles(args, token);
+    const { articles, articlesCount } = response;
+    dispatch({ type: SET_ARTICLES, payload: { articles, articlesCount } });
+    dispatch(setLoadingAction(false));
+  }catch(er){
+    console.log(er.message);
+    dispatch(errorAction(true));
+  }
 };
 
 export const addCurrentPageAction = (currentPage: number) => (

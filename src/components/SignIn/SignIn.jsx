@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
-import * as fetch from "../../store/actions/usersActions";
+import * as fetch from "../../store/actions/usersActions.ts";
 
-import { authenticationRequest } from "../../services/asyncActions/asyncApi";
+import { authenticationRequest } from "../../services/asyncActions/asyncApi.ts";
 import SignInForm from "./SignInForm";
 
 const SignIn = ({ setAuthorizedFlagAction, setUserAction }) => {

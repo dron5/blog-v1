@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
-import { updateUserRequest } from "../../services/asyncActions/asyncApi";
+import { updateUserRequest } from "../../services/asyncActions/asyncApi.ts";
 import { getUserSelector } from "../../store/selectors";
-import * as fetch from "../../store/actions/usersActions";
+import * as fetch from "../../store/actions/usersActions.ts";
 import ProfileForm from "./ProfileForm";
 
 const EditProfile = ({ user, setUserAction }) => {

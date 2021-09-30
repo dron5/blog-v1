@@ -16,4 +16,3 @@ export const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 export const persistor = persistStore(store);
-// export default {store, persistor};

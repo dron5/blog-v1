@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 
-import * as fetch from "../../store/actions/usersActions";
-import { registrationRequest } from "../../services/asyncActions/asyncApi";
+import * as fetch from "../../store/actions/usersActions.ts";
+import { registrationRequest } from "../../services/asyncActions/asyncApi.ts";
 import SignUpForm from "./SignUpForm";
 
 const SignUp = ({ setAuthorizedFlagAction, setUserAction }) => {

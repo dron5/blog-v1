@@ -6,6 +6,7 @@ export const getSearchWordSelector = (state) =>
 export const getCurrentPageSelector = (state) =>
   state.articlesReducer.currentPage;
 export const getArticlesSelector = (state) => state.articlesReducer.articles;
+export const getIsErrorSelector = (state) => state.articlesReducer.is_error;
 export const getArticleSelector = (slugName) => (state) => {
   const { slug } = slugName;
   const art = state.articlesReducer.articles.filter(

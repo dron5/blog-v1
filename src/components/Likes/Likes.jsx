@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import {
   favoriteArticleRequest,
   unFavoriteArticleRequest,
-} from "../../services/asyncActions/asyncApi";
+} from "../../services/asyncActions/asyncApi.ts";
 import like from "../../img/like.png";
 import favLike from "../../img/favLike.png";
 import classes from "./Likes.module.scss";

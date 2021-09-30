@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 
 import noavatar from "../../img/avatar.png";
 import { getUserSelector, getSearchWordSelector } from "../../store/selectors";
-import * as fetchUA from "../../store/actions/usersActions";
-import * as fetchAA from "../../store/actions/articlesActions";
+import * as fetchUA from "../../store/actions/usersActions.ts";
+import * as fetchAA from "../../store/actions/articlesActions.ts";
 import classes from "./UserMenu.module.scss";
 
 const UserMenu = ({
