@@ -96,17 +96,17 @@ export const createArticleRequest = async (
       tagList,
     },
   };
-  try{
-  const response = await axios({
-    url: "https://conduit.productionready.io/api/articles",
-    method: "POST",
-    headers,
-    data,
-  });
-  return response.data;
-  }catch(er){
+  try {
+    const response = await axios({
+      url: "https://conduit.productionready.io/api/articles",
+      method: "POST",
+      headers,
+      data,
+    });
+    return response.data;
+  } catch (er) {
     return er.response;
-  } 
+  }
 };
 
 export const editArticleRequest = async (
@@ -184,24 +184,23 @@ export const fetchArticles = async (
   args: any,
   token: string
 ): Promise<InitialArticlesStateType> => {
-  try{
-  const { offset, author } = args;
-  let headers = null;
-  if (token) {
-    headers = {
-      Authorization: `Token ${token}`,
-    };
-  }
-  const response = await axios({
-    method: "get",
-    url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}&author=${author}`,
-    headers,
-  })
-  return response.data;
-  }
-  catch(er){
+  try {
+    const { offset, author } = args;
+    let headers = null;
+    if (token) {
+      headers = {
+        Authorization: `Token ${token}`,
+      };
+    }
+    const response = await axios({
+      method: "get",
+      url: `https://conduit.productionready.io/api/articles?limit=10&offset=${offset}&author=${author}`,
+      headers,
+    });
+    return response.data;
+  } catch (er) {
     throw new Error(`Похоже, сервер ${er.response.status}`);
-  };
+  }
 };
 
 export const fetchArticle = async (

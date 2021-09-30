@@ -20,13 +20,13 @@ const NewArticle = ({ addArticlesAction, user }) => {
     const args = { ...data, tagList: tags };
     const { token } = user;
     const answer = await createArticleRequest(args, token);
-    if(answer.status === 404){
+    if (answer.status === 404) {
       history.push(`/articles`);
-    }else{
-    const { article } = answer;
-    await addArticlesAction({ offset: 0 }, token);
-    history.push(`/articles/${article.slug}`);
-    };
+    } else {
+      const { article } = answer;
+      await addArticlesAction({ offset: 0 }, token);
+      history.push(`/articles/${article.slug}`);
+    }
   };
 
   return (

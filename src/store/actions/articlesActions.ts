@@ -23,7 +23,7 @@ const setLoadingAction = (loading: boolean): SetLoadingActionType => ({
 
 const errorAction = (error: boolean): SetErrorActionType => ({
   type: SET_ERROR,
-  payload: error
+  payload: error,
 });
 
 export const setErrorAction = (error: boolean): any => (dispatch: any) => {
@@ -32,16 +32,18 @@ export const setErrorAction = (error: boolean): any => (dispatch: any) => {
 };
 
 export const addArticlesAction = (args: any, token: string) => async (
-  dispatch: Dispatch<SetLoadingActionType | AddArticlesActionType | SetErrorActionType>
+  dispatch: Dispatch<
+    SetLoadingActionType | AddArticlesActionType | SetErrorActionType
+  >
 ) => {
-  try{
+  try {
     dispatch(setLoadingAction(true));
     dispatch(errorAction(false));
     const response = await fetchArticles(args, token);
     const { articles, articlesCount } = response;
     dispatch({ type: SET_ARTICLES, payload: { articles, articlesCount } });
     dispatch(setLoadingAction(false));
-  }catch(er){
+  } catch (er) {
     console.log(er.message);
     dispatch(errorAction(true));
   }

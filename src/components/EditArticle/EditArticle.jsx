@@ -27,7 +27,7 @@ const EditArticle = ({ user, match }) => {
   const toEditArticle = async (data, tags) => {
     const args = { ...data, tagList: tags, slug };
     const answer = await editArticleRequest(args, token, slug);
-    console.log('answer in EditArticle---', answer);
+    console.log("answer in EditArticle---", answer);
     const { article } = answer;
     history.push(`/articles/${article.slug}`);
   };

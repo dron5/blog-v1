@@ -26,7 +26,7 @@ const ArticleList = ({
   loading,
   articles,
   user,
-  error
+  error,
 }) => {
   useEffect(() => {
     if (user) {
@@ -50,10 +50,10 @@ const ArticleList = ({
     <div className={classes.articleList}>
       {error && (
         <Alert
-        type="error"
-        message="Sorry, no answer from server"
-        className={classes["ant-alert"]}
-      />
+          type="error"
+          message="Sorry, no answer from server"
+          className={classes["ant-alert"]}
+        />
       )}
       {!error && loading && <Spinner />}
       {!loading && !error && articleList}
