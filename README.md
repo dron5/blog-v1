@@ -35,5 +35,3 @@ https://kentcdodds.com/blog/use-react-error-boundary-to-handle-errors-in-react
 Сага здесь не использовалась, но ролик понравился):
 
 https://www.youtube.com/watch?v=DG9rXV1kI0o
-
-Просто проверка гита.
